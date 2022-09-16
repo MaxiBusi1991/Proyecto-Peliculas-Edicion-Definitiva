@@ -1,0 +1,21 @@
+body {
+
+    font-family: 'Roboto', sans-serif;
+}
+
+
+.color-fondo {
+    background: #150050;
+    background: linear-gradient(180deg, #000000 0%, #150050 35%, #3F0071 100%);
+
+}
+.foto-integrantes {
+    height: 200px;
+    width: 200px;
+    border-radius: 100%;
+}
+
+.icono-tamaño {
+    height: 25px;
+    width: 25px;
+}
