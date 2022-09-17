@@ -1,0 +1,51 @@
+/* negro :rgb(0, 0, 0)
+azul: rgb(21, 0, 80)
+violeta: rgb(63, 0, 113)
+violeta clara: rgb(97, 0, 148) */
+
+/* para centrar
+<div class="container d-flex justify-content-center align-items-center" style="height:100vh;">
+        <div class="row justify-content-md-center ">
+            
+              
+        </div>
+    </div> */
+
+    /* * {font-family: 'Roboto','Roboto Light', 'Roboto Medium',  etc} */
+   /* body {
+        font-family:  'Roboto','Roboto Light', 'Roboto Medium';
+    } */
+
+    /* body {
+        font-family: Arial, Helvetica, sans-serif;
+    } */
+
+    @import url('https://fonts.googleapis.com/css2?family=Open+Sans&family=Roboto:wght@300;400&display=swap');
+
+
+.violeta-claro{
+    background: rgb(97, 0, 148);
+        background: linear-gradient(90deg, rgb(88, 6, 133) 10%, rgb(201, 5, 240) 55%, rgb(174, 85, 247) 90%) no-repeat center center fixed;
+        opacity: 80%;
+}
+
+/* .fondo {
+    background: rgb(0,0,0);
+    background: linear-gradient(180deg, rgba(0,0,0) 0%, rgba(21, 0, 80) 35%, rgba(63, 0, 113) 100%) no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    } */
+
+    .fondo {
+        background: rgb(0,0,0);
+        background: linear-gradient(180deg, rgba(0,0,0) 0%, rgba(21, 0, 80) 35%, rgba(63, 0, 113) 100%) no-repeat center center fixed;
+    
+        }
+
+        .fondo-card {
+            background: rgb(0,0,0);
+            background: linear-gradient(90deg, rgba(0,0,0) 20%, rgba(21, 0, 80) 35%, rgba(63, 0, 113) 50%) no-repeat center center fixed;
+        
+            }
