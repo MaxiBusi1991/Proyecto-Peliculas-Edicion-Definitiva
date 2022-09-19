@@ -19,3 +19,14 @@ body {
     height: 25px;
     width: 25px;
 }
+
+
+.contenedor-trans:hover .icono-trans {
+
+    transform: translateY(10%);
+}
+
+.icono-trans {
+    transition-property: all;
+    transition-duration: 0.5s;
+}
