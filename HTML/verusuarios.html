@@ -15,7 +15,8 @@
     Cuando el admin este logueado toda esta pagina sera distinta a la del usuario. El navbar deberá tener un boton para crear peliculas(modal), ver los usuario y otro para cerrar la sesion. En el home del admin o sea bien ingrese a su panel vera las peliculas en tabla con los siguientes campos:
     Codigo, Nombre de la película, Categoria, Descripcion, Publicado (icono de estrella). Tambien cada fila de películas tendran sus botones de acciones: Modificar, Eliminar y destacar.
     Cuando el admin se dirija al navbar y haga click en "Ver usuarios" se debera abrir otra pagina con una tabla de usuarios con los botones: modificar, eliminar, confirmar alta. Este ultimo botón es cuando el usuario se registra y tiene que esperar a que el admin lo habilite. -->
-    <ul class="nav bg-dark">
+    
+    <!-- <ul class="nav bg-dark">
         <li class="nav-item">
           <a class="nav-link active" aria-current="page" href="#">Active</a>
         </li>
@@ -28,7 +29,30 @@
         <li class="nav-item">
           <a class="nav-link disabled">Disabled</a>
         </li>
-      </ul>
+      </ul> -->
+
+      <header>
+        <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+            <div class="container-fluid">
+              <a class="navbar-brand" href="../HTML/main.html">
+              <img src="../img/logocinesinfondo-removebg-preview.png" height="60"></a>
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarNav">
+                
+                <ul class="navbar-nav mb-2 mb-lg-0 ms-auto">
+                  <li class="nav-item">
+                    <a class="nav-link" href="../HTML/adminvista.html"><i class="fa-solid fa-arrow-left "></i></a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="./navbar.html">Cerrar Sesion</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </nav>
+    </header>
 
     <div class="container align-middle text-center">
         <div class="row m-3">
@@ -37,7 +61,7 @@
         <div class="row">
         
           <div class="col">
-              <table class="table align-middle table-bordered border-light  text-light violeta-claro ">
+              <table class="table align-middle table-bordered border-light  text-light fondo-card ">
         <thead >
           <tr >
             <th scope="col">ID_usuario</th>
