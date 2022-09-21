@@ -1,0 +1,46 @@
+body{
+    background: linear-gradient(to bottom, #000000, #150050, #610094);
+    color: white;
+}
+.buscar{
+    background-color: #610094;
+    color: white;
+}
+@media (max-width:576px){
+    .card-title{
+        font-size: small;
+    }
+    .btn-primary{
+        font-size: x-small;
+    }
+}
+@media (min-width:1200px){
+    .img-g{
+        width: 70vh;
+        height: auto;
+    }
+    .publicidad{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+}
+@media (min-width:992px){
+    .img-g{
+        width: 70vh;
+        height: auto;
+    }
+    .publicidad{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+}
+@media (min-width:768px){
+    .publicidad{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+}
+
