@@ -119,7 +119,7 @@ body {
     font-family: 'Roboto', sans-serif;
 }
 
-body{
+.body-main{
     background: linear-gradient(to bottom, #000000, #150050, #610094);
     color: white;
     font-size: 'Roboto', sans-serif;
