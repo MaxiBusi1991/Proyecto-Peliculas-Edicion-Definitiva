@@ -214,7 +214,6 @@ body {
 }
 .btn-reproducir {
   background-color: #610094;
-  opacity: 0.8;
   color: white;
 }
 @media (max-width: 576px) {
@@ -223,6 +222,11 @@ body {
   }
   .btn-reproducir {
     font-size: x-small;
+  }
+}
+@media (min-width: 576px) {
+  .h4-title {
+    font-size: medium;
   }
 }
 @media (min-width: 1200px) {
@@ -253,13 +257,22 @@ body {
     justify-content: center;
     align-items: center;
   }
+  .h4-title {
+    font-size: medium;
+  }
 }
 
 .borde-card {
   border-bottom-right-radius: 10px;
   border-bottom-left-radius: 10px;
 }
-
+.borde-title {
+  border-radius: 15px;
+}
+h5 {
+  font-style: italic;
+  font-weight: bold;
+}
 /* estilos de caro */
 
 */ {
