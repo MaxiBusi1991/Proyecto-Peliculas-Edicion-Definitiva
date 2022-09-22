@@ -202,11 +202,12 @@ body {
   font-family: "Roboto", sans-serif;
 }
 
-.body {
+body {
   background: linear-gradient(to bottom, #000000, #150050, #610094);
   color: white;
   font-size: "Roboto", sans-serif;
 }
+
 .buscar {
   background-color: #610094;
   color: white;
