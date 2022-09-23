@@ -123,6 +123,8 @@ table {
   border-spacing: 0;
 }
 
+/* estilos de maxi */
+
 body {
   font-family: "Roboto", sans-serif;
 }
@@ -148,7 +150,12 @@ body {
 
 .icono-trans {
   transition-property: all;
-  transition-duration: 0.5s;
+  transition-duration: 0.3s;
+}
+
+.imagen-404 {
+  height: 50vh;
+  width: 50vw;
 }
 
 /* //Estilos Andrea */
@@ -203,7 +210,7 @@ body {
 }
 
 body {
-  background: linear-gradient(to bottom, #000000, #150050, #610094);
+  /* background: linear-gradient(to bottom, #000000, #150050, #610094); */
   color: white;
   font-size: "Roboto", sans-serif;
 }
