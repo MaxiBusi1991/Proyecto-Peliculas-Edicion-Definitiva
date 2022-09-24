@@ -284,18 +284,11 @@ h5 {
 
 */ {
   font-family: "Roboto", "Roboto Light", "Roboto Medium", etc;
-}
-*/ .color-footer {
-  background-color: black;
-}
+} */ 
 
-/* Color of the links BEFORE scroll */
-.navbar-scroll .nav-link,
-.navbar-scroll .navbar-toggler-icon,
-.navbar-scroll .navbar-brand {
-  color: #000000;
+.color-footer{
+  background-color: #000000;
 }
-
-.color-boton {
-  color: blueviolet;
+.color-boton{
+  background-color: #610094;
 }

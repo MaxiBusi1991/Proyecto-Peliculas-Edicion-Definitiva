@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+    <body>
+        <header>
+            <!-- aqui empieza el Navbar Principal-->
+            <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+              <div class="container-fluid">
+                <a class="navbar-brand" href="./navbar.html">
+                  <img src="./img/logocinesinfondo.png.png" height="60" alt="">
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                  <ul class="navbar-nav mb-2 mb-lg-0 ms-auto">
+                    <li class="nav-item ">
+                      <a class="nav-link active" aria-current="page" href="#">Iniciar Sesion</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="#">Registrate</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="#">Contactanos</a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </nav>
+        </header>
+        <!--Termina el Navbar Principal-->
+
+          <!--Inicio de Navbar Admin-->
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+            <div class="container-fluid">
+              <a class="navbar-brand" href="./navbarA.html">
+              <img src="./img/logocinesinfondo.png" height="60"></a>
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a href="#">
+                            <button type="button" class="btn btn-primary me-2 my-1 btn-nav"> Ver Usuarios</button>
+                        </a>
+                      </li>
+                      <li class="nav-item">
+                        <a href="#">
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" >Alta Peli/Serie</button>
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">New message</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="mb-3">
+            <label for="recipient-name" class="col-form-label">Recipient:</label>
+            <input type="text" class="form-control" id="recipient-name">
+          </div>
+          <div class="mb-3">
+            <label for="message-text" class="col-form-label">Message:</label>
+            <textarea class="form-control" id="message-text"></textarea>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Send message</button>
+      </div>
+    </div>
+  </div>
+  </div>
+                        </a>
+                      </li>
+                </ul>
+                <ul class="navbar-nav mb-2 mb-lg-0 ms-auto">
+                  <li class="nav-item">
+                    <a class="nav-link" href="./navbar.html">Cerrar Sesion</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </nav>
+    </header>
+    <!--Fin de Navbar Admin-->
+
+    <!--Inicio Navbar Usuario-->
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+            <div class="container-fluid">
+              <a class="navbar-scroll navbar-brand" href="./navbaru.html">
+                <img src="./img/logocinesinfondo.png" height="60" alt="">
+              </a>
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-scroll navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mb-2 mb-lg-0">
+                <li class="nav-item dropdown">
+                    <a class="navbar-scroll nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    Menu
+                    </a>
+                    <ul class="dropdown-menu">
+                      <li><a class="dropdown-item" href="#">Peliculas</a></li>
+                      <li><a class="dropdown-item" href="#">Series</a></li>
+                      <li><a class="dropdown-item" href="#">Recien Añadidos</a></li>
+                      <li><a class="dropdown-item" href="#">Tendencias</a></li>
+                      <li><a class="dropdown-item" href="#">A-Z</a></li>
+                      <li><hr class="dropdown-divider"></li>
+                      <li><a class="dropdown-item" href="#">Sobre Nosotros</a></li>
+                    </ul>
+                  </li></ul>
+                <ul class="navbar-nav mb-2 mb-lg-0 ms-auto">
+                  <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="./navbar.html">Cerrar Sesion</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </nav>
+          <!--Fin Navbar Usuario-->
