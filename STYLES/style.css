@@ -153,9 +153,49 @@ body {
   transition-duration: 0.3s;
 }
 
-.imagen-404 {
-  height: 50vh;
-  width: 50vw;
+/* estilos pagina 404 */
+
+.body-404 {
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  font-family: "Roboto", sans-serif;
+}
+
+.img-404 {
+  width: 50%;
+}
+
+.contenedor-404 {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  align-items: center;
+  justify-content: center;
+}
+
+.button {
+  padding: 13px 30px;
+  border-radius: 15px;
+  border: none;
+  background-color: #02408c;
+  color: aliceblue;
+}
+
+.H1-404 {
+  padding: 20px;
+}
+
+@media screen and (max-width: 320px) {
+  .H1-404 {
+    font-size: 20px;
+  }
+
+  .button {
+    padding: 5px 10px;
+    font-size: 10px;
+  }
 }
 
 /* //Estilos Andrea */
@@ -284,11 +324,10 @@ h5 {
 
 */ {
   font-family: "Roboto", "Roboto Light", "Roboto Medium", etc;
-} */ 
-
-.color-footer{
+}
+*/ .color-footer {
   background-color: #000000;
 }
-.color-boton{
+.color-boton {
   background-color: #610094;
 }
