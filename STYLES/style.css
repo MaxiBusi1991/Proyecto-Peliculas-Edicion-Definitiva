@@ -126,12 +126,27 @@ table {
 /* estilos de maxi */
 
 body {
+  display: flex;
+  flex-direction: column;
   font-family: "Roboto", sans-serif;
+  min-height: 100%;
+}
+
+html {
+  background: #150050;
+  background: linear-gradient(180deg, #000000 0%, #150050 35%, #3f0071 100%)
+    no-repeat center center fixed;
+  height: 100%;
+}
+
+footer {
+  margin-bottom: auto;
 }
 
 .color-fondo {
   background: #150050;
-  background: linear-gradient(180deg, #000000 0%, #150050 35%, #3f0071 100%);
+  background: linear-gradient(180deg, #000000 0%, #150050 35%, #3f0071 100%)
+    no-repeat center center fixed;
 }
 .foto-integrantes {
   height: 200px;
