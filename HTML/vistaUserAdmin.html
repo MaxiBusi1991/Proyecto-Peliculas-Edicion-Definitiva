@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
+      crossorigin="anonymous"
+    />
+    <style>
+      :root {
+        --gradient: linear-gradient(
+          to right,
+          #000000,
+          #150050,
+          #3f0071,
+          #610094
+        );
+      }
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        font-family: sans-serif;
+        color: #222;
+        background: beige;
+        background-image: var(--gradient);
+        background-size: 400%;
+        animation: fondo-anim 20s infinite alternate;
+      }
+      @keyframes fondo-anim {
+        0% {
+          background-position: left;
+        } /*por defecto*/
+        50% {
+          background-position: right;
+        }
+      }
+      .box {
+        background: rgba(255, 255, 255, 0.205);
+        box-shadow: 0 0 3em rgba(0, 0, 0, 0.15);
+        margin: 6rem 2rem;
+      }
+    </style>
+    <title>Menu Usuario</title>
+  </head>
+  <body>
+    <div class="box"></div>
+
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-4">
+          <button
+            type="button"
+            class="btn btn-info text-white"
+            onclick="ActivarUsuarios()"
+          >
+            Usuarios
+          </button>
+
+          <button
+            type="button"
+            class="btn btn-success"
+            onclick="ActivarPeliculas()"
+          >
+            Peliculas
+          </button>
+        </div>
+      </div>
+    </div>
+    <br /><br />
+    <div class="col table-responsive" style="display: block" id="UsuarioTabla">
+      <div
+        class="card card-body bg-white p-2 bg-opacity-25 shadow-lg p-3 mb-5 bg-body rounded"
+      >
+        <div class="text-white">
+          <h3>Administrador de Usuarios</h3>
+        </div>
+        <table class="table text-white">
+          <thead class="thead-light">
+            <tr>
+              <th scope="col">Id</th>
+              <th scope="col">Correo</th>
+              <th scope="col">Contraseña</th>
+              <th scope="col">Nombre</th>
+              <th scope="col">Apellido</th>
+              <th scope="col">Provincia</th>
+              <th scope="col">Fecha Nacimiento</th>
+              <th scope="col">Modificar</th>
+              <th scope="col">Eliminar</th>
+            </tr>
+          </thead>
+          <tbody>
+            <div id="tablaUsuario"></div>
+            <tr>
+              <th scope="row">1</th>
+              <td>Mark</td>
+              <td>Otto</td>
+              <td>@mdo</td>
+            </tr>
+            <tr>
+              <th scope="row">2</th>
+              <td>Jacob</td>
+              <td>Thornton</td>
+              <td>@fat</td>
+            </tr>
+            <tr>
+              <th scope="row">3</th>
+              <td>Larry</td>
+              <td>the Bird</td>
+              <td>@twitter</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="col table-responsive" style="display: none" id="PeliculaTabla">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-4">
+            <button
+              type="button"
+              class="btn text-light btn-outline-info"
+              data-bs-toggle="modal"
+              data-bs-target="#modalAgregarPeli"
+            >
+              Agregar Pelicula
+            </button>
+          </div>
+        </div>
+      </div>
+      <br />
+      <div
+        class="card card-body bg-white p-2 bg-opacity-25 shadow-lg p-3 mb-5 bg-body rounded"
+      >
+        <div class="text-white">
+          <h3>Administrador de Peliculas</h3>
+        </div>
+        <table class="table align-middle text-light violeta-claro">
+          <thead>
+            <tr>
+              <th scope="col">Id</th>
+              <th scope="col">Nombre</th>
+              <th scope="col">genero</th>
+              <th scope="col">img</th>
+              <th scope="col">año</th>
+              <th scope="col">Duracion</th>
+              <th scope="col">Trailer</th>
+              <th scope="col">sinopsis</th>
+              <th scope="col">Estado</th>
+              <th scope="col">Estreno</th>
+              <th scope="col">Destacado</th>
+              <th scope="col">Modificar</th>
+              <th scope="col">Elimiinar</th>
+            </tr>
+          </thead>
+          <tbody id="pieBody"></tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- Optional JavaScript; choose one of the two! -->
+
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+      crossorigin="anonymous"
+    ></script>
+
+    <!-- Option 2: Separate Popper and Bootstrap JS -->
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"
+      integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"
+      integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13"
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="../JAVASCRIPT/funciones.js" type="text/javascript"></script>
+  </body>
+</html>
+
+<!-- Modal agregado de peliculas -->
+<div
+  class="modal fade text-dark"
+  id="modalAgregarPeli"
+  tabindex="-1"
+  aria-labelledby="modalAgregarPeliLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="modalAgregarPeliLabel">
+          Agregar Peliculas
+        </h5>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="modal-body">
+        <form class="was-validated">
+          <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">Nombre</label>
+            <input required type="text" class="form-control" id="nombrePeli" />
+          </div>
+          <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">Genero</label>
+            <select
+              required
+              class="form-select"
+              id="generoPeli"
+              aria-label="Default select example"
+            >
+              <option selected>Seleccione Genero</option>
+              <option value="Terror">Terror</option>
+              <option value="Comedia">Comedia</option>
+              <option value="Acccion">Acccion</option>
+              <option value="Drama">Drama</option>
+              <option value="Aventura">Aventura</option>
+              <option value="Romance">Romance</option>
+              <option value="Ficcion">C. Ficcion</option>
+              <option value="Infantil">Infantil</option>
+              <option value="Documental">Documental</option>
+            </select>
+          </div>
+          <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">Imagen</label>
+            <input required type="text" class="form-control" id="imgPeli" />
+          </div>
+          <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">Año</label>
+            <input
+              required
+              type="numeric"
+              class="form-control"
+              id="anoPeli"
+              maxlength="4"
+            />
+          </div>
+          <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">Duracion</label>
+            <input required type="time" class="form-control" id="duraPeli" />
+          </div>
+          <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">Trailer</label>
+            <input required type="text" class="form-control" id="trailerPeli" />
+          </div>
+          <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">sinopsis</label>
+
+            <textarea
+              class="form-control is-invalid"
+              id="sinopsis"
+              placeholder="Required example textarea"
+              required
+            ></textarea>
+          </div>
+          <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">Estreno</label>
+            <select
+              class="form-select"
+              aria-label="Default select example"
+              id="Estreno"
+            >
+              <option>seleccione</option>
+              <option value="Si">Si</option>
+              <option value="No">No</option>
+            </select>
+          </div>
+          <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">Destacada</label>
+            <select
+              required
+              class="form-select"
+              aria-label="Default select example"
+              id="Destacada"
+            >
+              <option selected>seleccione</option>
+              <option value="Si">Si</option>
+              <option value="No">No</option>
+            </select>
+          </div>
+          <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">Estado</label>
+            <select
+              required
+              class="form-select"
+              aria-label="Default select example"
+              id="Estado"
+            >
+              <option selected>seleccione</option>
+              <option value="Si">Habilitado</option>
+              <option value="No">Deshabilitado</option>
+            </select>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+          Cerrar
+        </button>
+        <button
+          type="button"
+          class="btn btn-primary"
+          data-bs-dismiss="modal"
+          onclick="GuardarPelicula()"
+        >
+          Guardar Pelicula
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal -->
+<div
+  class="modal fade"
+  id="exampleModal"
+  tabindex="-1"
+  aria-labelledby="exampleModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">sinopsis</h5>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="modal-body">
+        <textarea
+          class="form-control"
+          id="sinopsisVer"
+          rows="10"
+          readonly
+        ></textarea>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+          Cerrar
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
