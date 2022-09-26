@@ -157,7 +157,13 @@ function eliminarPelicula(id) {
 
 function CargaPrincipal() {
   const localSTGpelisB = JSON.parse(localStorage.getItem("peli")) || [];
+  console.log(localSTGpelisB.length);
 
+  if (localSTGpelisB.length === 0) {
+    primeraCarga();
+  }
+
+  console.log(localSTGpelisB);
   const peliItem = localSTGpelisB.filter((local) => local.Destacada === "Si");
 
   Fav.innerHTML = peliItem
@@ -176,8 +182,6 @@ function CargaPrincipal() {
             </div>`
     )
     .join("");
-
-  // col-6 col-sm-4 col-md-3 col-lg-2
 
   // ESTRENOS
   const peliEstreno = localSTGpelisB.filter((local) => local.Estreno === "Si");
@@ -278,11 +282,11 @@ function CargaPrincipal() {
   pAventura.innerHTML = peliAventura
     .map(
       (localSTGPeliAventura) =>
-        `<div class="col-6 my-2">
+        `<div class="col-6 my-2  h-100">
                       <img
                         src="${localSTGPeliAventura.imgPeli}"
                         alt=""
-                        class="img-fluid w-100"
+                        class="img-fluid w-100 "
                       />
                       <p class="text-center p-3 border"><a class="text-decoration-none text-white" href="verpelicula2.html?${localSTGPeliAventura.id}">${localSTGPeliAventura.nombrePeli}</a></p>
                     </div>`
@@ -335,14 +339,21 @@ function CargaPrincipal() {
   pRomance.innerHTML = peliRomance
     .map(
       (localSTGPeliRomance) =>
-        `<div class="col-6 my-2">
-                      <img
-                        src="${localSTGPeliRomance.imgPeli}"
-                        alt=""
-                        class="img-fluid w-100"
-                      />
-                      <p class="text-center p-3 border"><a class="text-decoration-none text-white" href="verpelicula2.html?${localSTGPeliRomance.id}">${localSTGPeliRomance.nombrePeli}</a></p>
-                    </div>`
+        // `<div class="col-6 my-2 h-100">
+        //               <img
+        //                 src="${localSTGPeliRomance.imgPeli}"
+        //                 alt=""
+        //                 class="img-fluid w-100 "
+        //               />
+        //               <p class="text-center p-3 border"><a class="text-decoration-none text-white" href="verpelicula2.html?${localSTGPeliRomance.id}">${localSTGPeliRomance.nombrePeli}</a></p>
+        //             </div>`
+
+        `<div class="card bg-white p-2 bg-opacity-25 shadow-lg p-3 mb-5 bg-body rounded" style="width: 18rem;">
+  <img src="${localSTGPeliRomance.imgPeli}" class="card-img-top" alt="...">
+  <div class="card-body">
+     <p class="text-center p-3 border"><a class="text-decoration-none text-white" href="verpelicula2.html?${localSTGPeliRomance.id}">${localSTGPeliRomance.nombrePeli}</a></p>
+  </div>
+</div>`
     )
     .join("");
 
@@ -364,6 +375,13 @@ function CargaPrincipal() {
                     </div>`
     )
     .join("");
+}
+
+// funcion primeraCarga
+function primeraCarga() {
+  console.log("primera cArga");
+  localStorage.setItem("peli", JSON.stringify(MOVIES));
+  console.log(MOVIES);
 }
 
 // funcion barra busqueda
@@ -562,3 +580,151 @@ function ActivarUsuarios() {
   document.getElementById("PeliculaTabla").style.display = "none";
   document.getElementById("UsuarioTabla").style.display = "block";
 }
+
+//pre carga movies
+let MOVIES = [
+  {
+    id: 1,
+    nombrePeli: "Pinocho",
+    imgPeli: "https://pics.filmaffinity.com/pinocchio-256590713-large.jpg",
+    generoPeli: "Aventura",
+    sinopsis:
+      "Versión en acción real y CGI del aclamado cuento sobre una marioneta que se embarca en una trepidante aventura para convertirse en un niño de verdad. La historia también presenta a otros personajes, como Gepetto, el carpintero que fabrica a Pinocho y lo trata como a su propio hijo; Pepito Grillo, que hace las veces de guía y “conciencia” de Pinocho o el Hada Azul.",
+    duraPeli: 111,
+    trailerPeli:
+      "https://secure.disney.com/embed/5e052907a44a4ebd6b4f2a72?domain=disneylatino.com",
+    anoPeli: 2022,
+    Estreno: "Si",
+    Destacada: "No",
+    Estado: "Si",
+  },
+  {
+    id: 2,
+    nombrePeli: "Top Gun",
+    imgPeli:
+      "https://pics.filmaffinity.com/top_gun_maverick-537976462-large.jpg",
+    generoPeli: "Acccion",
+    sinopsis:
+      "Después de más de treinta años de servicio como uno de los mejores aviadores de la Armada, Pete ´Mavericks´ Mitchel  se encuentra donde siempre quiso estar: superando los límites como un valiente piloto de pruebas y esquivando el ascenso de rango, que no le dejaría volar emplazándolo en tierra. Cuando es destinado a la academia de Top Gun con el objetivo de entrenar a los pilotos de élite para realizar una peligrosa misión en territorio enemigo, Maverick se encuentra allí con el joven teniente Bradley Bradshaw , el hijo de su difunto amigo ´Goose´.",
+    duraPeli: 131,
+    trailerPeli: "https://www.dailymotion.com/embed/video/x89hfnb?autoplay=1",
+    anoPeli: 2022,
+    Estreno: "Si",
+    Destacada: "No",
+    Estado: "Si",
+  },
+  {
+    id: 3,
+    nombre: "La memoria de un asesino",
+    imgPeli: "https://pics.filmaffinity.com/memory-281680996-large.jpg",
+    generoPeli: "Terror",
+    sinopsis:
+      "Un asesino a sueldo descubre que se ha convertido en un objetivo después de que se niega a completar un trabajo para una peligrosa organización criminal... Remake de la película belga ´De zaak alzheimer´ (2003).",
+    duraPeli: 114,
+    trailerPeli: "https://www.youtube.com/embed/l6a_GdKxhWY",
+    anoPeli: 2022,
+    Estreno: "Si",
+    Destacada: "No",
+    Estado: "Si",
+  },
+  {
+    id: 4,
+    nombrePeli: "The Bunker Game",
+    imgPeli: "https://pics.filmaffinity.com/samaritan-449167522-large.jpg",
+    generoPeli: "Terror",
+    sinopsis:
+      "Después de varios accidentes misteriosos, se interrumpe un juego de rol de acción en vivo y los jugadores abandonan el búnker mientras el personal se queda atrás para investigar la desaparición de Greg, el autor intelectual del juego.",
+    duraPeli: 90,
+    trailerPeli: "https://www.youtube.com/embed/DPcbatQ7Yrk",
+    anoPeli: 2022,
+    Estreno: "Si",
+    Destacada: "No",
+    Estado: "Si",
+  },
+  {
+    id: 5,
+    nombrePeli: "Samaritan",
+    imgPeli:
+      "https://pics.filmaffinity.com/ame_wo_tsugeru_hyouryuu_danchi-350727721-large.jpg",
+    generoPeli: "Acccion",
+    sinopsis:
+      "Sam Cleary , un joven de 13 años, sospecha que su misterioso y solitario vecino, el Sr. Smith , es en realidad un personaje legendario que se esconde a plena vista. Hace 20 años, el vigilante superpoderoso de Granite City, Samaritan, fue declarado muerto tras una batalla en un almacén con su rival, Némesis. La gente cree que Samaritan falleció en el incendio, pero algunos ciudadanos como Sam tienen la esperanza de que siga vivo. Con la delincuencia en aumento y la ciudad al borde del caos, Sam se propone sacar a su vecino de su escondite para salvar la ciudad de la ruina.",
+    duraPeli: 102,
+    trailerPeli: "https://www.youtube.com/embed/DPcbatQ7Yrk",
+    anoPeli: 2022,
+    Estreno: "Si",
+    Destacada: "No",
+    Estado: "Si",
+  },
+  {
+    id: 6,
+    nombrePeli: "Hogar a la deriva",
+    imgPeli: "https://pics.filmaffinity.com/me_time-211909621-large.jpg",
+    generoPeli: "Aventura",
+    sinopsis:
+      "Los adolescentes Kosuke y Natsume son vecinos y amigos desde pequeños. Un verano, mientras juegan en su edificio que van a demoler, sucede un fenómeno muy extraño: a su alrededor, solo ven el mar. ¿Conseguirán Kosuke y los demás volver a su mundo? Las despedidas del verano no han hecho más que empezar.",
+    duraPeli: 93,
+    trailerPeli: "https://www.youtube.com/embed/eFkAo2sbn8M",
+    anoPeli: 2022,
+    Estreno: "Si",
+    Destacada: "No",
+    Estado: "Si",
+  },
+  {
+    id: 7,
+    nombrePeli: "Me Time",
+    imgPeli: "https://pics.filmaffinity.com/thirteen_lives-664179403-large.jpg",
+    generoPeli: "Comedia",
+    sinopsis:
+      "Un padre encuentra tiempo para sí mismo por primera vez en años mientras su esposa e hijos están fuera. Vuelve a conectar con un amigo para pasar un fin de semana salvaje.",
+    duraPeli: 101,
+    trailerPeli: "https://www.youtube.com/embed/zlWwUGrfXlo",
+    anoPeli: 2022,
+    Estreno: "Si",
+    Destacada: "No",
+    Estado: "Si",
+  },
+  {
+    id: 8,
+    nombrePeli: "Trece vidas",
+    imgPeli: "https://pics.filmaffinity.com/thirteen_lives-664179403-large.jpg",
+    generoPeli: "Drama",
+    sinopsis:
+      "Basada en la historia real, ´Trece vidas´ es el relato del rescate de un equipo de fútbol de la cueva de Tham Luang, en Tailandia, tras quedar atrapado por las lluvias torrenciales y peligrosas inundaciones. ",
+    duraPeli: 142,
+    trailerPeli: "https://www.youtube.com/embed/R068Si4eb3Y",
+    anoPeli: 2022,
+    Estreno: "Si",
+    Destacada: "No",
+    Estado: "Si",
+  },
+  {
+    id: 9,
+    nombrePeli: "Goodnight Mommy",
+    imgPeli:
+      "https://pics.filmaffinity.com/ich_seh_ich_seh_goodnight_mommy-227747347-large.jpg",
+    generoPeli: "Terror",
+    sinopsis:
+      "Dos hermanos gemelos llegan a la casa de su madre y comienzan a sospechar que algo no está bien. Remake de la película austriaca homónima de 2014.",
+    duraPeli: 92,
+    trailerPeli: "https://www.youtube.com/embed/PS6Clja4S2E",
+    anoPeli: 2022,
+    Estreno: "Si",
+    Destacada: "No",
+    Estado: "Si",
+  },
+  {
+    id: 10,
+    nombrePeli: "Hustle",
+    imgPeli: "https://pics.filmaffinity.com/hustle-306927612-large.jpg",
+    generoPeli: "Comedia",
+    sinopsis:
+      "Sandler interpreta a un cazatalentos de baloncestistas en horas bajas que, estando en el extranjero, descubre un jugador con enorme talento pero con un pasado difícil. Sin la aprobación de su equipo, decide llevarse el fenómeno con él, dándoles a ambos una última oportunidad para demostrar que son dignos de la NBA.",
+    duraPeli: 117,
+    trailerPeli: "https://www.youtube.com/embed/lvRWUIUoaqU",
+    anoPeli: 2022,
+    Estreno: "Si",
+    Destacada: "No",
+    Estado: "Si",
+  },
+];
