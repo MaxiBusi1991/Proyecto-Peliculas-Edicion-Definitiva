@@ -217,6 +217,13 @@ footer {
   background-color: #020202;
 }
 
+body {
+  font-family: "Roboto", sans-serif;
+}
+.cliente-logos {
+  height: 10rem;
+}
+
 /* //Estilos Andrea */
 
 /* estilo para sacar borde azul al input al hacer foco  */
@@ -277,7 +284,7 @@ input.form-control:focus {
 
 /* estilos de valentina */
 
-*/ {
+* {
   font-family: "Roboto", sans-serif;
 }
 
