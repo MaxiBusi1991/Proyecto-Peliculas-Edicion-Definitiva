@@ -20,7 +20,8 @@ function GuardarPelicula() {
     var trailerPeli = document.getElementById("trailerPeli").value;
     var sinopsis = document.getElementById("sinopsis").value;
     var Estreno = document.getElementById("Estreno").value;
-    var Destacada = document.getElementById("Destacada").value;
+    // var Destacada = document.getElementById("Destacada").value;
+    var Destacada = "No";
     var Estado = document.getElementById("Estado").value;
 
     for (let i = 0; i < localSTGPeli.length; i++) {
@@ -103,7 +104,7 @@ function validarCampos() {
   if (document.getElementById("sinopsis").value != "") {
     var nombrePeli = document.getElementById("sinopsis").value;
   } else {
-    alert("Ingrese una sinipsis válida por favor");
+    alert("Ingrese una sinopsis válida por favor");
     bandera++;
   }
   console.log("b sinopsis" + bandera);
@@ -115,7 +116,7 @@ function validarCampos() {
     bandera++;
   }
   console.log("b estreno" + bandera);
-  var Destacada = document.getElementById("Destacada").value;
+  // var Destacada = document.getElementById("Destacada").value;
   var Estado = document.getElementById("Estado").value;
   return bandera;
 }
@@ -123,13 +124,20 @@ function validarCampos() {
 // function evaluarDestacada() {
 //   const localSTGPeli = JSON.parse(localStorage.getItem("peli")) || [];
 //   const arrayPeli = [];
-
+//   console.log("entra funcion evaluar destacada");
 //   for (let i = 0; i < localSTGPeli.length; i++) {
 //     if (localSTGPeli[i].Destacada == "Si") {
 //       console.log("Destacada:" + localSTGPeli[i].Destacada);
-//       formDestacada.innerHTML = `""`;
+//       console.log("ya hay destacada");
+//       formDestacada.innerHTML = ` <select class="form-select" id="Destacada" required disabled>
+//               <option selected>Destacada</option>
+//               <option value="Si">Si</option>
+//               <option value="No">No</option>
+//             </select>
+//             <div class="invalid-feedback"></div>`;
 //     } else {
-//       formDestacada.innerHTML = ` <select class="form-select" id="Destacada" required>
+//       console.log("no hay destacada");
+//       formDestacada.innerHTML = ` <select class="form-select" id="Destacada" required >
 //               <option selected>Destacada</option>
 //               <option value="Si">Si</option>
 //               <option value="No">No</option>
@@ -138,6 +146,36 @@ function validarCampos() {
 //     }
 //   }
 // }
+let bandera = 0;
+function destacarPelicula(id) {
+  const localSTGPeli = JSON.parse(localStorage.getItem("peli")) || [];
+
+  console.log("entra funcion destacar destacada");
+
+  for (let i = 0; i < localSTGPeli.length; i++) {
+    console.log("antes del if:" + localSTGPeli[i].Destacada);
+    if (localSTGPeli[i].Destacada === "Si") {
+      console.log("adentrodel if: " + localSTGPeli[i].Destacada);
+      console.log("Ya hay una peli destacada");
+      localSTGPeli[i].Destacada = "No";
+      bandera = 1;
+      alert(
+        "La peli " +
+          localSTGPeli[i].nombrePeli +
+          " es la destacada. Modificar para destacar nueva peli"
+      );
+    }
+    if (localSTGPeli[i].id === id && bandera === 1) {
+      console.log("entra al if");
+      localSTGPeli[i].Destacada = "Si";
+    }
+  }
+
+  console.log(localSTGPeli);
+  localStorage.setItem("peli", JSON.stringify(localSTGPeli));
+
+  agregarpeli();
+}
 
 function agregarpeli() {
   console.log("entre agregar");
@@ -157,12 +195,17 @@ function agregarpeli() {
         <td>${localSTGPeli.anoPeli}</td>
         <td>${localSTGPeli.duraPeli}</td>
         <td><a href="#" class="text-reset">${localSTGPeli.trailerPeli}</a></td>
-        <td > <button type="button" class="btn bt-sm text-light" onclick ="msinopsis(${localSTGPeli.id})" data-bs-toggle="modal" data-bs-target="#sinopsisModal"> <i class="fa-solid fa-plus"></i> INFO </button></td>
+        <td > <button type="button" class="btn  btn-outline-light text-light" onclick ="msinopsis(${localSTGPeli.id})" data-bs-toggle="modal" data-bs-target="#sinopsisModal"> <i class="fa-solid fa-plus"></i> INFO </button></td>
+        
         <td>${localSTGPeli.Estado}</td>
         <td>${localSTGPeli.Estreno}</td>
-        <td>${localSTGPeli.Destacada}</td>
-        <td><button type="button" class="btn  " onclick ="modificar(${localSTGPeli.id})" data-bs-toggle="modal" data-bs-target="#modalModificarPeli"><i class="fa-solid fa-pen-to-square text-light"> </i></button></td>
-        <td><button type="button" class="btn  " onclick ="eliminarPelicula(${localSTGPeli.id})" ><i class="fa-solid fa-trash text-light">  </i> </button>
+       
+        
+        <td><button type="button" class="btn btn-sm text-light" onclick="destacarPelicula(${localSTGPeli.id})" ><i class="fa-regular fa-star text-light"></i></button> ${localSTGPeli.Destacada}</td>
+        
+        <td><button type="button" class="btn  btn-outline-light " onclick ="modificar(${localSTGPeli.id})" data-bs-toggle="modal" data-bs-target="#modalModificarPeli"><i class="fa-solid fa-pen-to-square text-light"> </i></button></td>
+
+        <td><button type="button" class="btn  btn-outline-light " onclick ="eliminarPelicula(${localSTGPeli.id})" ><i class="fa-solid fa-trash text-light">  </i> </button>
         
         </td>
         </tr>`
@@ -188,11 +231,11 @@ function modificar(id) {
 
   const peliItem = localSTGpelisB.filter((local) => local.id === idm);
 
-  console.log(peliItem[0].Estreno);
-
   document.getElementById("ModiIdPeli").value = idm;
+  // console.log("id sin modificar" + idm);
   document.getElementById("ModinombrePeli").value = peliItem[0].nombrePeli;
   document.getElementById("ModigeneroPeli").value = peliItem[0].generoPeli;
+  // console.log("Genero sin modificar" + peliItem[0].generoPeli);
   document.getElementById("ModiimgPeli").value = peliItem[0].imgPeli;
   document.getElementById("ModianoPeli").value = peliItem[0].anoPeli;
   document.getElementById("ModiduraPeli").value = peliItem[0].duraPeli;
@@ -200,13 +243,16 @@ function modificar(id) {
   document.getElementById("Modisinopsis").value = peliItem[0].sinopsis;
   document.getElementById("ModiEstreno").value = peliItem[0].Estreno;
   document.getElementById("ModiDestacada").value = peliItem[0].Destacada;
+  console.log("Destacada sin modificar" + peliItem[0].Destacada);
   document.getElementById("ModiEstado").value = peliItem[0].Estado;
 }
 
 function GuardarCambios() {
   var id = document.getElementById("ModiIdPeli").value;
+  // console.log("id modificado" + id);
   var nombrePeli = document.getElementById("ModinombrePeli").value;
   var generoPeli = document.getElementById("ModigeneroPeli").value;
+  // console.log("Genero modificado" + generoPeli);
   var imgPeli = document.getElementById("ModiimgPeli").value;
   var anoPeli = document.getElementById("ModianoPeli").value;
   var duraPeli = document.getElementById("ModiduraPeli").value;
@@ -214,33 +260,37 @@ function GuardarCambios() {
   var sinopsis = document.getElementById("Modisinopsis").value;
   var Estreno = document.getElementById("ModiEstreno").value;
   var Destacada = document.getElementById("ModiDestacada").value;
+  console.log("Destaca modificado" + Destacada);
   var Estado = document.getElementById("ModiEstado").value;
 
   const localSTGPeli = JSON.parse(localStorage.getItem("peli")) || [];
   const arrayPeli = [];
 
+  // CONTINUAR DESDE ACA
+
   for (let i = 0; i < localSTGPeli.length; i++) {
-    const peliviejas = localSTGPeli[i];
-    if (i == id - 1) {
-      arrayPeli.push({
-        id,
-        nombrePeli,
-        generoPeli,
-        imgPeli,
-        anoPeli,
-        duraPeli,
-        trailerPeli,
-        sinopsis,
-        Estreno,
-        Destacada,
-        Estado,
-      });
+    // console.log("entro a la funcion" + localSTGPeli[i]);
+    // console.log("id a secas " + id);
+    // console.log("id local" + localSTGPeli[i].id);
+    if (id == localSTGPeli[i].id) {
+      // console.log("entro al if" + localSTGPeli[i]);
+      localSTGPeli[i].id = id;
+      localSTGPeli[i].nombrePeli = nombrePeli;
+      localSTGPeli[i].generoPeli = generoPeli;
+      localSTGPeli[i].imgPeli = imgPeli;
+      localSTGPeli[i].anoPeli = anoPeli;
+      localSTGPeli[i].duraPeli = duraPeli;
+      localSTGPeli[i].trailerPeli = trailerPeli;
+      localSTGPeli[i].sinopsis = sinopsis;
+      localSTGPeli[i].Estreno = Estreno;
+      localSTGPeli[i].Destacada = Destacada;
+      localSTGPeli[i].Estado = Estado;
     } else {
-      arrayPeli.push(peliviejas);
+      console.log("no hubo modificaciones");
     }
   }
-
-  localStorage.setItem("peli", JSON.stringify(arrayPeli));
+  console.log(localSTGPeli);
+  localStorage.setItem("peli", JSON.stringify(localSTGPeli));
 
   agregarpeli();
 }
@@ -269,6 +319,8 @@ function CargaPrincipal() {
     primeraCarga();
   }
 
+  //PELICULA DESTACADA
+
   console.log(localSTGpelisB);
   const peliItem = localSTGpelisB.filter((local) => local.Destacada === "Si");
 
@@ -278,7 +330,7 @@ function CargaPrincipal() {
         `<div class="container d-flex justify-content-center">
                 <div class="card d-flex text-bg-dark my-3 mx-2">
                 <img src="${localSTGPeli.imgPeli}" class="card-img" alt="...">
-                
+
                 <div class="card-img-overlay mx-0 w-50">
                     <h5 class="card-title">${localSTGPeli.nombrePeli}</h5>
                     <p class="card-text d-none d-sm-none d-md-block">${localSTGPeli.sinopsis}</p>
@@ -306,7 +358,7 @@ function CargaPrincipal() {
 
   // GENERO ACCION
   const peliAccion = localSTGpelisB.filter(
-    (local) => local.generoPeli === "Acccion"
+    (local) => local.generoPeli === "Accion"
   );
   console.log("Hola Maxi bUSI");
   pAccion.innerHTML = peliAccion
@@ -628,12 +680,12 @@ function sigFin() {
     document.getElementById("datosFechaNac").value;
 }
 function Guardar() {
-  console.log("entre Guardar");
   var correo = document.getElementById("finCorreo").value;
   var contraseña = document.getElementById("finContraseña").value;
   var nombre = document.getElementById("finNombre").value;
   var apellido = document.getElementById("finApellido").value;
   var fechaNac = document.getElementById("finFechaNac").value;
+  var provi = document.getElementById("datosProv").value;
   let stateLogin = false;
 
   const localSTGUsers = JSON.parse(localStorage.getItem("user")) || [];
@@ -661,11 +713,36 @@ function Guardar() {
     apellido,
     fechaNac,
     role,
+    provi,
   });
 
   localStorage.setItem("user", JSON.stringify(arrayUser));
+}
+function VerUsuario() {
+  const localSTGUsuario = JSON.parse(localStorage.getItem("user")) || [];
 
-  location.href = "inicio.html";
+  let UsuarioSTG = JSON.parse(localStorage.getItem("user"));
+  let tablaUsuario = document.getElementById("tablaUsuario");
+
+  tablaUsuario.innerHTML = UsuarioSTG.map(
+    (localSTGUsuario) =>
+      `<tr>
+        <td scope='row'>${localSTGUsuario.id}</td>
+        <td>${localSTGUsuario.correo}</td>
+        <td>${localSTGUsuario.contraseña}</td>
+        <td>${localSTGUsuario.nombre}</td>
+        <td>${localSTGUsuario.apellido}</td>
+        <td>${localSTGUsuario.provi}</td>
+        <td> ${localSTGUsuario.fechaNac}</td>      
+        <td> ${localSTGUsuario.role}</td>    
+
+        <td><button type="button" class="btn  btn-outline-light " onclick ="modificarU(${localSTGUsuario.id})" data-bs-toggle="modal" data-bs-target="#modalModificarPeli"><i class="fa-solid fa-pen-to-square text-light"> </i></button></td>
+
+        <td><button type="button" class="btn  btn-outline-light " onclick ="eliminarU(${localSTGUsuario.id})" ><i class="fa-solid fa-trash text-light">  </i> </button>
+        
+        </td>
+        </tr>`
+  ).join("");
 }
 
 // Boton peliculas
@@ -676,10 +753,13 @@ function ActivarPeliculas() {
 }
 // boton Usuario
 function ActivarUsuarios() {
+  verpeli();
   document.getElementById("PeliculaTabla").style.display = "none";
   document.getElementById("UsuarioTabla").style.display = "block";
 }
+/// Osqui trabajando
 
+/// Osqui trabajando
 //pre carga movies
 const MOVIES = [
   {
@@ -794,7 +874,7 @@ const MOVIES = [
     trailerPeli: "https://www.youtube.com/embed/R068Si4eb3Y",
     anoPeli: 2022,
     Estreno: "Si",
-    Destacada: "No",
+    Destacada: "Si",
     Estado: "Si",
   },
   {

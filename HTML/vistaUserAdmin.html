@@ -55,7 +55,7 @@
     </style>
     <title>Menu Usuario</title>
   </head>
-  <body>
+  <body onload="VerUsuario()">
     <!--Inicio de Navbar Admin-->
     <header>
       <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
@@ -99,7 +99,7 @@
 
             <ul class="navbar-nav mb-2 mb-lg-0 ms-auto">
               <li class="nav-item">
-                <a class="nav-link" href="./main.html">Cerrar Sesion</a>
+                <a class="nav-link" href="./index.html">Cerrar Sesion</a>
               </li>
             </ul>
           </div>
@@ -134,6 +134,19 @@
 
     <br /><br />
     <div class="col table-responsive" style="display: block" id="UsuarioTabla">
+      <div class="row justify-content-center">
+        <div class="col-4">
+          <button
+            type="button"
+            class="btn text-light btn-outline-secondary"
+            data-bs-toggle="modal"
+            data-bs-target="#modalAgregarU"
+          >
+            Agregar Usuario
+          </button>
+        </div>
+      </div>
+      <br />
       <div
         class="card card-body bg-white p-2 bg-opacity-25 shadow-lg p-3 mb-5 bg-body rounded"
       >
@@ -150,31 +163,12 @@
               <th scope="col">Apellido</th>
               <th scope="col">Provincia</th>
               <th scope="col">Fecha Nacimiento</th>
+              <th scope="col">Tipo de Usuario</th>
               <th scope="col">Modificar</th>
               <th scope="col">Eliminar</th>
             </tr>
           </thead>
-          <tbody>
-            <div id="tablaUsuario"></div>
-            <tr>
-              <th scope="row">1</th>
-              <td>Mark</td>
-              <td>Otto</td>
-              <td>@mdo</td>
-            </tr>
-            <tr>
-              <th scope="row">2</th>
-              <td>Jacob</td>
-              <td>Thornton</td>
-              <td>@fat</td>
-            </tr>
-            <tr>
-              <th scope="row">3</th>
-              <td>Larry</td>
-              <td>the Bird</td>
-              <td>@twitter</td>
-            </tr>
-          </tbody>
+          <tbody id="tablaUsuario"></tbody>
         </table>
       </div>
     </div>
@@ -417,9 +411,9 @@
           </div>
 
           <div class="mb-3">
-            <!-- <label for="generoPeli" class="form-label">Género</label> -->
+            <label for="generoPeli" class="form-label">Género</label>
             <select class="form-select" id="generoPeli" required>
-              <option selected>Género</option>
+              <!-- <option selected>Género</option> -->
               <option value="Terror">Terror</option>
               <option value="Comedia">Comedia</option>
               <option value="Acccion">Acccion</option>
@@ -477,28 +471,28 @@
           </div>
 
           <div class="mb-3">
-            <!-- <label for="Estreno" class="form-label">Estreno</label> -->
+            <label for="Estreno" class="form-label">Estreno</label>
             <select class="form-select" id="Estreno" required>
-              <option selected>Estreno</option>
+              <!-- <option selected>Estreno</option> -->
               <option value="Si">Si</option>
               <option value="No">No</option>
             </select>
             <div class="invalid-feedback"></div>
           </div>
 
-          <div id="formDestacada" class="mb-3">
-            <select class="form-select" id="Destacada" required>
-              <option selected>Destacada</option>
-              <option value="Si">Si</option>
+          <div id="CargaDestacada" class="mb-3">
+            <label for="Destacada" class="form-label">Destacada</label>
+            <select class="form-select" id="Destacada" required disabled>
+              <!-- <option value="Si">Si</option> -->
               <option value="No">No</option>
             </select>
             <div class="invalid-feedback"></div>
           </div>
 
           <div class="mb-3">
-            <!-- <label for="Estado" class="form-label">Estado</label> -->
+            <label for="Estado" class="form-label">Estado</label>
             <select class="form-select" id="Estado" required>
-              <option selected>Estado</option>
+              <!-- <option selected>Estado</option> -->
               <option value="Si">Habilitado</option>
               <option value="No">Deshabilitado</option>
             </select>
@@ -521,6 +515,327 @@
           onclick="GuardarPelicula()"
         >
           Guardar Pelicula
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal Modificar Pelicula-->
+<!-- <div
+  class="modal fade text-dark"
+  id="modalModificarPeli"
+  tabindex="-1"
+  aria-labelledby="modalModificarPeliLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="modalModificarPeliLabel">
+          Modificar Peliculas
+        </h5>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="modal-body">
+        <input
+          required
+          type="text"
+          class="form-control"
+          id="ModiIdPeli"
+          hidden
+        />
+
+        <form>
+          <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">Nombre</label>
+            <input
+              required
+              type="text"
+              class="form-control"
+              id="ModinombrePeli"
+            />
+          </div>
+          <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">Genero</label>
+            <select
+              required
+              class="form-select"
+              id="ModigeneroPeli"
+              aria-label="Default select example"
+            >
+              <option selected>Seleccione Genero</option>
+              <option value="Terror">Terror</option>
+              <option value="Comedia">Comedia</option>
+              <option value="Acccion">Acccion</option>
+              <option value="Drama">Drama</option>
+              <option value="Aventura">Aventura</option>
+              <option value="Romance">Romance</option>
+              <option value="Ficcion">C. Ficcion</option>
+              <option value="Infantil">Infantil</option>
+              <option value="Documental">Documental</option>
+            </select>
+          </div>
+          <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">Imagen</label>
+            <input required type="text" class="form-control" id="ModiimgPeli" />
+          </div>
+          <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">Año</label>
+            <input
+              required
+              type="numeric"
+              class="form-control"
+              id="ModianoPeli"
+              maxlength="4"
+            />
+          </div>
+          <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">Duracion</label>
+            <input
+              required
+              type="time"
+              class="form-control"
+              id="ModiduraPeli"
+            />
+          </div>
+          <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">Trailer</label>
+            <input
+              required
+              type="text"
+              class="form-control"
+              id="ModitrailerPeli"
+            />
+          </div>
+          <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">sinopsis</label>
+            <textarea
+              class="form-control is-invalid"
+              id="Modisinopsis"
+              placeholder="Required example textarea"
+              required
+            ></textarea>
+          </div>
+          <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">Estreno</label>
+            <select
+              class="form-select"
+              aria-label="Default select example"
+              id="ModiEstreno"
+            >
+              <option>seleccione</option>
+              <option value="Si">Si</option>
+              <option value="No">No</option>
+            </select>
+          </div>
+          <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">Destacada</label>
+            <select
+              required
+              class="form-select"
+              aria-label="Default select example"
+              id="ModiDestacada"
+            >
+              <option selected>seleccione</option>
+              <option value="Si">Si</option>
+              <option value="No">No</option>
+            </select>
+          </div>
+          <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">Estado</label>
+            <select
+              required
+              class="form-select"
+              aria-label="Default select example"
+              id="ModiEstado"
+            >
+              <option selected>seleccione</option>
+              <option value="Si">Habilitado</option>
+              <option value="No">Deshabilitado</option>
+            </select>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+          Close
+        </button>
+        <button
+          type="button"
+          class="btn btn-primary"
+          data-bs-dismiss="modal"
+          onclick="GuardarCambios()"
+        >
+          Guardar Cambios
+        </button>
+      </div>
+    </div>
+  </div>
+</div> -->
+
+<!-- modal modificar peli andrea  -->
+<div
+  class="modal fade text-dark"
+  id="modalModificarPeli"
+  tabindex="-1"
+  aria-labelledby="modalModificarPeliLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="modalModificarPeliLabel">
+          Modificar Peliculas
+        </h5>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="modal-body">
+        <input
+          required
+          type="text"
+          class="form-control"
+          id="ModiIdPeli"
+          hidden
+        />
+        <form class="row g-3 needs-validation" novalidate>
+          <div class="mb-3">
+            <label for="ModinombrePeli" class="form-label">Nombre</label>
+            <input
+              type="text"
+              class="form-control"
+              id="ModinombrePeli"
+              required
+            />
+            <div class="invalid-feedback">Por favor ingrese nombre válido</div>
+          </div>
+
+          <div class="mb-3">
+            <label for="generoPeli" class="form-label">Género</label>
+            <select class="form-select" id="ModigeneroPeli" required>
+              <!-- <option selected>Género</option> -->
+              <option value="Terror">Terror</option>
+              <option value="Comedia">Comedia</option>
+              <option value="Acccion">Accion</option>
+              <option value="Drama">Drama</option>
+              <option value="Aventura">Aventura</option>
+              <option value="Romance">Romance</option>
+              <option value="Ficcion">C. Ficcion</option>
+              <option value="Infantil">Infantil</option>
+              <option value="Documental">Documental</option>
+            </select>
+            <div class="invalid-feedback">Seleccion un género correcto</div>
+          </div>
+
+          <div class="mb-3">
+            <label for="ModiimgPeli" class="form-label">URL imagen</label>
+            <input type="text" class="form-control" id="ModiimgPeli" required />
+            <div class="invalid-feedback">URL Inválida</div>
+          </div>
+
+          <div class="mb-3">
+            <label for="ModianoPeli" class="form-label"
+              >Año de producción</label
+            >
+            <input
+              type="number"
+              class="form-control"
+              id="ModianoPeli"
+              required
+              maxlength="4"
+            />
+            <div class="invalid-feedback">Año Inválido</div>
+          </div>
+
+          <div class="mb-3">
+            <label for="ModiduraPeli" class="form-label">Duración (min)</label>
+            <input
+              type="number"
+              class="form-control"
+              id="ModiduraPeli"
+              required
+              maxlength="3"
+            />
+            <div class="invalid-feedback">Duración Inválida</div>
+          </div>
+
+          <div class="mb-3">
+            <label for="ModitrailerPeli" class="form-label">URL trailer</label>
+            <input
+              type="text"
+              class="form-control"
+              id="ModitrailerPeli"
+              required
+            />
+            <div class="invalid-feedback">URL Inválida</div>
+          </div>
+
+          <div class="mb-3">
+            <label for="Modisinopsis" class="form-label">Sinopsis</label>
+            <textarea
+              type="text"
+              class="form-control"
+              id="Modisinopsis"
+              required
+            >
+            </textarea>
+            <div class="invalid-feedback">Sinopsis inválida</div>
+          </div>
+
+          <div class="mb-3">
+            <label for="ModiEstreno" class="form-label">Estreno</label>
+            <select class="form-select" id="ModiEstreno" required>
+              <option value="Si">Si</option>
+              <option value="No">No</option>
+            </select>
+            <div class="invalid-feedback"></div>
+          </div>
+
+          <div class="mb-3">
+            <label for="ModiDestacada" class="form-label">Destacada</label>
+            <select class="form-select" id="ModiDestacada" required disabled>
+              <option value="Si">Si</option>
+              <option value="No">No</option>
+            </select>
+            <div class="invalid-feedback"></div>
+          </div>
+
+          <div class="mb-3">
+            <label for="Estado" class="form-label">Estado</label>
+            <select class="form-select" id="ModiEstado" required>
+              <!-- <option selected>Estado</option> -->
+              <option value="Si">Habilitado</option>
+              <option value="No">Deshabilitado</option>
+            </select>
+            <div class="invalid-feedback"></div>
+          </div>
+
+          <!-- <div class="col-12">
+    <button class="btn btn-primary" type="submit">Submit form</button>
+  </div> -->
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+          Cerrar
+        </button>
+        <button
+          type="button"
+          class="btn btn-secondary"
+          data-bs-dismiss="modal"
+          onclick="GuardarCambios()"
+        >
+          Guardar Cambios
         </button>
       </div>
     </div>
@@ -557,6 +872,85 @@
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
           Cerrar
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- MODAL AGREGAR USUARIO -->
+
+<!-- Modal -->
+<div
+  class="modal fade"
+  id="modalAgregarU"
+  tabindex="-1"
+  aria-labelledby="modalAgregarULabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="modalAgregarULabel">Agregar Usuario</h5>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="modal-body">
+        <!-- Formulario-->
+        <div class="mb-3">
+          <label for="finCorreo" class="form-label">Correo</label>
+          <input
+            type="email"
+            class="form-control"
+            id="finCorreo"
+            aria-describedby="emailHelp"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label for="finContraseña" class="form-label">Contraseña</label>
+          <input type="password" class="form-control" id="finContraseña" />
+        </div>
+
+        <div class="mb-3">
+          <label for="finContraseña2" class="form-label">
+            Repetir Contraseña
+          </label>
+          <input type="password" class="form-control" id="finContraseña2" />
+        </div>
+
+        <div class="mb-3">
+          <label for="finNombre" class="form-label">Nombre</label>
+          <input type="text" class="form-control" id="finNombre" />
+        </div>
+
+        <div class="mb-3">
+          <label for="finApellido" class="form-label">Apellido</label>
+          <input type="text" class="form-control" id="finApellido" />
+        </div>
+
+        <div class="mb-3">
+          <label for="finFechaNac" class="form-label">Correo</label>
+          <input type="date" class="form-control" id="finFechaNac" />
+        </div>
+
+        <div class="mb-3">
+          <label for="datosProv" class="form-label">Provincia</label>
+          <input type="text" class="form-control" id="datosProv" />
+        </div>
+
+        <!-- fin formulario-->
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+          Cerrar
+        </button>
+        <button type="button" class="btn btn-primary" onclick="Guardar()">
+          Guardar
         </button>
       </div>
     </div>
