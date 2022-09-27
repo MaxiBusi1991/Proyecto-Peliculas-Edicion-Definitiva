@@ -2,41 +2,142 @@
 let contador = 1;
 
 function GuardarPelicula() {
-  var nombrePeli = document.getElementById("nombrePeli").value;
-  var generoPeli = document.getElementById("generoPeli").value;
-  var imgPeli = document.getElementById("imgPeli").value;
-  var anoPeli = document.getElementById("anoPeli").value;
-  var duraPeli = document.getElementById("duraPeli").value;
-  var trailerPeli = document.getElementById("trailerPeli").value;
-  var sinopsis = document.getElementById("sinopsis").value;
-  var Estreno = document.getElementById("Estreno").value;
-  var Destacada = document.getElementById("Destacada").value;
-  var Estado = document.getElementById("Estado").value;
+  let bandera = 0;
 
   const localSTGPeli = JSON.parse(localStorage.getItem("peli")) || [];
   const arrayPeli = [];
+  console.log("b antes" + bandera);
+  //funcion validar campos devuelve 1 si los campos del modal son validos
+  bandera = validarCampos();
+  console.log("b despues" + bandera);
 
-  for (let i = 0; i < localSTGPeli.length; i++) {
-    const peliviejas = localSTGPeli[i];
-    arrayPeli.push(peliviejas);
+  if (bandera === 0) {
+    var nombrePeli = document.getElementById("nombrePeli").value;
+    var generoPeli = document.getElementById("generoPeli").value;
+    var imgPeli = document.getElementById("imgPeli").value;
+    var anoPeli = document.getElementById("anoPeli").value;
+    var duraPeli = document.getElementById("duraPeli").value;
+    var trailerPeli = document.getElementById("trailerPeli").value;
+    var sinopsis = document.getElementById("sinopsis").value;
+    var Estreno = document.getElementById("Estreno").value;
+    var Destacada = document.getElementById("Destacada").value;
+    var Estado = document.getElementById("Estado").value;
+
+    for (let i = 0; i < localSTGPeli.length; i++) {
+      const peliviejas = localSTGPeli[i];
+      arrayPeli.push(peliviejas);
+    }
+
+    arrayPeli.push({
+      id: arrayPeli.length + contador,
+      nombrePeli,
+      generoPeli,
+      imgPeli,
+      anoPeli,
+      duraPeli,
+      trailerPeli,
+      sinopsis,
+      Estreno,
+      Destacada,
+      Estado,
+    });
+    localStorage.setItem("peli", JSON.stringify(arrayPeli));
+    agregarpeli();
+  } else {
+    alert("Campos inválidos");
+  }
+}
+
+function validarCampos() {
+  bandera = 0;
+  console.log("entra funcion validar campos");
+  // nombre
+  if (document.getElementById("nombrePeli").value != "") {
+    var nombrePeli = document.getElementById("nombrePeli").value;
+  } else {
+    alert("Ingrese un nombre válido por favor");
+    bandera++;
   }
 
-  arrayPeli.push({
-    id: arrayPeli.length + contador,
-    nombrePeli,
-    generoPeli,
-    imgPeli,
-    anoPeli,
-    duraPeli,
-    trailerPeli,
-    sinopsis,
-    Estreno,
-    Destacada,
-    Estado,
-  });
-  localStorage.setItem("peli", JSON.stringify(arrayPeli));
-  agregarpeli();
+  console.log("b nombre" + bandera);
+
+  // nimg
+  if (document.getElementById("imgPeli").value != "") {
+    var nombrePeli = document.getElementById("imgPeli").value;
+  } else {
+    alert("Ingrese una URL válida por favor");
+    bandera++;
+  }
+  console.log("b img" + bandera);
+  // año
+  if (
+    document.getElementById("anoPeli").value != "" &&
+    document.getElementById("anoPeli").value < 2023
+  ) {
+    var nombrePeli = document.getElementById("anoPeli").value;
+  } else {
+    alert("Ingrese un año válida por favor");
+    bandera++;
+  }
+  console.log("b año" + bandera);
+  //dura
+  if (
+    document.getElementById("duraPeli").value != "" &&
+    document.getElementById("duraPeli").value > 0
+  ) {
+    var nombrePeli = document.getElementById("duraPeli").value;
+  } else {
+    alert("Ingrese una duración válida por favor");
+    bandera++;
+  }
+  console.log("b dura" + bandera);
+  // ntrailer
+  if (document.getElementById("trailerPeli").value != "") {
+    var nombrePeli = document.getElementById("trailerPeli").value;
+  } else {
+    alert("Ingrese una URL válida por favor");
+    bandera++;
+  }
+  console.log("b trailer" + bandera);
+  // sinopsis
+  if (document.getElementById("sinopsis").value != "") {
+    var nombrePeli = document.getElementById("sinopsis").value;
+  } else {
+    alert("Ingrese una sinipsis válida por favor");
+    bandera++;
+  }
+  console.log("b sinopsis" + bandera);
+  // estreno
+  if (document.getElementById("Estreno").value != "") {
+    var nombrePeli = document.getElementById("Estreno").value;
+  } else {
+    alert("Ingrese una sinipsis válida por favor");
+    bandera++;
+  }
+  console.log("b estreno" + bandera);
+  var Destacada = document.getElementById("Destacada").value;
+  var Estado = document.getElementById("Estado").value;
+  return bandera;
 }
+
+// function evaluarDestacada() {
+//   const localSTGPeli = JSON.parse(localStorage.getItem("peli")) || [];
+//   const arrayPeli = [];
+
+//   for (let i = 0; i < localSTGPeli.length; i++) {
+//     if (localSTGPeli[i].Destacada == "Si") {
+//       console.log("Destacada:" + localSTGPeli[i].Destacada);
+//       formDestacada.innerHTML = `""`;
+//     } else {
+//       formDestacada.innerHTML = ` <select class="form-select" id="Destacada" required>
+//               <option selected>Destacada</option>
+//               <option value="Si">Si</option>
+//               <option value="No">No</option>
+//             </select>
+//             <div class="invalid-feedback"></div>`;
+//     }
+//   }
+// }
 
 function agregarpeli() {
   console.log("entre agregar");
@@ -56,12 +157,14 @@ function agregarpeli() {
         <td>${localSTGPeli.anoPeli}</td>
         <td>${localSTGPeli.duraPeli}</td>
         <td><a href="#" class="text-reset">${localSTGPeli.trailerPeli}</a></td>
-        <td > <button type="button" class="btn btn-primary" onclick ="msinopsis(${localSTGPeli.id})" data-bs-toggle="modal" data-bs-target="#exampleModal"> </td>
+        <td > <button type="button" class="btn bt-sm text-light" onclick ="msinopsis(${localSTGPeli.id})" data-bs-toggle="modal" data-bs-target="#sinopsisModal"> <i class="fa-solid fa-plus"></i> INFO </button></td>
         <td>${localSTGPeli.Estado}</td>
         <td>${localSTGPeli.Estreno}</td>
         <td>${localSTGPeli.Destacada}</td>
-        <td><button type="button" class="btn btn-warning" onclick ="modificar(${localSTGPeli.id})" data-bs-toggle="modal" data-bs-target="#modalModificarPeli"><i class="fa-solid fa-pen-to-square text-light"> </i></button></td>
-        <td><button type="button" class="btn btn-danger" onclick ="eliminarPelicula(${localSTGPeli.id})" ><i class="fa-solid fa-trash text-light">  </i> </button></td>
+        <td><button type="button" class="btn  " onclick ="modificar(${localSTGPeli.id})" data-bs-toggle="modal" data-bs-target="#modalModificarPeli"><i class="fa-solid fa-pen-to-square text-light"> </i></button></td>
+        <td><button type="button" class="btn  " onclick ="eliminarPelicula(${localSTGPeli.id})" ><i class="fa-solid fa-trash text-light">  </i> </button>
+        
+        </td>
         </tr>`
     )
     .join("");
@@ -350,13 +453,6 @@ function CargaPrincipal() {
                       />
                       <p class="text-center p-3 border"><a class="text-decoration-none text-white" href="verpelicula2.html?${localSTGPeliRomance.id}">${localSTGPeliRomance.nombrePeli}</a></p>
                     </div>`
-
-      //         `<div class="card bg-white p-2 bg-opacity-25 shadow-lg p-3 mb-5 bg-body rounded" style="width: 18rem;">
-      //   <img src="${localSTGPeliRomance.imgPeli}" class="card-img-top" alt="...">
-      //   <div class="card-body">
-      //      <p class="text-center p-3 border"><a class="text-decoration-none text-white" href="verpelicula2.html?${localSTGPeliRomance.id}">${localSTGPeliRomance.nombrePeli}</a></p>
-      //   </div>
-      // </div>`
     )
     .join("");
 
@@ -367,14 +463,14 @@ function CargaPrincipal() {
 
   pFiccion.innerHTML = peliFiccion
     .map(
-      (localSTGPeliFiccion) =>
+      (localSTGPeli) =>
         `<div class="col-6 my-2">
                       <img
-                        src="${localSTGPeliFiccion.imgPeli}"
+                        src="${localSTGPeli.imgPeli}"
                         alt=""
                         class="img-fluid w-100"
                       />
-                      <p class="text-center  p-3 border"><a class="text-decoration-none text-white" href="verpelicula2.html?${localSTGPeliFiccion.id}">${localSTGPeliFiccion.nombrePeli}</a></p>
+                      <p class="text-center  p-3 border"><a class="text-decoration-none text-white" href="verpelicula2.html?${localSTGPeli.id}">${localSTGPeli.nombrePeli}</a></p>
                     </div>`
     )
     .join("");
@@ -416,45 +512,6 @@ function buscarPelicula() {
             </div>`;
   }
 }
-
-// funcion barra busqueda
-// let search = document.getElementById("search");
-
-// function buscarPelicula() {
-//   const localSTGpelisB = JSON.parse(localStorage.getItem("peli")) || [];
-//   console.log("entra a la funcion");
-//   console.log(search.value);
-//   console.log("Peli LS:" + localSTGpelisB);
-//   let peliEncontrada = [];
-
-//   localSTGpelisB.forEach((peli) => {
-//     console.log("nombre" + peli.nombrePeli);
-//     console.log("genero" + peli.generoPeli);
-//     const nombre = peli.generoPeli.toUpperCase();
-//     const entrada = search.value.toUpperCase();
-//     console.log("nombre" + nombre);
-//     console.log("input" + entrada);
-//     if (
-//       peli.generoPeli.toUpperCase().includes(search.value.toUpperCase()) ||
-//       peli.nombrePeli.toUpperCase().includes(search.value.toUpperCase())
-//     ) {
-//       console.log("si funciona");
-//       pBusqueda.innerHTML = `<div class="col-6 col-sm-4 col-md-3 col-lg-2  pt-3">
-//              <img src="${peli.imgPeli}" alt="" class="img-fluid w-100">
-//              <p class="text-center  p-3 border"><a class="text-decoration-none text-white" href="verpelicula2.html?${peli.id}">${peli.nombrePeli}</a></p>
-//           </div>`;
-//       // peliEncontrada = peliEncontrada.push(peli);
-//       // console.log(peliEncontrada);
-//     }
-//   });
-//   if (search.value == "") {
-//     pBusqueda.innerHTML = `
-//           <div  class="row">
-//             <div class="col">
-//                   </div>
-//           </div>`;
-//   }
-// }
 
 // funcion primeraCarga
 function primeraCarga() {

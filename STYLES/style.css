@@ -218,6 +218,7 @@ footer {
 }
 
 /* //Estilos Andrea */
+
 /* estilo para sacar borde azul al input al hacer foco  */
 input.form-control:focus {
   outline: none !important;
