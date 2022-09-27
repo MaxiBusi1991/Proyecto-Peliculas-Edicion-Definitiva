@@ -339,21 +339,21 @@ function CargaPrincipal() {
   pRomance.innerHTML = peliRomance
     .map(
       (localSTGPeliRomance) =>
-        // `<div class="col-6 my-2 h-100">
-        //               <img
-        //                 src="${localSTGPeliRomance.imgPeli}"
-        //                 alt=""
-        //                 class="img-fluid w-100 "
-        //               />
-        //               <p class="text-center p-3 border"><a class="text-decoration-none text-white" href="verpelicula2.html?${localSTGPeliRomance.id}">${localSTGPeliRomance.nombrePeli}</a></p>
-        //             </div>`
+        `<div class="col-6 my-2 h-100">
+                      <img
+                        src="${localSTGPeliRomance.imgPeli}"
+                        alt=""
+                        class="img-fluid w-100 "
+                      />
+                      <p class="text-center p-3 border"><a class="text-decoration-none text-white" href="verpelicula2.html?${localSTGPeliRomance.id}">${localSTGPeliRomance.nombrePeli}</a></p>
+                    </div>`
 
-        `<div class="card bg-white p-2 bg-opacity-25 shadow-lg p-3 mb-5 bg-body rounded" style="width: 18rem;">
-  <img src="${localSTGPeliRomance.imgPeli}" class="card-img-top" alt="...">
-  <div class="card-body">
-     <p class="text-center p-3 border"><a class="text-decoration-none text-white" href="verpelicula2.html?${localSTGPeliRomance.id}">${localSTGPeliRomance.nombrePeli}</a></p>
-  </div>
-</div>`
+      //         `<div class="card bg-white p-2 bg-opacity-25 shadow-lg p-3 mb-5 bg-body rounded" style="width: 18rem;">
+      //   <img src="${localSTGPeliRomance.imgPeli}" class="card-img-top" alt="...">
+      //   <div class="card-body">
+      //      <p class="text-center p-3 border"><a class="text-decoration-none text-white" href="verpelicula2.html?${localSTGPeliRomance.id}">${localSTGPeliRomance.nombrePeli}</a></p>
+      //   </div>
+      // </div>`
     )
     .join("");
 
@@ -377,13 +377,6 @@ function CargaPrincipal() {
     .join("");
 }
 
-// funcion primeraCarga
-function primeraCarga() {
-  console.log("primera cArga");
-  localStorage.setItem("peli", JSON.stringify(MOVIES));
-  console.log(MOVIES);
-}
-
 // funcion barra busqueda
 let search = document.getElementById("search");
 
@@ -398,17 +391,11 @@ function buscarPelicula() {
 
   pBusqueda.innerHTML = peliEncontrada
     .map(
-      (localSTGPeliEncontrada) =>
-        `
-              <div class="col-6 col-sm-4 col-md-3 col-lg-2  pt-3 text-center">
-                      <img
-                        src="${localSTGPeliEncontrada.imgPeli}"
-                        alt=""
-                        class="img-fluid w-100"
-                      />
-                      <p class="text-center  p-3 border"><a class="text-white text-decoration-none" href="verpelicula2.html?${localSTGPeliEncontrada.id}">${localSTGPeliEncontrada.nombrePeli}</a></p>
-                    </div>
-            `
+      (localSTGPeli) =>
+        `<div class="col-6 col-sm-4 col-md-3 col-lg-2  pt-3">
+              <img src="${localSTGPeli.imgPeli}" alt="" class="img-fluid w-100">
+              <p class="text-center  p-3 border"><a class="text-decoration-none text-white" href="verpelicula2.html?${localSTGPeli.id}">${localSTGPeli.nombrePeli}</a></p>
+            </div>`
     )
     .join("");
 
@@ -419,6 +406,12 @@ function buscarPelicula() {
                     </div>
             </div>`;
   }
+}
+// funcion primeraCarga
+function primeraCarga() {
+  console.log("primera cArga");
+  localStorage.setItem("peli", JSON.stringify(MOVIES));
+  console.log(MOVIES);
 }
 
 // login y registro
