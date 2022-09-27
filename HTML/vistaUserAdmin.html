@@ -12,6 +12,12 @@
       integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
       crossorigin="anonymous"
     />
+    <link rel="stylesheet" href="style.css" />
+    <script
+      src="https://kit.fontawesome.com/bf8e25c73a.js"
+      crossorigin="anonymous"
+    ></script>
+
     <style>
       :root {
         --gradient: linear-gradient(
@@ -50,9 +56,61 @@
     <title>Menu Usuario</title>
   </head>
   <body>
-    <div class="box"></div>
+    <!--Inicio de Navbar Admin-->
+    <header>
+      <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="./main.html">
+            <img src="../img/logocinesinfondo-removebg-preview.png" height="60"
+          /></a>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarNav"
+            aria-controls="navbarNav"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+              <li class="nav-item m-3">
+                <button
+                  type="button"
+                  class="btn btn-outline-secondary"
+                  onclick="ActivarUsuarios()"
+                >
+                  Usuarios
+                </button>
+              </li>
 
-    <div class="container">
+              <li class="nav-item m-3">
+                <button
+                  type="button"
+                  class="btn btn-outline-secondary"
+                  onclick="ActivarPeliculas()"
+                >
+                  Peliculas
+                </button>
+              </li>
+            </ul>
+
+            <ul class="navbar-nav mb-2 mb-lg-0 ms-auto">
+              <li class="nav-item">
+                <a class="nav-link" href="./main.html">Cerrar Sesion</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <!--Fin de Navbar Admin-->
+
+    <!-- <div class="box"></div> -->
+
+    <!-- <div class="container">
       <div class="row justify-content-center">
         <div class="col-4">
           <button
@@ -72,7 +130,8 @@
           </button>
         </div>
       </div>
-    </div>
+    </div> -->
+
     <br /><br />
     <div class="col table-responsive" style="display: block" id="UsuarioTabla">
       <div
@@ -126,7 +185,7 @@
           <div class="col-4">
             <button
               type="button"
-              class="btn text-light btn-outline-info"
+              class="btn text-light btn-outline-secondary"
               data-bs-toggle="modal"
               data-bs-target="#modalAgregarPeli"
             >
@@ -142,22 +201,22 @@
         <div class="text-white">
           <h3>Administrador de Peliculas</h3>
         </div>
-        <table class="table align-middle text-light violeta-claro">
+        <table class="table align-middle text-light text-center violeta-claro">
           <thead>
             <tr>
               <th scope="col">Id</th>
               <th scope="col">Nombre</th>
-              <th scope="col">genero</th>
-              <th scope="col">img</th>
-              <th scope="col">año</th>
-              <th scope="col">Duracion</th>
-              <th scope="col">Trailer</th>
-              <th scope="col">sinopsis</th>
+              <th scope="col">Género</th>
+              <th scope="col">URL imagen</th>
+              <th scope="col">Año</th>
+              <th scope="col">Duracion (min)</th>
+              <th scope="col">URL Trailer</th>
+              <th scope="col">Sinopsis</th>
               <th scope="col">Estado</th>
               <th scope="col">Estreno</th>
               <th scope="col">Destacado</th>
               <th scope="col">Modificar</th>
-              <th scope="col">Elimiinar</th>
+              <th scope="col">Eliminar</th>
             </tr>
           </thead>
           <tbody id="pieBody"></tbody>
@@ -192,7 +251,7 @@
 </html>
 
 <!-- Modal agregado de peliculas -->
-<div
+<!-- <div
   class="modal fade text-dark"
   id="modalAgregarPeli"
   tabindex="-1"
@@ -218,6 +277,7 @@
             <label for="exampleInputEmail1" class="form-label">Nombre</label>
             <input required type="text" class="form-control" id="nombrePeli" />
           </div>
+
           <div class="mb-3">
             <label for="exampleInputEmail1" class="form-label">Genero</label>
             <select
@@ -325,12 +385,152 @@
       </div>
     </div>
   </div>
+</div> -->
+
+<!-- -modal agregar pelicula andrea  -->
+<div
+  class="modal fade text-dark"
+  id="modalAgregarPeli"
+  tabindex="-1"
+  aria-labelledby="modalAgregarPeliLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="modalAgregarPeliLabel">
+          Agregar Peliculas
+        </h5>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="modal-body">
+        <form class="row g-3 needs-validation" novalidate>
+          <div class="mb-3">
+            <label for="nombrePeli" class="form-label">Nombre</label>
+            <input type="text" class="form-control" id="nombrePeli" required />
+            <div class="invalid-feedback">Por favor ingrese nombre válido</div>
+          </div>
+
+          <div class="mb-3">
+            <!-- <label for="generoPeli" class="form-label">Género</label> -->
+            <select class="form-select" id="generoPeli" required>
+              <option selected>Género</option>
+              <option value="Terror">Terror</option>
+              <option value="Comedia">Comedia</option>
+              <option value="Acccion">Acccion</option>
+              <option value="Drama">Drama</option>
+              <option value="Aventura">Aventura</option>
+              <option value="Romance">Romance</option>
+              <option value="Ficcion">C. Ficcion</option>
+              <option value="Infantil">Infantil</option>
+              <option value="Documental">Documental</option>
+            </select>
+            <div class="invalid-feedback">Seleccion un género correcto</div>
+          </div>
+
+          <div class="mb-3">
+            <label for="imgPeli" class="form-label">URL imagen</label>
+            <input type="text" class="form-control" id="imgPeli" required />
+            <div class="invalid-feedback">URL Inválida</div>
+          </div>
+
+          <div class="mb-3">
+            <label for="anoPeli" class="form-label">Año de producción</label>
+            <input
+              type="number"
+              class="form-control"
+              id="anoPeli"
+              required
+              maxlength="4"
+            />
+            <div class="invalid-feedback">Año Inválido</div>
+          </div>
+
+          <div class="mb-3">
+            <label for="duraPeli" class="form-label">Duración (min)</label>
+            <input
+              type="number"
+              class="form-control"
+              id="duraPeli"
+              required
+              maxlength="3"
+            />
+            <div class="invalid-feedback">Duración Inválida</div>
+          </div>
+
+          <div class="mb-3">
+            <label for="trailerPeli" class="form-label">URL trailer</label>
+            <input type="text" class="form-control" id="trailerPeli" required />
+            <div class="invalid-feedback">URL Inválida</div>
+          </div>
+
+          <div class="mb-3">
+            <label for="sinopsis" class="form-label">Sinopsis</label>
+            <textarea type="text" class="form-control" id="sinopsis" required>
+            </textarea>
+            <div class="invalid-feedback">Sinopsis inválida</div>
+          </div>
+
+          <div class="mb-3">
+            <!-- <label for="Estreno" class="form-label">Estreno</label> -->
+            <select class="form-select" id="Estreno" required>
+              <option selected>Estreno</option>
+              <option value="Si">Si</option>
+              <option value="No">No</option>
+            </select>
+            <div class="invalid-feedback"></div>
+          </div>
+
+          <div id="formDestacada" class="mb-3">
+            <select class="form-select" id="Destacada" required>
+              <option selected>Destacada</option>
+              <option value="Si">Si</option>
+              <option value="No">No</option>
+            </select>
+            <div class="invalid-feedback"></div>
+          </div>
+
+          <div class="mb-3">
+            <!-- <label for="Estado" class="form-label">Estado</label> -->
+            <select class="form-select" id="Estado" required>
+              <option selected>Estado</option>
+              <option value="Si">Habilitado</option>
+              <option value="No">Deshabilitado</option>
+            </select>
+            <div class="invalid-feedback"></div>
+          </div>
+
+          <!-- <div class="col-12">
+    <button class="btn btn-primary" type="submit">Submit form</button>
+  </div> -->
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+          Cerrar
+        </button>
+        <button
+          type="button"
+          class="btn btn-secondary"
+          data-bs-dismiss="modal"
+          onclick="GuardarPelicula()"
+        >
+          Guardar Pelicula
+        </button>
+      </div>
+    </div>
+  </div>
 </div>
 
-<!-- Modal -->
+<!-- Modal Ver Sinopsis -->
 <div
   class="modal fade"
-  id="exampleModal"
+  id="sinopsisModal"
   tabindex="-1"
   aria-labelledby="exampleModalLabel"
   aria-hidden="true"
@@ -338,7 +538,7 @@
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">sinopsis</h5>
+        <h5 class="modal-title" id="exampleModalLabel">Sinopsis</h5>
         <button
           type="button"
           class="btn-close"

@@ -219,6 +219,19 @@ footer {
 
 /* //Estilos Andrea */
 
+/* estilo para sacar borde azul al input al hacer foco  */
+input.form-control:focus {
+  outline: none !important;
+
+  outline-width: 0 !important;
+
+  box-shadow: none;
+
+  -moz-box-shadow: none;
+
+  -webkit-box-shadow: none;
+}
+
 .violeta-claro {
   background: rgb(97, 0, 148);
   background: linear-gradient(
@@ -344,9 +357,10 @@ h5 {
 */ {
   font-family: "Roboto", "Roboto Light", "Roboto Medium", etc;
 }
-*/ .color-footer {
+
+.fondofooter {
   background-color: #000000;
 }
-.color-boton {
+.botonSus {
   background-color: #610094;
 }
