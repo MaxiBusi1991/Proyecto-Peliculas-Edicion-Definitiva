@@ -126,12 +126,27 @@ table {
 /* estilos de maxi */
 
 body {
+  display: flex;
+  flex-direction: column;
   font-family: "Roboto", sans-serif;
+  min-height: 100%;
+}
+
+html {
+  background: #150050;
+  background: linear-gradient(180deg, #000000 0%, #150050 35%, #3f0071 100%)
+    no-repeat center center fixed;
+  height: 100%;
+}
+
+footer {
+  margin-bottom: auto;
 }
 
 .color-fondo {
   background: #150050;
-  background: linear-gradient(180deg, #000000 0%, #150050 35%, #3f0071 100%);
+  background: linear-gradient(180deg, #000000 0%, #150050 35%, #3f0071 100%)
+    no-repeat center center fixed;
 }
 .foto-integrantes {
   height: 200px;
@@ -153,9 +168,53 @@ body {
   transition-duration: 0.3s;
 }
 
-.imagen-404 {
-  height: 50vh;
-  width: 50vw;
+/* estilos pagina 404 */
+
+.body-404 {
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  font-family: "Roboto", sans-serif;
+}
+
+.img-404 {
+  width: 50%;
+}
+
+.contenedor-404 {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  align-items: center;
+  justify-content: center;
+}
+
+.button {
+  padding: 13px 30px;
+  border-radius: 15px;
+  border: none;
+  background-color: #02408c;
+  color: aliceblue;
+}
+
+.H1-404 {
+  padding: 20px;
+}
+
+@media screen and (max-width: 320px) {
+  .H1-404 {
+    font-size: 20px;
+  }
+
+  .button {
+    padding: 5px 10px;
+    font-size: 10px;
+  }
+}
+
+.color-navbar {
+  background-color: #020202;
 }
 
 /* //Estilos Andrea */
@@ -285,9 +344,17 @@ h5 {
 */ {
   font-family: "Roboto", "Roboto Light", "Roboto Medium", etc;
 }
+<<<<<<< HEAD
 
 .fondofooter{
   background-color: #000000;
+=======
+*/ .color-footer {
+  background-color: #000000;
+}
+.color-boton {
+  background-color: #610094;
+>>>>>>> f0a14fdf546639a8d8691f94ff727419e496e4f5
 }
 .botonSus{
   background-color: #610094;
