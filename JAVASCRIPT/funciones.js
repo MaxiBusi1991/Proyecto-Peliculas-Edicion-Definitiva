@@ -1,4 +1,5 @@
 // PELICUAS//
+let contador = 1;
 
 function GuardarPelicula() {
   var nombrePeli = document.getElementById("nombrePeli").value;
@@ -21,7 +22,7 @@ function GuardarPelicula() {
   }
 
   arrayPeli.push({
-    id: arrayPeli.length + 1,
+    id: arrayPeli.length + contador,
     nombrePeli,
     generoPeli,
     imgPeli,
@@ -150,6 +151,7 @@ function eliminarPelicula(id) {
   }
 
   localStorage.setItem("peli", JSON.stringify(peli));
+  contador++;
   agregarpeli();
 }
 

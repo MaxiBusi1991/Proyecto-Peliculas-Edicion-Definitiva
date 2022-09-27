@@ -28,9 +28,9 @@ verPeli.innerHTML = peliEs
                  
                         <button type="button" class="btn violeta-claro m-2 text-light "><i class="fa-solid fa-play mx-2"></i>Reproducir</button>
                         
-                        <abbr title="Agregar a mi lista">  <button type="button" class="boton-sobrio m-2 text-light "><i class="fa-solid fa-plus text-light"></i></button></abbr>
+                        <abbr title="Agregar a mi lista">  <button type="button" class="boton-sobrio m-2 text-light "><a class="text-decoration-none text-white" href="error 404.html"><i class="fa-solid fa-plus text-light"></i></i></i></a></button></abbr>
 
-                        <button type="button" class="boton-sobrio m-2 text-light "><i class="fa-solid fa-thumbs-up text-light"></i></i></button>
+                        <button type="button" class="boton-sobrio m-2 text-light " ><a class="text-decoration-none text-white" href="error 404.html"><i class="fa-solid fa-thumbs-up text-light"></i></i></a></button>
                     
                      
                   <p>${localSTGPeliEs.sinopsis}</p>
