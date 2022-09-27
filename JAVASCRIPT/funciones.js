@@ -66,6 +66,7 @@ function agregarpeli() {
     )
     .join("");
 }
+
 function msinopsis(id) {
   console.log("entre si");
   idm = id;
@@ -393,11 +394,17 @@ function buscarPelicula() {
 
   pBusqueda.innerHTML = peliEncontrada
     .map(
-      (localSTGPeli) =>
-        `<div class="col-6 col-sm-4 col-md-3 col-lg-2  pt-3">
-              <img src="${localSTGPeli.imgPeli}" alt="" class="img-fluid w-100">
-              <p class="text-center  p-3 border"><a class="text-decoration-none text-white" href="verpelicula2.html?${localSTGPeli.id}">${localSTGPeli.nombrePeli}</a></p>
-            </div>`
+      (localSTGPeliEncontrada) =>
+        `
+              <div class="col-6 col-sm-4 col-md-3 col-lg-2  pt-3 text-center">
+                      <img
+                        src="${localSTGPeliEncontrada.imgPeli}"
+                        alt=""
+                        class="img-fluid w-100"
+                      />
+                      <p class="text-center  p-3 border"><a class="text-white text-decoration-none" href="verpelicula2.html?${localSTGPeliEncontrada.id}">${localSTGPeliEncontrada.nombrePeli}</a></p>
+                    </div>
+            `
     )
     .join("");
 
@@ -409,6 +416,46 @@ function buscarPelicula() {
             </div>`;
   }
 }
+
+// funcion barra busqueda
+// let search = document.getElementById("search");
+
+// function buscarPelicula() {
+//   const localSTGpelisB = JSON.parse(localStorage.getItem("peli")) || [];
+//   console.log("entra a la funcion");
+//   console.log(search.value);
+//   console.log("Peli LS:" + localSTGpelisB);
+//   let peliEncontrada = [];
+
+//   localSTGpelisB.forEach((peli) => {
+//     console.log("nombre" + peli.nombrePeli);
+//     console.log("genero" + peli.generoPeli);
+//     const nombre = peli.generoPeli.toUpperCase();
+//     const entrada = search.value.toUpperCase();
+//     console.log("nombre" + nombre);
+//     console.log("input" + entrada);
+//     if (
+//       peli.generoPeli.toUpperCase().includes(search.value.toUpperCase()) ||
+//       peli.nombrePeli.toUpperCase().includes(search.value.toUpperCase())
+//     ) {
+//       console.log("si funciona");
+//       pBusqueda.innerHTML = `<div class="col-6 col-sm-4 col-md-3 col-lg-2  pt-3">
+//              <img src="${peli.imgPeli}" alt="" class="img-fluid w-100">
+//              <p class="text-center  p-3 border"><a class="text-decoration-none text-white" href="verpelicula2.html?${peli.id}">${peli.nombrePeli}</a></p>
+//           </div>`;
+//       // peliEncontrada = peliEncontrada.push(peli);
+//       // console.log(peliEncontrada);
+//     }
+//   });
+//   if (search.value == "") {
+//     pBusqueda.innerHTML = `
+//           <div  class="row">
+//             <div class="col">
+//                   </div>
+//           </div>`;
+//   }
+// }
+
 // funcion primeraCarga
 function primeraCarga() {
   console.log("primera cArga");
@@ -577,7 +624,7 @@ function ActivarUsuarios() {
 }
 
 //pre carga movies
-let MOVIES = [
+const MOVIES = [
   {
     id: 1,
     nombrePeli: "Pinocho",
@@ -610,7 +657,7 @@ let MOVIES = [
   },
   {
     id: 3,
-    nombre: "La memoria de un asesino",
+    nombrePeli: "La memoria de un asesino",
     imgPeli: "https://pics.filmaffinity.com/memory-281680996-large.jpg",
     generoPeli: "Terror",
     sinopsis:
