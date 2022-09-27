@@ -344,17 +344,9 @@ h5 {
 */ {
   font-family: "Roboto", "Roboto Light", "Roboto Medium", etc;
 }
-<<<<<<< HEAD
 
 .fondofooter{
   background-color: #000000;
-=======
-*/ .color-footer {
-  background-color: #000000;
-}
-.color-boton {
-  background-color: #610094;
->>>>>>> f0a14fdf546639a8d8691f94ff727419e496e4f5
 }
 .botonSus{
   background-color: #610094;
