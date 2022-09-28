@@ -133,6 +133,28 @@
           </button>
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mb-2 mb-lg-0">
+              <!-- inicio barra de busqueda  -->
+              <div class="input-group input-group-sm mb-3 me-5 mt-2 border-0">
+                <span
+                  class="input-group-text bg-dark border-dark"
+                  id="inputGroup-sizing-sm"
+                  ><i
+                    class="fa-sharp fa-solid fa-magnifying-glass"
+                    style="color: rgb(248, 242, 242)"
+                  ></i
+                ></span>
+                <input
+                  type="text"
+                  id="search"
+                  class="form-control border-0 bg-dark text-light"
+                  aria-label="Sizing example input"
+                  aria-describedby="inputGroup-sizing-sm"
+                  placeholder="Nombre/categoría"
+                  autofocus
+                  oninput="buscarPelicula()"
+                />
+              </div>
+              <!-- fin barra de busqueda -->
               <li class="nav-item dropdown">
                 <a
                   class="navbar-scroll nav-link dropdown-toggle"
