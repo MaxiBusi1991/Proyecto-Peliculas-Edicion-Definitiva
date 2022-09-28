@@ -210,6 +210,64 @@
     </header>
     <!--FIN del navbar-->
 
+    <!--Inicio de Navbar Admin-->
+    <header>
+      <nav
+        class="navbar navbar-expand-lg navbar-dark sticky-top"
+        style="display: none"
+        id="navAdmin"
+      >
+        <div class="container-fluid">
+          <a class="navbar-brand" href="../HTML/index.html">
+            <img src="../img/logocinesinfondo-removebg-preview.png" height="60"
+          /></a>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarNav"
+            aria-controls="navbarNav"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+              <li class="nav-item m-3">
+                <button
+                  type="button"
+                  class="btn btn-outline-secondary"
+                  onclick="ActivarUsuarios()"
+                >
+                  Usuarios
+                </button>
+              </li>
+
+              <li class="nav-item m-3">
+                <button
+                  type="button"
+                  class="btn btn-outline-secondary"
+                  onclick="ActivarPeliculas()"
+                >
+                  Peliculas
+                </button>
+              </li>
+            </ul>
+
+            <ul class="navbar-nav mb-2 mb-lg-0 ms-auto">
+              <li class="nav-item">
+                <button class="btn text-white" onclick="Cerrar()">
+                  Cerrar Sesion
+                </button>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <!--Fin de Navbar Admin-->
+
     <main class="d-flex flex-column min-vh-100">
       <!--Aqui va una publicidad-->
       <div class="container-fluid p-3 publicidad">

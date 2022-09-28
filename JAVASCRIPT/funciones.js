@@ -297,10 +297,12 @@ function CargaPrincipal() {
     // navbar comun
     document.getElementById("navUsuario").style.display = "none";
     document.getElementById("navComun").style.display = "block";
+    // document.getElementById("navAdmin").style.display = "none";
   } else {
     // navbar user
     document.getElementById("navComun").style.display = "none";
     document.getElementById("navUsuario").style.display = "block";
+    // document.getElementById("navAdmin").style.display = "block";
   }
 
   const localSTGpelisB = JSON.parse(localStorage.getItem("peli")) || [];
@@ -334,7 +336,7 @@ function CargaPrincipal() {
               </p>
             </div>
             <div class="row col-4 col-md-4 col-xl-4 py-3">
-             <a class="text-decoration-none text-white" href="../HTML/error 404.html"><button class="btn btn-reproducir">Reproducir</button></a>
+             <a class="text-decoration-none text-white" href="verpelicula2.html?${localSTGPeli.id}"><button class="btn btn-reproducir">Reproducir</button></a>
               
             </div>
           </div>`
@@ -917,8 +919,7 @@ let pelis = [
   {
     id: 4,
     nombrePeli: "Honor Society",
-    imgPeli:
-      "https://image.tmdb.org/t/p/w185_and_h278_bestv2/1oeN5NtPM8SP6SZkpsZO6BWiegl.jpg",
+    imgPeli: "https://pics.filmaffinity.com/honor_society-393988220-large.jpg",
     generoPeli: "Comedia",
     sinopsis:
       "Honor es una ambiciosa estudiante de último año de instituto cuyo único objetivo es entrar en Harvard, suponiendo que primero consiga la codiciada recomendación de su orientador, el Sr. Calvin. Dispuesta a hacer lo que sea necesario, Honor urde un plan maquiavélico para acabar con sus tres principales competidores estudiantiles, hasta que las cosas dan un giro cuando se enamora inesperadamente de su mayor competidor, Michael.",
