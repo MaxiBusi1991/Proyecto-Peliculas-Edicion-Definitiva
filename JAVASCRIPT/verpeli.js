@@ -10,7 +10,7 @@ verPeli.innerHTML = peliEs
   .map(
     (localSTGPeliEs) =>
       `
-          <div class="row ">
+          <div class="row  ">
             <img src="${localSTGPeliEs.imgPeli}" class="mt-2 " alt="${localSTGPeliEs.nombrePeli}">
              </div>
 
@@ -53,7 +53,7 @@ verPeli.innerHTML = peliEs
           <div class="col  m-auto  d-none d-lg-block ">
             
             <div class="mt-2">
-                <p class="text-center  "><iframe width="560" height="315" src="${localSTGPeliEs.trailerPeli}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen autoplay></iframe></p> 
+                <p class="text-center  "><iframe width="560" height="315" src="${localSTGPeliEs.trailerPeli}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen ></iframe></p> 
             </div>
             
         
