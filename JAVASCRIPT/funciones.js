@@ -297,18 +297,18 @@ function CargaPrincipal() {
     // navbar comun
     document.getElementById("navUsuario").style.display = "none";
     document.getElementById("navComun").style.display = "block";
-   document.getElementById("navAdmin").style.display = "none";
+    document.getElementById("navAdmin").style.display = "none";
   } else {
     // navbar user
     document.getElementById("navComun").style.display = "none";
     document.getElementById("navUsuario").style.display = "block";
     document.getElementById("navAdmin").style.display = "none";
   }
-// admi nav
-  if (userExistsAdmin.length == 1 ){
+  // admi nav
+  if (userExistsAdmin.length == 1) {
     document.getElementById("navComun").style.display = "none";
     document.getElementById("navUsuario").style.display = "none";
-     document.getElementById("navAdmin").style.display = "block";
+    document.getElementById("navAdmin").style.display = "block";
   }
 
   const localSTGpelisB = JSON.parse(localStorage.getItem("peli")) || [];
@@ -652,7 +652,7 @@ function ingresar() {
 }
 function Cerrar() {
   const localSTGUsers = JSON.parse(localStorage.getItem("user")) || [];
-  const userExists = localSTGUsers.filter((local) => local.sesion === 1);
+  const userExists = localSTGUsers.filter((local) => local.sesion > 0);
   if (userExists.length > 0) {
     for (let i = 0; i < localSTGUsers.length; i++) {
       if (localSTGUsers[i].sesion > 0) {
@@ -739,9 +739,6 @@ function Guardar() {
   localStorage.setItem("user", JSON.stringify(arrayUser));
 
   VerUsuario();
-
- 
-
 }
 function modiagre(idv) {
   //console.log(idv);
