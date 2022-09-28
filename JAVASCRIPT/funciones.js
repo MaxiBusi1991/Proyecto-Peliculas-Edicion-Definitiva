@@ -347,7 +347,7 @@ function CargaPrincipal() {
         `<div class="col-6 col-sm-4 col-md-3 col-lg-2 h-100 pt-3">
               
               
-              <a class="text-decoration-none text-white" href="verpelicula2.html?${localSTGPeliEstreno.id}"><img src="${localSTGPeliEstreno.imgPeli}" alt="" class="img-fluid w-100"></a>
+              <a class="text-decoration-none text-white" href="verpelicula2.html?${localSTGPeliEstreno.id}"><img src="${localSTGPeliEstreno.imgPeli}" alt="" class="img-fluid w-100 pt-2"></a>
 
               
             </div>`
@@ -525,7 +525,7 @@ function buscarPelicula() {
         `
               <div class="col-6 col-sm-4 col-md-3 col-lg-2 h-100 pt-3 text-center">
                     
-                       <a class="text-decoration-none text-white" href="verpelicula2.html?${localSTGPeliEncontrada.id}"><img src="${localSTGPeliEncontrada.imgPeli}" alt="" class="img-fluid w-100"></a>
+                       <a class="text-decoration-none text-white" href="verpelicula2.html?${localSTGPeliEncontrada.id}"><img src="${localSTGPeliEncontrada.imgPeli}" alt="" class="img-fluid w-100 pt-2"></a>
 
                       
                     </div>
@@ -838,17 +838,20 @@ function GuardarModiUsuario() {
 
 /// Osqui trabajando
 //pre carga movies
-const MOVIES = [
+
+// pelis
+
+let pelis = [
   {
     id: 1,
-    nombrePeli: "Pinocho",
-    imgPeli: "https://pics.filmaffinity.com/pinocchio-256590713-large.jpg",
-    generoPeli: "Aventura",
+    nombrePeli: "Section 8",
+    imgPeli:
+      "https://image.tmdb.org/t/p/w185_and_h278_bestv2/3G1wHQNITyfiABp2fgytpiFMHf9.jpg",
+    generoPeli: "Accion",
     sinopsis:
-      "Versión en acción real y CGI del aclamado cuento sobre una marioneta que se embarca en una trepidante aventura para convertirse en un niño de verdad. La historia también presenta a otros personajes, como Gepetto, el carpintero que fabrica a Pinocho y lo trata como a su propio hijo; Pepito Grillo, que hace las veces de guía y “conciencia” de Pinocho o el Hada Azul.",
-    duraPeli: 111,
-    trailerPeli:
-      "https://secure.disney.com/embed/5e052907a44a4ebd6b4f2a72?domain=disneylatino.com",
+      "Tras vengar el asesinato de su familia, un ex soldado sale de la cárcel y es reclutado por una oscura agencia gubernamental.",
+    duraPeli: 98,
+    trailerPeli: "https://www.youtube.com/embed/Jg9w12zHwlk",
     anoPeli: 2022,
     Estreno: "Si",
     Destacada: "No",
@@ -856,42 +859,44 @@ const MOVIES = [
   },
   {
     id: 2,
-    nombrePeli: "Top Gun",
+    nombrePeli: "Megaboa",
     imgPeli:
-      "https://pics.filmaffinity.com/top_gun_maverick-537976462-large.jpg",
-    generoPeli: "Acccion",
+      "https://image.tmdb.org/t/p/w185_and_h278_bestv2/sAnAMv3eyQiGI1z2k8NsvH0Y6r5.jpg",
+    generoPeli: "Accion",
     sinopsis:
-      "Después de más de treinta años de servicio como uno de los mejores aviadores de la Armada, Pete ´Mavericks´ Mitchel  se encuentra donde siempre quiso estar: superando los límites como un valiente piloto de pruebas y esquivando el ascenso de rango, que no le dejaría volar emplazándolo en tierra. Cuando es destinado a la academia de Top Gun con el objetivo de entrenar a los pilotos de élite para realizar una peligrosa misión en territorio enemigo, Maverick se encuentra allí con el joven teniente Bradley Bradshaw , el hijo de su difunto amigo ´Goose´.",
-    duraPeli: 131,
-    trailerPeli: "https://www.dailymotion.com/embed/video/x89hfnb?autoplay=1",
-    anoPeli: 2022,
+      "En un viaje a Colombia, un grupo de estudiantes universitarios se encuentra con una boa constrictor de veinte metros, hambrienta de sangre.",
+    duraPeli: 100,
+    trailerPeli: "https://www.youtube.com/embed/h9X6rt9aUP4",
+    anoPeli: 2021,
     Estreno: "Si",
     Destacada: "No",
     Estado: "Si",
   },
   {
     id: 3,
-    nombrePeli: "La memoria de un asesino",
-    imgPeli: "https://pics.filmaffinity.com/memory-281680996-large.jpg",
-    generoPeli: "Terror",
+    nombrePeli: "Supercool",
+    imgPeli:
+      "https://image.tmdb.org/t/p/w185_and_h278_bestv2/3NV278UG4Z8wOWpKFHz6I7D7Nda.jpg",
+    generoPeli: "Comedia",
     sinopsis:
-      "Un asesino a sueldo descubre que se ha convertido en un objetivo después de que se niega a completar un trabajo para una peligrosa organización criminal... Remake de la película belga ´De zaak alzheimer´ (2003).",
-    duraPeli: 114,
-    trailerPeli: "https://www.youtube.com/embed/l6a_GdKxhWY",
-    anoPeli: 2022,
+      "Mejores amigos, Neil y Gilbert comienzan su último año de secundaria con grandes esperanzas y aspiraciones. Neil siempre ha fantaseado con ser lo suficientemente genial como para salir con su enamorado de mucho tiempo y Gilbert siempre ha soñado con ser una súper estrella de las redes sociales. Después de lo que es, según todos los informes, un primer día muy decepcionante y vergonzoso en la escuela, Neil pide un deseo mágico de ser genial justo en el momento mágico en que el reloj marca las 11:11. A la mañana siguiente, Neil se despierta con una realidad que proviene directamente de los cómics de sus sueños.",
+    duraPeli: 91,
+    trailerPeli: "https://www.youtube.com/embed/nFsBy6i2z1k",
+    anoPeli: 2021,
     Estreno: "Si",
     Destacada: "No",
     Estado: "Si",
   },
   {
     id: 4,
-    nombrePeli: "The Bunker Game",
-    imgPeli: "https://pics.filmaffinity.com/samaritan-449167522-large.jpg",
-    generoPeli: "Terror",
+    nombrePeli: "Honor Society",
+    imgPeli:
+      "https://image.tmdb.org/t/p/w185_and_h278_bestv2/1oeN5NtPM8SP6SZkpsZO6BWiegl.jpg",
+    generoPeli: "Comedia",
     sinopsis:
-      "Después de varios accidentes misteriosos, se interrumpe un juego de rol de acción en vivo y los jugadores abandonan el búnker mientras el personal se queda atrás para investigar la desaparición de Greg, el autor intelectual del juego.",
-    duraPeli: 90,
-    trailerPeli: "https://www.youtube.com/embed/DPcbatQ7Yrk",
+      "Honor es una ambiciosa estudiante de último año de instituto cuyo único objetivo es entrar en Harvard, suponiendo que primero consiga la codiciada recomendación de su orientador, el Sr. Calvin. Dispuesta a hacer lo que sea necesario, Honor urde un plan maquiavélico para acabar con sus tres principales competidores estudiantiles, hasta que las cosas dan un giro cuando se enamora inesperadamente de su mayor competidor, Michael.",
+    duraPeli: 97,
+    trailerPeli: "https://www.youtube.com/embed/TIPBMxGqNWk",
     anoPeli: 2022,
     Estreno: "Si",
     Destacada: "No",
@@ -899,28 +904,29 @@ const MOVIES = [
   },
   {
     id: 5,
-    nombrePeli: "Samaritan",
+    nombrePeli: "The Ex",
     imgPeli:
-      "https://pics.filmaffinity.com/ame_wo_tsugeru_hyouryuu_danchi-350727721-large.jpg",
-    generoPeli: "Acccion",
+      "https://image.tmdb.org/t/p/w185_and_h278_bestv2/gd2Lsq6yMzQmjhlbU2C9vw4HAJ8.jpg",
+    generoPeli: "Terror",
     sinopsis:
-      "Sam Cleary , un joven de 13 años, sospecha que su misterioso y solitario vecino, el Sr. Smith , es en realidad un personaje legendario que se esconde a plena vista. Hace 20 años, el vigilante superpoderoso de Granite City, Samaritan, fue declarado muerto tras una batalla en un almacén con su rival, Némesis. La gente cree que Samaritan falleció en el incendio, pero algunos ciudadanos como Sam tienen la esperanza de que siga vivo. Con la delincuencia en aumento y la ciudad al borde del caos, Sam se propone sacar a su vecino de su escondite para salvar la ciudad de la ruina.",
-    duraPeli: 102,
-    trailerPeli: "https://www.youtube.com/embed/DPcbatQ7Yrk",
-    anoPeli: 2022,
+      "La historia de cómo las redes sociales y la mensajería instantánea están cambiando la vida de una persona moderna. Han pasado varios años desde que un adolescente de 16 años publicó una foto de su novia en el chat general, con la esperanza de presumir ante sus amigos. Ahora tiene una vida adulta feliz: trabajo, amigos, su prometida Katya, que está a punto de convertirse en su esposa. Pero Internet le hace recordar el amor adolescente, tras el cual se produce una cadena de inexplicables acontecimientos místicos con la futura esposa del joven. La chica recibe misteriosos mensajes del pasado de su prometido. A causa de ellos, su vida se convierte en una pesadilla.",
+    duraPeli: 90,
+    trailerPeli: "https://www.youtube.com/embed/1Cz--nL7CD0",
+    anoPeli: 2021,
     Estreno: "Si",
     Destacada: "No",
     Estado: "Si",
   },
   {
     id: 6,
-    nombrePeli: "Hogar a la deriva",
-    imgPeli: "https://pics.filmaffinity.com/me_time-211909621-large.jpg",
-    generoPeli: "Aventura",
+    nombrePeli: "Buenas Noches, Mamá",
+    imgPeli:
+      "https://image.tmdb.org/t/p/w185_and_h278_bestv2/oHhD5jD4S5ElPNNFCDKXJAzMZ5h.jpg",
+    generoPeli: "Terror",
     sinopsis:
-      "Los adolescentes Kosuke y Natsume son vecinos y amigos desde pequeños. Un verano, mientras juegan en su edificio que van a demoler, sucede un fenómeno muy extraño: a su alrededor, solo ven el mar. ¿Conseguirán Kosuke y los demás volver a su mundo? Las despedidas del verano no han hecho más que empezar.",
-    duraPeli: 93,
-    trailerPeli: "https://www.youtube.com/embed/eFkAo2sbn8M",
+      "Este remake de la película austriaca de 2014 del mismo nombre, sigue a una madre y sus dos hijos. En una casa solitaria en el campo, entre bosques y maizales, viven dos hermanos gemelos de nueve años que esperan a su madre. Cuando llega a casa, vendada tras la cirugía estética, nada es como antes. Los niños empiezan a dudar de que esta mujer sea realmente su madre. De esta forma, surge una lucha existencial por la identidad y la confianza en el seno de la familia.",
+    duraPeli: 91,
+    trailerPeli: "https://www.youtube.com/embed/rtE4pDglejo",
     anoPeli: 2022,
     Estreno: "Si",
     Destacada: "No",
@@ -928,13 +934,14 @@ const MOVIES = [
   },
   {
     id: 7,
-    nombrePeli: "Me Time",
-    imgPeli: "https://pics.filmaffinity.com/thirteen_lives-664179403-large.jpg",
-    generoPeli: "Comedia",
+    nombrePeli: "La Huerfana",
+    imgPeli:
+      "https://image.tmdb.org/t/p/w185_and_h278_bestv2/wSqAXL1EHVJ3MOnJzMhUngc8gFs.jpg",
+    generoPeli: "Terror",
     sinopsis:
-      "Un padre encuentra tiempo para sí mismo por primera vez en años mientras su esposa e hijos están fuera. Vuelve a conectar con un amigo para pasar un fin de semana salvaje.",
-    duraPeli: 101,
-    trailerPeli: "https://www.youtube.com/embed/zlWwUGrfXlo",
+      "Tras escapar de un centro psiquiátrico estonio, Leena Klammer viaja a América haciéndose pasar por Esther, la hija desaparecida de una familia adinerada. Pero cuando su máscara empieza a caer, se enfrenta a una madre que protegerá a su familia de la «niña» asesina a cualquier precio.",
+    duraPeli: 99,
+    trailerPeli: "https://www.youtube.com/embed/MRW6qHPODbE",
     anoPeli: 2022,
     Estreno: "Si",
     Destacada: "No",
@@ -942,28 +949,29 @@ const MOVIES = [
   },
   {
     id: 8,
-    nombrePeli: "Trece vidas",
-    imgPeli: "https://pics.filmaffinity.com/thirteen_lives-664179403-large.jpg",
+    nombrePeli: "No te preocupes querida",
+    imgPeli:
+      "https://image.tmdb.org/t/p/w185_and_h278_bestv2/nK5CTCp1xF8hS6RyFSnlL5zNOmH.jpg",
     generoPeli: "Drama",
     sinopsis:
-      "Basada en la historia real, ´Trece vidas´ es el relato del rescate de un equipo de fútbol de la cueva de Tham Luang, en Tailandia, tras quedar atrapado por las lluvias torrenciales y peligrosas inundaciones. ",
-    duraPeli: 142,
-    trailerPeli: "https://www.youtube.com/embed/R068Si4eb3Y",
+      "Alice y Jack tienen la suerte de vivir en Victoria, la ciudad experimental de la compañía que alberga a los hombres que trabajan para el Proyecto Victoria, de alto secreto, y a sus familias. La vida es perfecta, con todas las necesidades de los residentes cubiertas por la empresa. Todo lo que piden a cambio es un compromiso incondicional con la causa de Victoria. Pero cuando empiezan a aparecer grietas en su idílica vida, exponiendo destellos de algo mucho más siniestro que se esconde bajo la atractiva fachada, Alice no puede evitar cuestionarse qué están haciendo en Victoria y por qué. ¿Cuánto está dispuesta a perder Alice para sacar a la luz lo que realmente ocurre en el paraíso?",
+    duraPeli: 123,
+    trailerPeli: "https://www.youtube.com/embed/kMwLgSTNxb8",
     anoPeli: 2022,
     Estreno: "Si",
-    Destacada: "Si",
+    Destacada: "No",
     Estado: "Si",
   },
   {
     id: 9,
-    nombrePeli: "Goodnight Mommy",
+    nombrePeli: "Thor:Amor y Trueno",
     imgPeli:
-      "https://pics.filmaffinity.com/ich_seh_ich_seh_goodnight_mommy-227747347-large.jpg",
-    generoPeli: "Terror",
+      "https://image.tmdb.org/t/p/w185_and_h278_bestv2/kf9Bib75eduxt0QiVJO4pawfd9p.jpg",
+    generoPeli: "Aventura",
     sinopsis:
-      "Dos hermanos gemelos llegan a la casa de su madre y comienzan a sospechar que algo no está bien. Remake de la película austriaca homónima de 2014.",
-    duraPeli: 92,
-    trailerPeli: "https://www.youtube.com/embed/PS6Clja4S2E",
+      "Cuarta película sobre «Thor» del MCU, en la que el Dios del trueno contará con Lady Thor como acompañante, personaje que interpretará Natalie Portman.",
+    duraPeli: 119,
+    trailerPeli: "https://www.youtube.com/embed/kBGD4kmA7KI",
     anoPeli: 2022,
     Estreno: "Si",
     Destacada: "No",
@@ -971,23 +979,19 @@ const MOVIES = [
   },
   {
     id: 10,
-    nombrePeli: "Hustle",
-    imgPeli: "https://pics.filmaffinity.com/hustle-306927612-large.jpg",
-    generoPeli: "Comedia",
+    nombrePeli: "Veneciafrenia",
+    imgPeli:
+      "https://image.tmdb.org/t/p/w185_and_h278_bestv2/luMC56bwZqaECYRz6X7sXjqN6nd.jpg",
+    generoPeli: "Aventura",
     sinopsis:
-      "Sandler interpreta a un cazatalentos de baloncestistas en horas bajas que, estando en el extranjero, descubre un jugador con enorme talento pero con un pasado difícil. Sin la aprobación de su equipo, decide llevarse el fenómeno con él, dándoles a ambos una última oportunidad para demostrar que son dignos de la NBA.",
-    duraPeli: 117,
-    trailerPeli: "https://www.youtube.com/embed/lvRWUIUoaqU",
+      "En la naturaleza existe vínculo indisoluble entre la belleza y la muerte. El ser humano, deudor de su entorno, imita lo que observa. Como mosquitos atraídos por el faro más brillante, los turistas están apagando la luz de la ciudad más hermosa del planeta. La agonía de las últimas décadas ha desatado la ira entre los venecianos. Para frenar la invasión, algunos se han organizado, dando rienda suelta a su instinto de supervivencia. Nuestros protagonistas, un sencillo grupo de turistas españoles, viajan a Venecia con la intención de divertirse, ajenos a los problemas que les rodean. Allí se verán obligados a luchar por salvar sus propias vidas.",
+    duraPeli: 100,
+    trailerPeli: "https://www.youtube.com/embed/uT-0OIVwLmQ",
     anoPeli: 2022,
     Estreno: "Si",
     Destacada: "No",
     Estado: "Si",
   },
-];
-
-// pelis
-
-let pelis = [
   {
     id: 11,
     nombrePeli: "Black Phone",
@@ -997,7 +1001,7 @@ let pelis = [
     sinopsis:
       "En una ciudad de Colorado, en los años 70, un enmascarado secuestra a Finney Shaw, un chico tímido e inteligente de 13 años, y le encierra en un sótano insonorizado donde de nada sirven sus gritos. Cuando un teléfono roto y sin conexión empieza a sonar, Finney descubre que a través de él puede oír las voces de las anteriores víctimas, las cuales están decididas a impedir que Finney acabe igual que ellas.",
     duraPeli: 102,
-    trailerPeli: "https://dai.ly/x8ac68v",
+    trailerPeli: "https://www.dailymotion.com/embed/video/x8ac68v",
     anoPeli: 2022,
     Estreno: "Si",
     Destacada: "No",
@@ -1012,7 +1016,7 @@ let pelis = [
     sinopsis:
       "Lisa y Simon son inseparables desde que se conocieron siendo adolescentes. Pero todo cambia a causa de las actividades criminales de Simon, que le obligan a huir sin Lisa al ver su vida amenazada. Ella espera recibir noticias suyas en vano durante algún tiempo. Tres años más tarde, sus caminos vuelven a cruzarse en una isla del océano índico, pero sus circunstancias han cambiado.",
     duraPeli: 102,
-    trailerPeli: "https://dai.ly/x8bb253",
+    trailerPeli: "https://www.dailymotion.com/embed/video/x8bb253",
     anoPeli: 2020,
     Estreno: "Si",
     Destacada: "No",
@@ -1027,7 +1031,7 @@ let pelis = [
     sinopsis:
       "Horas después de la trágica muerte de su hermano menor en circunstancias inexplicables, la vida de tres hermanos se ve sumida en el caos.",
     duraPeli: 97,
-    trailerPeli: "https://dai.ly/x8d88qu",
+    trailerPeli: "https://www.dailymotion.com/embed/video/x8c9a6i",
     anoPeli: 2022,
     Estreno: "Si",
     Destacada: "No",
@@ -1042,7 +1046,7 @@ let pelis = [
     sinopsis:
       "En medio de la jungla urbana, Darko, un joven y apuesto inmigrante indocumentado, conoce a Alina, una misteriosa mujer que lleva una vida estable en Alemania. A pesar de las diferencias sociales y culturales, comparten una conexión erótica inmediata. Comienzan un apasionado romance y muy pronto Darko se encuentra absorbido por una atracción magnética.",
     duraPeli: 104,
-    trailerPeli: "https://youtu.be/GW2LpXb7GXA",
+    trailerPeli: "https://www.youtube.com/embed/GW2LpXb7GXA",
     anoPeli: 2021,
     Estreno: "Si",
     Destacada: "No",
@@ -1057,7 +1061,7 @@ let pelis = [
     sinopsis:
       "Cinco asesinos a sueldo se encuentran a bordo de un tren bala que viaja de Tokio a Morioka con unas pocas paradas intermedias. Descubren que sus misiones no son ajenas entre sí. La pregunta es quién saldrá vivo del tren y qué les espera en la estación final.",
     duraPeli: 127,
-    trailerPeli: "https://youtu.be/jUPwb7yz1Nk",
+    trailerPeli: "https://www.youtube.com/embed/jUPwb7yz1Nk",
     anoPeli: 2022,
     Estreno: "Si",
     Destacada: "No",
@@ -1072,7 +1076,7 @@ let pelis = [
     sinopsis:
       "Una tormenta inclemente. Una niña secuestrada. Una madre desesperada. Y una misteriosa vecina que no duda en unirse a una peligrosa misión de rescate en la naturaleza.",
     duraPeli: 107,
-    trailerPeli: "https://dai.ly/x8d6rv8",
+    trailerPeli: "https://www.youtube.com/embed/0LisSkh1PJY",
     anoPeli: 2022,
     Estreno: "Si",
     Destacada: "No",
@@ -1087,7 +1091,7 @@ let pelis = [
     sinopsis:
       "Quedarse calvo sigue siendo un trauma para muchos hombres. Juanjo, Sebas y Rayco son tres ejemplos, entre millones, de cómo la alopecia, conlleva también la caída de la autoestima. Pero si bien la alopecia no diferencia ni entiende de estratos sociales, su solución, sí. Y es que, lo que hasta ahora era prohibitivo para muchos, Turquía lo ha hecho accesible para todos con su turismo capilar low cost, convirtiéndose así en el nuevo maná de los calvos. Juanjo, Sebas y Rayco se embarcarán en una aventura en la que descubrirán que su problema no está tanto encima de su cabeza, si no dentro.",
     duraPeli: 106,
-    trailerPeli: "https://dai.ly/x8bpi3a",
+    trailerPeli: "https://www.youtube.com/embed/oWdVxSVCtoA",
     anoPeli: 2022,
     Estreno: "Si",
     Destacada: "No",
@@ -1102,7 +1106,7 @@ let pelis = [
     sinopsis:
       "Fanboy de un supergrupo de supervillanos conocido como Vicious 6, Gru trama un plan para volverse lo suficientemente malvado como para unirse a ellos, con el respaldo de sus seguidores, los Minions.",
     duraPeli: 87,
-    trailerPeli: "https://dai.ly/x8bfpli",
+    trailerPeli: "https://www.dailymotion.com/embed/video/x8bfpli",
     anoPeli: 2022,
     Estreno: "Si",
     Destacada: "No",
@@ -1117,7 +1121,7 @@ let pelis = [
     sinopsis:
       "El Doctor Nate Samuels, que se ha quedado viudo recientemente, regresa a Sudáfrica, lugar en el que conoció a su mujer, para visitar una reserva de animales con sus hijas. Pero lo que empieza siendo un viaje curativo se convierte en una lucha por la supervivencia cuando un león que ha escapado de unos cazadores furtivos empieza a seguirles.",
     duraPeli: 93,
-    trailerPeli: "https://dai.ly/x8b3zbb",
+    trailerPeli: "https://www.youtube.com/embed/ek415o7G51M",
     anoPeli: 2022,
     Estreno: "Si",
     Destacada: "No",
@@ -1132,7 +1136,7 @@ let pelis = [
     sinopsis:
       "Maciej Berbeka realiza la primera ascensión invernal del Broad Peak en 1988, escapando de la muerte por centímetros. Andrzej Zawada, el líder de la expedición, anuncia un gran éxito. Una vez que regresan a Polonia, resulta que Maciej «solo» alcanzó la Cumbre Rocosa, situada veintitrés metros más abajo que el pico real.",
     duraPeli: 100,
-    trailerPeli: "https://dai.ly/x8d91xw",
+    trailerPeli: "https://www.youtube.com/embed/SFlv1Y4pnnw",
     anoPeli: 2022,
     Estreno: "Si",
     Destacada: "No",
@@ -1147,7 +1151,7 @@ let pelis = [
     sinopsis:
       "Un coatí, una mariposa y una rana unen sus fuerzas para evitar a una malvada serpiente que está destruyendo sus hogares.",
     duraPeli: 85,
-    trailerPeli: "https://dai.ly/x83u7ko",
+    trailerPeli: "https://www.youtube.com/embed/48yg4TFVIdI",
     anoPeli: 2021,
     Estreno: "Si",
     Destacada: "No",
@@ -1162,7 +1166,7 @@ let pelis = [
     sinopsis:
       "Un elfo, harto y desbordado por su trabajo, huye al mundo real para tratar de vivir la magia de la Navidad con la ayuda de un nuevo y joven amigo.",
     duraPeli: 105,
-    trailerPeli: "https://dai.ly/x860hvc",
+    trailerPeli: "https://www.youtube.com/embed/6pOJTPV4l5E",
     anoPeli: 2021,
     Estreno: "Si",
     Destacada: "No",
@@ -1177,7 +1181,7 @@ let pelis = [
     sinopsis:
       "Un banquero regresa al Magic Camp al que asistió cuando era niño.",
     duraPeli: 100,
-    trailerPeli: "https://dai.ly/x7vilow",
+    trailerPeli: "https://www.youtube.com/embed/WmcoWQ4KUW0",
     anoPeli: 2020,
     Estreno: "Si",
     Destacada: "No",
@@ -1192,7 +1196,7 @@ let pelis = [
     sinopsis:
       "Lance Walters es un abogado divorciado que decide irse a vivir con su hijo y su nueva novia a una casa de ensueño en un bosque situado en las montañas. Sin embargo, allí descubrirá que para construir su hogar deberá cortar un árbol en el que vive un pájaro carpintero, contra el que empezará una guerra para decidir quién se quedará con el lugar.",
     duraPeli: 84,
-    trailerPeli: "https://youtu.be/YKynIkUAC2k",
+    trailerPeli: "https://www.youtube.com/embed/YKynIkUAC2k",
     anoPeli: 2017,
     Estreno: "Si",
     Destacada: "No",
@@ -1207,7 +1211,7 @@ let pelis = [
     sinopsis:
       "¿Crees que una escapada rústica sin servicio de móvil, Internet o redes sociales es una forma romántica de reparar tu matrimonio y tu vida sexual? Piénsalo de nuevo. Conoce a Dan y Jeanine Dewerson. La única chispa que hay en su dormitorio proviene del enchufe de la pared. El mejor amigo de su hija es su iPad. Dan no va a aguantar más y planea un tranquilo y relajante fin de semana en un remoto pueblo de montaña. Sin niños, sin teléfonos, sin redes sociales, sólo aire puro y mucho romance. Pero lo que empieza como un fin de semana perfecto se convierte rápidamente en un desastre con encuentros sobrenaturales, fuertes comestibles, lugareños malhumorados y un molesto perro tuerto. Sin un GPS que les guíe ni redes sociales que eviten su aburrimiento, Dan y Jeanine se ven obligados a reconectar entre sí. ¿Puede una «desintoxicación digital» salvar su matrimonio y su cordura?",
     duraPeli: 94,
-    trailerPeli: "https://dai.ly/x89sj5g",
+    trailerPeli: "https://www.youtube.com/embed/Jqc9TrG1Ah4",
     anoPeli: 2022,
     Estreno: "Si",
     Destacada: "No",
@@ -1222,7 +1226,7 @@ let pelis = [
     sinopsis:
       "Roxana Aubrey decide dejar sus estudios y escapar de su vida en París para tomar un curso de buceo libre en el sur de Francia. Rápidamente se ve arrastrada a una vida que alcanza nuevas profundidades gracias al peso del descenso de un océano.",
     duraPeli: 100,
-    trailerPeli: "https://dai.ly/x8dnhwz",
+    trailerPeli: "https://www.youtube.com/embed/3mLzxI2_pqo",
     anoPeli: 2022,
     Estreno: "Si",
     Destacada: "No",
@@ -1237,7 +1241,7 @@ let pelis = [
     sinopsis:
       "El amor de Tessa y Hardin nunca ha sido fácil. Mientras él permanece en Londres después de la boda de su madre y se hunde cada vez más en su propia oscuridad, ella regresa a Seattle. Tessa es la única capaz de entenderle y calmarle… él la necesita, pero ella ya no es la chica buena y dulce que era cuando llegó a la universidad. Deberá plantearse si lo que debe hacer ahora es salvar a Hardin y su relación con él, o si ha llegado el momento de pensar solo en ella. Si quieren que su amor sobreviva, primero tendrán que trabajar en sí mismos. ¿Pero será su destino seguir estando juntos?",
     duraPeli: 95,
-    trailerPeli: "https://dai.ly/x8ch0mo",
+    trailerPeli: "https://www.youtube.com/embed/mcp5mPMo8TM",
     anoPeli: 2022,
     Estreno: "Si",
     Destacada: "No",
@@ -1252,7 +1256,7 @@ let pelis = [
     sinopsis:
       "La difícil entrada en la vida adulta de un joven que experimenta los altibajos de su primer amor, mientras lidia con las secuelas familiares provocadas por la crisis financiera de 2008.",
     duraPeli: 95,
-    trailerPeli: "https://dai.ly/x8aqzu6",
+    trailerPeli: "https://www.youtube.com/embed/Ce6PKLD6l2Q",
     anoPeli: 2022,
     Estreno: "Si",
     Destacada: "No",
@@ -1267,7 +1271,7 @@ let pelis = [
     sinopsis:
       "Un equipo de mensajeros en bicicleta con sede en Madrid, especializado en viajes de larga distancia, viaja a Japón con sus bicicletas de piñón fijo. Inspirados en la legendaria Odisea japonesa, recorren sin asistencia alguna 22 etapas y más de 1.200 km.",
     duraPeli: 63,
-    trailerPeli: "https://youtu.be/2L92_EsS4mw",
+    trailerPeli: "https://www.youtube.com/embed/2L92_EsS4mw",
     anoPeli: 2016,
     Estreno: "Si",
     Destacada: "No",
@@ -1282,7 +1286,7 @@ let pelis = [
     sinopsis:
       "En los últimos años, miles de menores marroquíes salen de su país para tratar de vivir en Europa. Viajan sin compañía de sus familiares, muchos de ellos colándose en los transportes que atraviesan el Mediterráneo hacia la costa española. “Vidas menores” acompaña a varios de estos chicos en diferentes momentos de su viaje migratorio, retratando su cotidianeidad tal y como ellos la viven. El documental gira en torno al impacto y al significado que este viaje tiene para sus protagonistas, en una historia que se cuenta desde la perspectiva humana, sin otros testimonios que los de los propios menores y ofreciendo al espectador una mirada sin filtros ni prejuicios.",
     duraPeli: 78,
-    trailerPeli: "https://player.vimeo.com/video/451425554?h=939c18968a",
+    trailerPeli: "https://www.youtube.com/embed/Oxufcrc6HxA",
     anoPeli: 2020,
     Estreno: "Si",
     Destacada: "No",
@@ -1297,7 +1301,7 @@ let pelis = [
     sinopsis:
       "Personas cotidianas se encuentran en medio de una tragedia mundial cuando dos aviones Boeing 737 Max se estrellan con solo cinco meses de diferencia en 2018 y 2019. Este impactante documental se cuenta a través de la perspectiva de los miembros de las familias afectadas, sus equipos legales, los denunciantes y el periodista del Seattle Times ganador del Pulitzer, Dominic Gates.",
     duraPeli: 98,
-    trailerPeli: "https://dai.ly/x8diw3n",
+    trailerPeli: "https://www.youtube.com/embed/urYOTavhz6c",
     anoPeli: 2022,
     Estreno: "Si",
     Destacada: "No",
@@ -1312,7 +1316,7 @@ let pelis = [
     sinopsis:
       "Los hermanos Amaia y Aitor están cerca de cumplir cincuenta años. No tienen hijos. Desde muy jóvenes viven lejos de sus padres, Kontxi e Iñaki, ya jubilados. Un verano se juntan en un crucero llamado Fantasia. En alta mar es como si el tiempo se parase, pero más allá del horizonte la realidad sigue avanzando sin descanso.",
     duraPeli: 100,
-    trailerPeli: "https://dai.ly/x82swek",
+    trailerPeli: "https://www.youtube.com/embed/hIDadJXfyr0",
     anoPeli: 2021,
     Estreno: "Si",
     Destacada: "No",
@@ -1327,7 +1331,7 @@ let pelis = [
     sinopsis:
       "Dos residentes de un remoto pueblo en el interior de California realizan un descubrimiento tan insólito como escalofriante…",
     duraPeli: 135,
-    trailerPeli: "https://dai.ly/x8bjgco",
+    trailerPeli: "https://www.youtube.com/embed/PFFV33DKR6Q",
     anoPeli: 2022,
     Estreno: "Si",
     Destacada: "No",
@@ -1342,7 +1346,7 @@ let pelis = [
     sinopsis:
       "Marga, en medio de una crisis con su marido, decide pasar unos días en una antigua casa de su pueblo. Allí, empieza a percibir extraños fenómenos que la aterran.",
     duraPeli: 99,
-    trailerPeli: "https://dai.ly/x87c3xw",
+    trailerPeli: "https://www.youtube.com/embed/PEHc4Rcv6s0",
     anoPeli: 2021,
     Estreno: "Si",
     Destacada: "No",
@@ -1353,12 +1357,12 @@ let pelis = [
     nombrePeli: "Tides",
     imgPeli:
       "https://image.tmdb.org/t/p/w185_and_h278_bestv2/ccGic6JXCnk6sxCC0qT8T9o0gCU.jpg",
-    // "https://pics.filmaffinity.com/tides-539477843-large.jpg ",
+
     generoPeli: "Ficcion",
     sinopsis:
       "Tides [The Colony] cinta de ciencia ficción y misterio, co escrita y dirigida por Tim Fehlbaum (Hell), cuando la tierra se volvió inhabitable para los humanos a consecuencia a una catástrofe global, los miembros de la élite gobernante se instalaron en el planeta Kepler 209, uno de los más cercanos a la Tierra y con condiciones favorables para la vida. Sin embargo, la atmósfera del nuevo planeta ha dejado estériles a sus nuevos habitantes y, previendo un nuevo desastre, el gobierno organiza una misión de exploración a la Tierra para analizar sus nuevas condiciones. Sin embargo, el viaje sufre contratiempos al entrar al planeta y Blake, una astronauta, es la única sobreviviente del impacto. Pronto, descubre que hay más habitantes en el lugar, mismos que permanecen ocultos de las mareas que abarcan todo el territorio y solo salen para buscar comida cuando las aguas retroceden. En los siguientes días, la chica descubre un peligroso secreto que puede poner fin a los sobrevivientes y a su propio planeta.",
     duraPeli: 104,
-    trailerPeli: "https://youtu.be/Vw7zapoTYWo",
+    trailerPeli: "https://www.youtube.com/embed/Vw7zapoTYWo",
     anoPeli: 2021,
     Estreno: "Si",
     Destacada: "No",
@@ -1373,7 +1377,7 @@ let pelis = [
     sinopsis:
       "Cuando un humilde cartero es incluido en un programa de ADN sobrehumano ultrasecreto en un centro de investigación, se revela que podrá recibir, controlar y enviar información basada en los sentidos de los demás.",
     duraPeli: 90,
-    trailerPeli: "https://youtu.be/au750jTS_2I",
+    trailerPeli: "https://www.youtube.com/embed/au750jTS_2I",
     anoPeli: 2021,
     Estreno: "Si",
     Destacada: "No",
