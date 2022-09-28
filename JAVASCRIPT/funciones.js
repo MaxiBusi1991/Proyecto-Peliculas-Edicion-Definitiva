@@ -1,4 +1,4 @@
-// PELICUAS//
+// PELICULAS//
 let contador = 1;
 
 function GuardarPelicula() {
@@ -220,10 +220,8 @@ function modificar(id) {
   const peliItem = localSTGpelisB.filter((local) => local.id === idm);
 
   document.getElementById("ModiIdPeli").value = idm;
-  // console.log("id sin modificar" + idm);
   document.getElementById("ModinombrePeli").value = peliItem[0].nombrePeli;
   document.getElementById("ModigeneroPeli").value = peliItem[0].generoPeli;
-  // console.log("Genero sin modificar" + peliItem[0].generoPeli);
   document.getElementById("ModiimgPeli").value = peliItem[0].imgPeli;
   document.getElementById("ModianoPeli").value = peliItem[0].anoPeli;
   document.getElementById("ModiduraPeli").value = peliItem[0].duraPeli;
@@ -231,16 +229,13 @@ function modificar(id) {
   document.getElementById("Modisinopsis").value = peliItem[0].sinopsis;
   document.getElementById("ModiEstreno").value = peliItem[0].Estreno;
   document.getElementById("ModiDestacada").value = peliItem[0].Destacada;
-  console.log("Destacada sin modificar" + peliItem[0].Destacada);
   document.getElementById("ModiEstado").value = peliItem[0].Estado;
 }
 
 function GuardarCambios() {
   var id = document.getElementById("ModiIdPeli").value;
-  // console.log("id modificado" + id);
   var nombrePeli = document.getElementById("ModinombrePeli").value;
   var generoPeli = document.getElementById("ModigeneroPeli").value;
-  // console.log("Genero modificado" + generoPeli);
   var imgPeli = document.getElementById("ModiimgPeli").value;
   var anoPeli = document.getElementById("ModianoPeli").value;
   var duraPeli = document.getElementById("ModiduraPeli").value;
@@ -248,7 +243,6 @@ function GuardarCambios() {
   var sinopsis = document.getElementById("Modisinopsis").value;
   var Estreno = document.getElementById("ModiEstreno").value;
   var Destacada = document.getElementById("ModiDestacada").value;
-  console.log("Destaca modificado" + Destacada);
   var Estado = document.getElementById("ModiEstado").value;
 
   const localSTGPeli = JSON.parse(localStorage.getItem("peli")) || [];
@@ -300,11 +294,11 @@ function CargaPrincipal() {
   const userExists = localSTGUsers.filter((local) => local.sesion === 1);
 
   if (userExists.length == 0) {
-    // navar comun
+    // navbar comun
     document.getElementById("navUsuario").style.display = "none";
     document.getElementById("navComun").style.display = "block";
   } else {
-    // navar user
+    // navbar user
     document.getElementById("navComun").style.display = "none";
     document.getElementById("navUsuario").style.display = "block";
   }
@@ -328,13 +322,22 @@ function CargaPrincipal() {
                 <div class="card d-flex text-bg-dark my-3 mx-2">
                 <img src="${localSTGPeli.imgPeli}" class="card-img" alt="...">
 
-                <div class="card-img-overlay mx-0 w-50">
-                    <h5 class="card-title">${localSTGPeli.nombrePeli}</h5>
-                    <p class="card-text d-none d-sm-none d-md-block">${localSTGPeli.sinopsis}</p>
-                    <button class="btn btn-primary">Reproducir</button>
-                </div>
-                </div>
-            </div>`
+                <div             class="card-img-overlay d-flex flex-column justify-content-end container-fluid"
+">
+
+            <div class="row col-12 col-md-12 col-xl-12">
+              <p
+                class="card-text d-none d-sm-none d-md-block w-50 bg-dark borde-title"
+                style="--bs-bg-opacity: 0.7"
+              >
+                ${localSTGPeli.sinopsis}
+              </p>
+            </div>
+            <div class="row col-4 col-md-4 col-xl-4 py-3">
+             <a class="text-decoration-none text-white" href="../HTML/error 404.html"><button class="btn btn-reproducir">Reproducir</button></a>
+              
+            </div>
+          </div>`
     )
     .join("");
 
@@ -944,7 +947,8 @@ let pelis = [
   {
     id: 6,
     nombrePeli: "Pinocho",
-    imgPeli: "https://pics.filmaffinity.com/pinocchio-256590713-large.jpg",
+    imgPeli:
+      "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcSEIEZN7WF-yKjlr9VJeOU9NWzmEoWKErLg8P8UdCGeqtTh3QHO",
     generoPeli: "Aventura",
     sinopsis:
       "Versión en acción real y CGI del aclamado cuento sobre una marioneta que se embarca en una trepidante aventura para convertirse en un niño de verdad. La historia también presenta a otros personajes, como Gepetto, el carpintero que fabrica a Pinocho y lo trata como a su propio hijo; Pepito Grillo, que hace las veces de guía y “conciencia” de Pinocho o el Hada Azul.",
