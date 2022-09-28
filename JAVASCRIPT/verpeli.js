@@ -10,8 +10,8 @@ verPeli.innerHTML = peliEs
   .map(
     (localSTGPeliEs) =>
       `
-          <div class="row  ">
-            <img src="${localSTGPeliEs.imgPeli}" class="mt-2 " alt="${localSTGPeliEs.nombrePeli}">
+           <div class="row d-flex align-items-center justify-content-center mt-2 ">
+            <img src="${localSTGPeliEs.imgPeli}" class="mt-2 img-fluid foto-verpeli" alt="${localSTGPeliEs.nombrePeli}">
              </div>
 
              <div class="row text-light">

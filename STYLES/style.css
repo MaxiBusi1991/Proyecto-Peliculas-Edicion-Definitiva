@@ -327,10 +327,18 @@ body {
   .btn-reproducir {
     font-size: x-small;
   }
+  .foto-verpeli {
+    height: 50px;
+    width: auto;
+  }
 }
 @media (min-width: 576px) {
   .h4-title {
     font-size: medium;
+  }
+  .foto-verpeli {
+    height: 200px;
+    width: auto;
   }
 }
 @media (min-width: 1200px) {
@@ -365,7 +373,10 @@ body {
     font-size: medium;
   }
 }
-
+.foto-verpeli {
+  height: 500px;
+  width: auto;
+}
 .borde-card {
   border-bottom-right-radius: 10px;
   border-bottom-left-radius: 10px;
@@ -377,6 +388,7 @@ h5 {
   font-style: italic;
   font-weight: bold;
 }
+
 /* estilos de caro */
 
 */ {
