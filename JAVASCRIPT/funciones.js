@@ -1,4 +1,4 @@
-// PELICUAS//
+// PELICULAS//
 let contador = 1;
 
 function GuardarPelicula() {
@@ -7,6 +7,7 @@ function GuardarPelicula() {
   const localSTGPeli = JSON.parse(localStorage.getItem("peli")) || [];
   const arrayPeli = [];
   console.log("b antes" + bandera);
+  // limpiarAlta();
   //funcion validar campos devuelve 1 si los campos del modal son validos
   bandera = validarCampos();
   console.log("b despues" + bandera);
@@ -42,12 +43,24 @@ function GuardarPelicula() {
       Destacada,
       Estado,
     });
+
     localStorage.setItem("peli", JSON.stringify(arrayPeli));
     agregarpeli();
   } else {
     alert("Campos inválidos");
   }
 }
+
+// function limpiarAlta() {
+//   nombrePeli.innerHTML = "";
+//   generoPeli.innerHTML = "";
+//   imgPeli.innerHTML = "";
+//   anoPeli.innerHTML = "";
+//   duraPeli.innerHTML = "";
+//   trailerPeli.innerHTML = "";
+//   sinopsis.innerHTML = "";
+//   Estreno.innerHTML = "";
+// }
 
 function validarCampos() {
   bandera = 0;
@@ -121,31 +134,6 @@ function validarCampos() {
   return bandera;
 }
 
-// function evaluarDestacada() {
-//   const localSTGPeli = JSON.parse(localStorage.getItem("peli")) || [];
-//   const arrayPeli = [];
-//   console.log("entra funcion evaluar destacada");
-//   for (let i = 0; i < localSTGPeli.length; i++) {
-//     if (localSTGPeli[i].Destacada == "Si") {
-//       console.log("Destacada:" + localSTGPeli[i].Destacada);
-//       console.log("ya hay destacada");
-//       formDestacada.innerHTML = ` <select class="form-select" id="Destacada" required disabled>
-//               <option selected>Destacada</option>
-//               <option value="Si">Si</option>
-//               <option value="No">No</option>
-//             </select>
-//             <div class="invalid-feedback"></div>`;
-//     } else {
-//       console.log("no hay destacada");
-//       formDestacada.innerHTML = ` <select class="form-select" id="Destacada" required >
-//               <option selected>Destacada</option>
-//               <option value="Si">Si</option>
-//               <option value="No">No</option>
-//             </select>
-//             <div class="invalid-feedback"></div>`;
-//     }
-//   }
-// }
 let bandera = 0;
 function destacarPelicula(id) {
   const localSTGPeli = JSON.parse(localStorage.getItem("peli")) || [];
@@ -232,10 +220,8 @@ function modificar(id) {
   const peliItem = localSTGpelisB.filter((local) => local.id === idm);
 
   document.getElementById("ModiIdPeli").value = idm;
-  // console.log("id sin modificar" + idm);
   document.getElementById("ModinombrePeli").value = peliItem[0].nombrePeli;
   document.getElementById("ModigeneroPeli").value = peliItem[0].generoPeli;
-  // console.log("Genero sin modificar" + peliItem[0].generoPeli);
   document.getElementById("ModiimgPeli").value = peliItem[0].imgPeli;
   document.getElementById("ModianoPeli").value = peliItem[0].anoPeli;
   document.getElementById("ModiduraPeli").value = peliItem[0].duraPeli;
@@ -243,16 +229,13 @@ function modificar(id) {
   document.getElementById("Modisinopsis").value = peliItem[0].sinopsis;
   document.getElementById("ModiEstreno").value = peliItem[0].Estreno;
   document.getElementById("ModiDestacada").value = peliItem[0].Destacada;
-  console.log("Destacada sin modificar" + peliItem[0].Destacada);
   document.getElementById("ModiEstado").value = peliItem[0].Estado;
 }
 
 function GuardarCambios() {
   var id = document.getElementById("ModiIdPeli").value;
-  // console.log("id modificado" + id);
   var nombrePeli = document.getElementById("ModinombrePeli").value;
   var generoPeli = document.getElementById("ModigeneroPeli").value;
-  // console.log("Genero modificado" + generoPeli);
   var imgPeli = document.getElementById("ModiimgPeli").value;
   var anoPeli = document.getElementById("ModianoPeli").value;
   var duraPeli = document.getElementById("ModiduraPeli").value;
@@ -260,7 +243,6 @@ function GuardarCambios() {
   var sinopsis = document.getElementById("Modisinopsis").value;
   var Estreno = document.getElementById("ModiEstreno").value;
   var Destacada = document.getElementById("ModiDestacada").value;
-  console.log("Destaca modificado" + Destacada);
   var Estado = document.getElementById("ModiEstado").value;
 
   const localSTGPeli = JSON.parse(localStorage.getItem("peli")) || [];
@@ -308,6 +290,21 @@ function eliminarPelicula(id) {
 /// pagina principal
 
 function CargaPrincipal() {
+  const localSTGUsers = JSON.parse(localStorage.getItem("user")) || [];
+  const userExists = localSTGUsers.filter((local) => local.sesion === 1);
+
+  if (userExists.length == 0) {
+    // navbar comun
+    document.getElementById("navUsuario").style.display = "none";
+    document.getElementById("navComun").style.display = "block";
+    // document.getElementById("navAdmin").style.display = "none";
+  } else {
+    // navbar user
+    document.getElementById("navComun").style.display = "none";
+    document.getElementById("navUsuario").style.display = "block";
+    // document.getElementById("navAdmin").style.display = "block";
+  }
+
   const localSTGpelisB = JSON.parse(localStorage.getItem("peli")) || [];
   console.log(localSTGpelisB.length);
 
@@ -327,13 +324,22 @@ function CargaPrincipal() {
                 <div class="card d-flex text-bg-dark my-3 mx-2">
                 <img src="${localSTGPeli.imgPeli}" class="card-img" alt="...">
 
-                <div class="card-img-overlay mx-0 w-50">
-                    <h5 class="card-title">${localSTGPeli.nombrePeli}</h5>
-                    <p class="card-text d-none d-sm-none d-md-block">${localSTGPeli.sinopsis}</p>
-                    <button class="btn btn-primary">Reproducir</button>
-                </div>
-                </div>
-            </div>`
+                <div             class="card-img-overlay d-flex flex-column justify-content-end container-fluid"
+">
+
+            <div class="row col-12 col-md-12 col-xl-12">
+              <p
+                class="card-text d-none d-sm-none d-md-block w-50 bg-dark borde-title"
+                style="--bs-bg-opacity: 0.7"
+              >
+                ${localSTGPeli.sinopsis}
+              </p>
+            </div>
+            <div class="row col-4 col-md-4 col-xl-4 py-3">
+             <a class="text-decoration-none text-white" href="verpelicula2.html?${localSTGPeli.id}"><button class="btn btn-reproducir">Reproducir</button></a>
+              
+            </div>
+          </div>`
     )
     .join("");
 
@@ -347,7 +353,7 @@ function CargaPrincipal() {
         `<div class="col-6 col-sm-4 col-md-3 col-lg-2 h-100 pt-3">
               
               
-              <a class="text-decoration-none text-white" href="verpelicula2.html?${localSTGPeliEstreno.id}"><img src="${localSTGPeliEstreno.imgPeli}" alt="" class="img-fluid w-100"></a>
+              <a class="text-decoration-none text-white" href="verpelicula2.html?${localSTGPeliEstreno.id}"><img src="${localSTGPeliEstreno.imgPeli}" alt="" class="img-fluid w-100 pt-2"></a>
 
               
             </div>`
@@ -525,7 +531,7 @@ function buscarPelicula() {
         `
               <div class="col-6 col-sm-4 col-md-3 col-lg-2 h-100 pt-3 text-center">
                     
-                       <a class="text-decoration-none text-white" href="verpelicula2.html?${localSTGPeliEncontrada.id}"><img src="${localSTGPeliEncontrada.imgPeli}" alt="" class="img-fluid w-100"></a>
+                       <a class="text-decoration-none text-white" href="verpelicula2.html?${localSTGPeliEncontrada.id}"><img src="${localSTGPeliEncontrada.imgPeli}" alt="" class="img-fluid w-100 pt-2"></a>
 
                       
                     </div>
@@ -544,9 +550,6 @@ function buscarPelicula() {
 
 // funcion primeraCarga
 function primeraCarga() {
-  console.log("primera cArga");
-  // localStorage.setItem("peli", JSON.stringify(MOVIES));
-  // console.log(MOVIES);
   localStorage.setItem("peli", JSON.stringify(pelis));
   console.log(pelis);
 }
@@ -566,7 +569,7 @@ function UsuarioRoot() {
 
   const userExists = localSTGUsers.filter((local) => local.role === "admin");
 
-  if (userExists.length == 0) {
+  if (userExists.length === 0) {
     var role = "admin";
   }
 
@@ -574,17 +577,19 @@ function UsuarioRoot() {
     const userviejos = localSTGUsers[i];
     arrayUser.push(userviejos);
   }
-
-  arrayUser.push({
-    id: arrayUser.length + 1,
-    correo,
-    contraseña,
-    stateLogin,
-    nombre,
-    apellido,
-    fechaNac,
-    role,
-  });
+  if (userExists.length === 0) {
+    arrayUser.push({
+      id: arrayUser.length + 1,
+      sesion: 0,
+      correo,
+      contraseña,
+      stateLogin,
+      nombre,
+      apellido,
+      fechaNac,
+      role,
+    });
+  }
 
   localStorage.setItem("user", JSON.stringify(arrayUser));
 }
@@ -603,7 +608,7 @@ function recuperarContraseña() {
     alert("correo INexistente");
   }
 }
-
+let banderaUser = 0;
 function ingresar() {
   correo2 = document.getElementById("correo").value;
   contra = document.getElementById("contra").value;
@@ -615,14 +620,42 @@ function ingresar() {
     if (userExists[0].contraseña == contra) {
       alert("correcto");
       if (userExists[0].role == "admin") {
-        location.href = "inicio.html";
+        console.log("soy admin");
+        for (let i = 0; i < localSTGUsers.length; i++) {
+          if (localSTGUsers[i].correo == correo2) {
+            console.log("entre if correo");
+            localSTGUsers[i].sesion = 2;
+          }
+        }
+        localStorage.setItem("user", JSON.stringify(localSTGUsers));
+        location.href = "vistaUserAdmin.html";
       } else {
-        location.href = "inicio.html";
+        for (let i = 0; i < localSTGUsers.length; i++) {
+          if (localSTGUsers[i].correo == correo2) {
+            console.log("entre if correo");
+            localSTGUsers[i].sesion = 1;
+          }
+        }
+        localStorage.setItem("user", JSON.stringify(localSTGUsers));
+        location.href = "index.html";
       }
     } else {
       alert("incorrecto");
     }
   }
+}
+function Cerrar() {
+  const localSTGUsers = JSON.parse(localStorage.getItem("user")) || [];
+  const userExists = localSTGUsers.filter((local) => local.sesion === 1);
+  if (userExists.length > 0) {
+    for (let i = 0; i < localSTGUsers.length; i++) {
+      if (localSTGUsers[i].sesion > 0) {
+        localSTGUsers[i].sesion = 0;
+      }
+    }
+    localStorage.setItem("user", JSON.stringify(localSTGUsers));
+  }
+  location.href = "index.html";
 }
 
 // registro
@@ -659,7 +692,6 @@ function sigFin() {
     document.getElementById("datosFechaNac").value;
 }
 function Guardar() {
-  var iduser = document.getElementById("iduser").value;
   var correo = document.getElementById("finCorreo").value;
   var contraseña = document.getElementById("finContraseña").value;
   var nombre = document.getElementById("finNombre").value;
@@ -686,6 +718,7 @@ function Guardar() {
 
   arrayUser.push({
     id: arrayUser.length + 1,
+    sesion: 0,
     correo,
     contraseña,
     stateLogin,
@@ -799,7 +832,6 @@ function ActivarPeliculas() {
 }
 // boton Usuario
 function ActivarUsuarios() {
-  verpeli();
   document.getElementById("PeliculaTabla").style.display = "none";
   document.getElementById("UsuarioTabla").style.display = "block";
 }
@@ -834,15 +866,90 @@ function GuardarModiUsuario() {
   VerUsuario();
 }
 
-/// Osqui trabajando
-
-/// Osqui trabajando
 //pre carga movies
-const MOVIES = [
+
+// pelis
+
+let pelis = [
   {
     id: 1,
+    nombrePeli: "Section 8",
+    imgPeli:
+      "https://image.tmdb.org/t/p/w185_and_h278_bestv2/3G1wHQNITyfiABp2fgytpiFMHf9.jpg",
+    generoPeli: "Accion",
+    sinopsis:
+      "Tras vengar el asesinato de su familia, un ex soldado sale de la cárcel y es reclutado por una oscura agencia gubernamental.",
+    duraPeli: 98,
+    trailerPeli: "https://www.youtube.com/embed/Jg9w12zHwlk",
+    anoPeli: 2022,
+    Estreno: "Si",
+    Destacada: "No",
+    Estado: "Si",
+  },
+  {
+    id: 2,
+    nombrePeli: "Megaboa",
+    imgPeli:
+      "https://image.tmdb.org/t/p/w185_and_h278_bestv2/sAnAMv3eyQiGI1z2k8NsvH0Y6r5.jpg",
+    generoPeli: "Accion",
+    sinopsis:
+      "En un viaje a Colombia, un grupo de estudiantes universitarios se encuentra con una boa constrictor de veinte metros, hambrienta de sangre.",
+    duraPeli: 100,
+    trailerPeli: "https://www.youtube.com/embed/h9X6rt9aUP4",
+    anoPeli: 2021,
+    Estreno: "Si",
+    Destacada: "No",
+    Estado: "Si",
+  },
+  {
+    id: 3,
+    nombrePeli: "Supercool",
+    imgPeli:
+      "https://image.tmdb.org/t/p/w185_and_h278_bestv2/3NV278UG4Z8wOWpKFHz6I7D7Nda.jpg",
+    generoPeli: "Comedia",
+    sinopsis:
+      "Mejores amigos, Neil y Gilbert comienzan su último año de secundaria con grandes esperanzas y aspiraciones. Neil siempre ha fantaseado con ser lo suficientemente genial como para salir con su enamorado de mucho tiempo y Gilbert siempre ha soñado con ser una súper estrella de las redes sociales. Después de lo que es, según todos los informes, un primer día muy decepcionante y vergonzoso en la escuela, Neil pide un deseo mágico de ser genial justo en el momento mágico en que el reloj marca las 11:11. A la mañana siguiente, Neil se despierta con una realidad que proviene directamente de los cómics de sus sueños.",
+    duraPeli: 91,
+    trailerPeli: "https://www.youtube.com/embed/nFsBy6i2z1k",
+    anoPeli: 2021,
+    Estreno: "Si",
+    Destacada: "No",
+    Estado: "Si",
+  },
+  {
+    id: 4,
+    nombrePeli: "Honor Society",
+    imgPeli: "https://pics.filmaffinity.com/honor_society-393988220-large.jpg",
+    generoPeli: "Comedia",
+    sinopsis:
+      "Honor es una ambiciosa estudiante de último año de instituto cuyo único objetivo es entrar en Harvard, suponiendo que primero consiga la codiciada recomendación de su orientador, el Sr. Calvin. Dispuesta a hacer lo que sea necesario, Honor urde un plan maquiavélico para acabar con sus tres principales competidores estudiantiles, hasta que las cosas dan un giro cuando se enamora inesperadamente de su mayor competidor, Michael.",
+    duraPeli: 97,
+    trailerPeli: "https://www.youtube.com/embed/TIPBMxGqNWk",
+    anoPeli: 2022,
+    Estreno: "Si",
+    Destacada: "No",
+    Estado: "Si",
+  },
+  {
+    id: 5,
+    nombrePeli: "The Ex",
+    imgPeli:
+      "https://image.tmdb.org/t/p/w185_and_h278_bestv2/gd2Lsq6yMzQmjhlbU2C9vw4HAJ8.jpg",
+    generoPeli: "Terror",
+    sinopsis:
+      "La historia de cómo las redes sociales y la mensajería instantánea están cambiando la vida de una persona moderna. Han pasado varios años desde que un adolescente de 16 años publicó una foto de su novia en el chat general, con la esperanza de presumir ante sus amigos. Ahora tiene una vida adulta feliz: trabajo, amigos, su prometida Katya, que está a punto de convertirse en su esposa. Pero Internet le hace recordar el amor adolescente, tras el cual se produce una cadena de inexplicables acontecimientos místicos con la futura esposa del joven. La chica recibe misteriosos mensajes del pasado de su prometido. A causa de ellos, su vida se convierte en una pesadilla.",
+    duraPeli: 90,
+    trailerPeli: "https://www.youtube.com/embed/1Cz--nL7CD0",
+    anoPeli: 2021,
+    Estreno: "Si",
+    Destacada: "No",
+    Estado: "Si",
+  },
+  {
+    id: 6,
     nombrePeli: "Pinocho",
-    imgPeli: "https://pics.filmaffinity.com/pinocchio-256590713-large.jpg",
+    imgPeli:
+      "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcSEIEZN7WF-yKjlr9VJeOU9NWzmEoWKErLg8P8UdCGeqtTh3QHO",
     generoPeli: "Aventura",
     sinopsis:
       "Versión en acción real y CGI del aclamado cuento sobre una marioneta que se embarca en una trepidante aventura para convertirse en un niño de verdad. La historia también presenta a otros personajes, como Gepetto, el carpintero que fabrica a Pinocho y lo trata como a su propio hijo; Pepito Grillo, que hace las veces de guía y “conciencia” de Pinocho o el Hada Azul.",
@@ -855,7 +962,7 @@ const MOVIES = [
     Estado: "Si",
   },
   {
-    id: 2,
+    id: 7,
     nombrePeli: "Top Gun",
     imgPeli:
       "https://pics.filmaffinity.com/top_gun_maverick-537976462-large.jpg",
@@ -870,7 +977,7 @@ const MOVIES = [
     Estado: "Si",
   },
   {
-    id: 3,
+    id: 8,
     nombrePeli: "La memoria de un asesino",
     imgPeli: "https://pics.filmaffinity.com/memory-281680996-large.jpg",
     generoPeli: "Terror",
@@ -884,7 +991,7 @@ const MOVIES = [
     Estado: "Si",
   },
   {
-    id: 4,
+    id: 9,
     nombrePeli: "The Bunker Game",
     imgPeli: "https://pics.filmaffinity.com/samaritan-449167522-large.jpg",
     generoPeli: "Terror",
@@ -898,7 +1005,7 @@ const MOVIES = [
     Estado: "Si",
   },
   {
-    id: 5,
+    id: 10,
     nombrePeli: "Samaritan",
     imgPeli:
       "https://pics.filmaffinity.com/ame_wo_tsugeru_hyouryuu_danchi-350727721-large.jpg",
@@ -913,7 +1020,7 @@ const MOVIES = [
     Estado: "Si",
   },
   {
-    id: 6,
+    id: 11,
     nombrePeli: "Hogar a la deriva",
     imgPeli: "https://pics.filmaffinity.com/me_time-211909621-large.jpg",
     generoPeli: "Aventura",
@@ -927,7 +1034,7 @@ const MOVIES = [
     Estado: "Si",
   },
   {
-    id: 7,
+    id: 12,
     nombrePeli: "Me Time",
     imgPeli: "https://pics.filmaffinity.com/thirteen_lives-664179403-large.jpg",
     generoPeli: "Comedia",
@@ -941,7 +1048,7 @@ const MOVIES = [
     Estado: "Si",
   },
   {
-    id: 8,
+    id: 13,
     nombrePeli: "Trece vidas",
     imgPeli: "https://pics.filmaffinity.com/thirteen_lives-664179403-large.jpg",
     generoPeli: "Drama",
@@ -955,7 +1062,7 @@ const MOVIES = [
     Estado: "Si",
   },
   {
-    id: 9,
+    id: 14,
     nombrePeli: "Goodnight Mommy",
     imgPeli:
       "https://pics.filmaffinity.com/ich_seh_ich_seh_goodnight_mommy-227747347-large.jpg",
@@ -970,7 +1077,7 @@ const MOVIES = [
     Estado: "Si",
   },
   {
-    id: 10,
+    id: 15,
     nombrePeli: "Hustle",
     imgPeli: "https://pics.filmaffinity.com/hustle-306927612-large.jpg",
     generoPeli: "Comedia",
@@ -983,13 +1090,83 @@ const MOVIES = [
     Destacada: "No",
     Estado: "Si",
   },
-];
-
-// pelis
-
-let pelis = [
   {
-    id: 11,
+    id: 16,
+    nombrePeli: "Buenas Noches, Mamá",
+    imgPeli:
+      "https://image.tmdb.org/t/p/w185_and_h278_bestv2/oHhD5jD4S5ElPNNFCDKXJAzMZ5h.jpg",
+    generoPeli: "Terror",
+    sinopsis:
+      "Este remake de la película austriaca de 2014 del mismo nombre, sigue a una madre y sus dos hijos. En una casa solitaria en el campo, entre bosques y maizales, viven dos hermanos gemelos de nueve años que esperan a su madre. Cuando llega a casa, vendada tras la cirugía estética, nada es como antes. Los niños empiezan a dudar de que esta mujer sea realmente su madre. De esta forma, surge una lucha existencial por la identidad y la confianza en el seno de la familia.",
+    duraPeli: 91,
+    trailerPeli: "https://www.youtube.com/embed/rtE4pDglejo",
+    anoPeli: 2022,
+    Estreno: "Si",
+    Destacada: "No",
+    Estado: "Si",
+  },
+  {
+    id: 17,
+    nombrePeli: "La Huerfana",
+    imgPeli:
+      "https://image.tmdb.org/t/p/w185_and_h278_bestv2/wSqAXL1EHVJ3MOnJzMhUngc8gFs.jpg",
+    generoPeli: "Terror",
+    sinopsis:
+      "Tras escapar de un centro psiquiátrico estonio, Leena Klammer viaja a América haciéndose pasar por Esther, la hija desaparecida de una familia adinerada. Pero cuando su máscara empieza a caer, se enfrenta a una madre que protegerá a su familia de la «niña» asesina a cualquier precio.",
+    duraPeli: 99,
+    trailerPeli: "https://www.youtube.com/embed/MRW6qHPODbE",
+    anoPeli: 2022,
+    Estreno: "Si",
+    Destacada: "No",
+    Estado: "Si",
+  },
+  {
+    id: 18,
+    nombrePeli: "No te preocupes querida",
+    imgPeli:
+      "https://image.tmdb.org/t/p/w185_and_h278_bestv2/nK5CTCp1xF8hS6RyFSnlL5zNOmH.jpg",
+    generoPeli: "Drama",
+    sinopsis:
+      "Alice y Jack tienen la suerte de vivir en Victoria, la ciudad experimental de la compañía que alberga a los hombres que trabajan para el Proyecto Victoria, de alto secreto, y a sus familias. La vida es perfecta, con todas las necesidades de los residentes cubiertas por la empresa. Todo lo que piden a cambio es un compromiso incondicional con la causa de Victoria. Pero cuando empiezan a aparecer grietas en su idílica vida, exponiendo destellos de algo mucho más siniestro que se esconde bajo la atractiva fachada, Alice no puede evitar cuestionarse qué están haciendo en Victoria y por qué. ¿Cuánto está dispuesta a perder Alice para sacar a la luz lo que realmente ocurre en el paraíso?",
+    duraPeli: 123,
+    trailerPeli: "https://www.youtube.com/embed/kMwLgSTNxb8",
+    anoPeli: 2022,
+    Estreno: "Si",
+    Destacada: "No",
+    Estado: "Si",
+  },
+  {
+    id: 19,
+    nombrePeli: "Thor:Amor y Trueno",
+    imgPeli:
+      "https://image.tmdb.org/t/p/w185_and_h278_bestv2/kf9Bib75eduxt0QiVJO4pawfd9p.jpg",
+    generoPeli: "Aventura",
+    sinopsis:
+      "Cuarta película sobre «Thor» del MCU, en la que el Dios del trueno contará con Lady Thor como acompañante, personaje que interpretará Natalie Portman.",
+    duraPeli: 119,
+    trailerPeli: "https://www.youtube.com/embed/kBGD4kmA7KI",
+    anoPeli: 2022,
+    Estreno: "Si",
+    Destacada: "No",
+    Estado: "Si",
+  },
+  {
+    id: 20,
+    nombrePeli: "Veneciafrenia",
+    imgPeli:
+      "https://image.tmdb.org/t/p/w185_and_h278_bestv2/luMC56bwZqaECYRz6X7sXjqN6nd.jpg",
+    generoPeli: "Aventura",
+    sinopsis:
+      "En la naturaleza existe vínculo indisoluble entre la belleza y la muerte. El ser humano, deudor de su entorno, imita lo que observa. Como mosquitos atraídos por el faro más brillante, los turistas están apagando la luz de la ciudad más hermosa del planeta. La agonía de las últimas décadas ha desatado la ira entre los venecianos. Para frenar la invasión, algunos se han organizado, dando rienda suelta a su instinto de supervivencia. Nuestros protagonistas, un sencillo grupo de turistas españoles, viajan a Venecia con la intención de divertirse, ajenos a los problemas que les rodean. Allí se verán obligados a luchar por salvar sus propias vidas.",
+    duraPeli: 100,
+    trailerPeli: "https://www.youtube.com/embed/uT-0OIVwLmQ",
+    anoPeli: 2022,
+    Estreno: "Si",
+    Destacada: "No",
+    Estado: "Si",
+  },
+  {
+    id: 21,
     nombrePeli: "Black Phone",
     imgPeli:
       "https://image.tmdb.org/t/p/w185_and_h278_bestv2/2LJC0MCghmmgSUNshpfA5RjHQay.jpg",
@@ -1004,7 +1181,7 @@ let pelis = [
     Estado: "Si",
   },
   {
-    id: 12,
+    id: 22,
     nombrePeli: "Los Amantes",
     imgPeli:
       "https://image.tmdb.org/t/p/w185_and_h278_bestv2/59sz1loOyLeIzARlgvj9nXOQyUK.jpg",
@@ -1019,7 +1196,7 @@ let pelis = [
     Estado: "Si",
   },
   {
-    id: 13,
+    id: 23,
     nombrePeli: "Atenea",
     imgPeli:
       "https://image.tmdb.org/t/p/w185_and_h278_bestv2/uponqptyKtBsJuODqmxoronFd8P.jpg",
@@ -1034,7 +1211,7 @@ let pelis = [
     Estado: "Si",
   },
   {
-    id: 14,
+    id: 24,
     nombrePeli: "Amor Prohibido",
     imgPeli:
       "https://image.tmdb.org/t/p/w185_and_h278_bestv2/5StCcvqGPA4bjNrq3JGqXGfnjqS.jpg",
@@ -1049,7 +1226,7 @@ let pelis = [
     Estado: "Si",
   },
   {
-    id: 15,
+    id: 25,
     nombrePeli: "Tren Bala",
     imgPeli:
       "https://image.tmdb.org/t/p/w185_and_h278_bestv2/ybSIUt48PsM08F4UZwHdjL9ZVG2.jpg",
@@ -1064,7 +1241,7 @@ let pelis = [
     Estado: "Si",
   },
   {
-    id: 16,
+    id: 26,
     nombrePeli: "Lou",
     imgPeli:
       "https://image.tmdb.org/t/p/w185_and_h278_bestv2/djM2s4wSaATn4jVB33cV05PEbV7.jpg",
@@ -1079,7 +1256,7 @@ let pelis = [
     Estado: "Si",
   },
   {
-    id: 17,
+    id: 27,
     nombrePeli: "Por los Pelos",
     imgPeli:
       "https://image.tmdb.org/t/p/w185_and_h278_bestv2/l1gpVietOZl6UPfNY3zxaLkEPci.jpg",
@@ -1094,7 +1271,7 @@ let pelis = [
     Estado: "Si",
   },
   {
-    id: 18,
+    id: 28,
     nombrePeli: "Minions",
     imgPeli:
       "https://image.tmdb.org/t/p/w185_and_h278_bestv2/asE7W6XInrfxZ24svc5k24DTpek.jpg",
@@ -1109,7 +1286,7 @@ let pelis = [
     Estado: "Si",
   },
   {
-    id: 19,
+    id: 29,
     nombrePeli: "La Bestia",
     imgPeli:
       "https://image.tmdb.org/t/p/w185_and_h278_bestv2/lGIkv9fQ3i7yVcJXDvG0Vry00LI.jpg",
@@ -1124,7 +1301,7 @@ let pelis = [
     Estado: "Si",
   },
   {
-    id: 20,
+    id: 30,
     nombrePeli: "Broad Peak",
     imgPeli:
       "https://image.tmdb.org/t/p/w185_and_h278_bestv2/hssJ3koEXveKRDXb3r6ujEuySGF.jpg",
@@ -1139,7 +1316,7 @@ let pelis = [
     Estado: "Si",
   },
   {
-    id: 21,
+    id: 31,
     nombrePeli: "Koati",
     imgPeli:
       "https://image.tmdb.org/t/p/w185_and_h278_bestv2/5ljcIhwKHK5KlKunybUDNqJ4KXO.jpg",
@@ -1154,7 +1331,7 @@ let pelis = [
     Estado: "Si",
   },
   {
-    id: 22,
+    id: 32,
     nombrePeli: "David y los Elfos",
     imgPeli:
       "https://image.tmdb.org/t/p/w185_and_h278_bestv2/AtpnwDfKBlcPokEGcaxWO2fmiNl.jpg",
@@ -1169,7 +1346,7 @@ let pelis = [
     Estado: "Si",
   },
   {
-    id: 23,
+    id: 33,
     nombrePeli: "Magic Camp",
     imgPeli:
       "https://image.tmdb.org/t/p/w185_and_h278_bestv2/awcPLFFYjufRXd2oAAP6ZIXF9vM.jpg",
@@ -1184,7 +1361,7 @@ let pelis = [
     Estado: "Si",
   },
   {
-    id: 24,
+    id: 34,
     nombrePeli: "Pajaro Loco",
     imgPeli:
       "https://image.tmdb.org/t/p/w185_and_h278_bestv2/9crXSxVpQmw4kdmtKrvizmWwBG.jpg",
@@ -1199,7 +1376,7 @@ let pelis = [
     Estado: "Si",
   },
   {
-    id: 25,
+    id: 35,
     nombrePeli: "Unplugging",
     imgPeli:
       "https://image.tmdb.org/t/p/w185_and_h278_bestv2/tFL9lRtVUEmsVcggoag0u4H14mJ.jpg",
@@ -1214,7 +1391,7 @@ let pelis = [
     Estado: "Si",
   },
   {
-    id: 26,
+    id: 36,
     nombrePeli: "Sin Aliento",
     imgPeli:
       "https://image.tmdb.org/t/p/w185_and_h278_bestv2/AqnFoTOKLAtVIf3HtfM5GUd1ivW.jpg",
@@ -1229,7 +1406,7 @@ let pelis = [
     Estado: "Si",
   },
   {
-    id: 27,
+    id: 37,
     nombrePeli: "After",
     imgPeli:
       "https://image.tmdb.org/t/p/w185_and_h278_bestv2/iA7oMNByuPRIapcILH8zwEoxV2h.jpg",
@@ -1244,7 +1421,7 @@ let pelis = [
     Estado: "Si",
   },
   {
-    id: 28,
+    id: 38,
     nombrePeli: "First Love",
     imgPeli:
       "https://image.tmdb.org/t/p/w185_and_h278_bestv2/aygkRhW2pOmJHP8KgU4rVK9gKJb.jpg",
@@ -1259,7 +1436,7 @@ let pelis = [
     Estado: "Si",
   },
   {
-    id: 29,
+    id: 39,
     nombrePeli: "Maybe Die",
     imgPeli:
       "https://image.tmdb.org/t/p/w185_and_h278_bestv2/juk7GtWdjEkZqviJN96ReHRgnQl.jpg",
@@ -1274,7 +1451,7 @@ let pelis = [
     Estado: "Si",
   },
   {
-    id: 30,
+    id: 40,
     nombrePeli: "Vidas Menores",
     imgPeli:
       "https://image.tmdb.org/t/p/w185_and_h278_bestv2/gqBPf8G7VxaKePDYV7iAIrFmFVu.jpg",
@@ -1289,7 +1466,7 @@ let pelis = [
     Estado: "Si",
   },
   {
-    id: 31,
+    id: 41,
     nombrePeli: "Flight/Risk",
     imgPeli:
       "https://image.tmdb.org/t/p/w185_and_h278_bestv2/coiqkol7YYXOKeZiVROkYHhd7wv.jpg",
@@ -1304,7 +1481,7 @@ let pelis = [
     Estado: "Si",
   },
   {
-    id: 32,
+    id: 42,
     nombrePeli: "Fantasia",
     imgPeli:
       "https://image.tmdb.org/t/p/w185_and_h278_bestv2/kzsGvpbWMtgIYt1Y8gIr61CWLVY.jpg",
@@ -1319,7 +1496,7 @@ let pelis = [
     Estado: "Si",
   },
   {
-    id: 33,
+    id: 43,
     nombrePeli: "¡Nop!",
     imgPeli:
       "https://image.tmdb.org/t/p/w185_and_h278_bestv2/hlJKvYdKJJeWoKeNNs1Fom1chIz.jpg",
@@ -1334,7 +1511,7 @@ let pelis = [
     Estado: "Si",
   },
   {
-    id: 34,
+    id: 44,
     nombrePeli: "Visitante",
     imgPeli:
       "https://image.tmdb.org/t/p/w185_and_h278_bestv2/lQJoMwHXtARzZoryw5YfO3HhybJ.jpg",
@@ -1349,11 +1526,10 @@ let pelis = [
     Estado: "Si",
   },
   {
-    id: 35,
+    id: 45,
     nombrePeli: "Tides",
     imgPeli:
       "https://image.tmdb.org/t/p/w185_and_h278_bestv2/ccGic6JXCnk6sxCC0qT8T9o0gCU.jpg",
-    // "https://pics.filmaffinity.com/tides-539477843-large.jpg ",
     generoPeli: "Ficcion",
     sinopsis:
       "Tides [The Colony] cinta de ciencia ficción y misterio, co escrita y dirigida por Tim Fehlbaum (Hell), cuando la tierra se volvió inhabitable para los humanos a consecuencia a una catástrofe global, los miembros de la élite gobernante se instalaron en el planeta Kepler 209, uno de los más cercanos a la Tierra y con condiciones favorables para la vida. Sin embargo, la atmósfera del nuevo planeta ha dejado estériles a sus nuevos habitantes y, previendo un nuevo desastre, el gobierno organiza una misión de exploración a la Tierra para analizar sus nuevas condiciones. Sin embargo, el viaje sufre contratiempos al entrar al planeta y Blake, una astronauta, es la única sobreviviente del impacto. Pronto, descubre que hay más habitantes en el lugar, mismos que permanecen ocultos de las mareas que abarcan todo el territorio y solo salen para buscar comida cuando las aguas retroceden. En los siguientes días, la chica descubre un peligroso secreto que puede poner fin a los sobrevivientes y a su propio planeta.",
@@ -1365,7 +1541,7 @@ let pelis = [
     Estado: "Si",
   },
   {
-    id: 36,
+    id: 46,
     nombrePeli: "Programa ADN",
     imgPeli:
       "https://image.tmdb.org/t/p/w185_and_h278_bestv2/c2eiDD1vvCYLllgDrG5Q8ZsyX5E.jpg",

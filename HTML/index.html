@@ -30,7 +30,12 @@
   <body class="d-flex flex-column color-fondo" onload="CargaPrincipal()">
     <!--INICIO NAVBAR-->
     <header>
-      <nav class="navbar navbar-expand-lg sticky-top color-navbar navbar-dark">
+      <!-- Navbar comun-->
+      <nav
+        class="navbar navbar-expand-lg sticky-top color-navbar navbar-dark"
+        style="display: block"
+        id="navComun"
+      >
         <div class="container-fluid">
           <a class="navbar-brand" href="../HTML/index.html">
             <img
@@ -101,8 +106,167 @@
           </div>
         </div>
       </nav>
+
+      <!-- Navbar Usuario-->
+      <nav
+        class="navbar navbar-expand-lg navbar-dark sticky-top"
+        style="display: none"
+        id="navUsuario"
+      >
+        <div class="container-fluid">
+          <a class="navbar-scroll navbar-brand" href="../HTML/index.html">
+            <img
+              src="../img/logocinesinfondo-removebg-preview.png"
+              height="60"
+              alt=""
+            />
+          </a>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-scroll navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mb-2 mb-lg-0">
+              <!-- inicio barra de busqueda  -->
+              <div class="input-group input-group-sm mb-3 me-5 mt-2 border-0">
+                <span
+                  class="input-group-text bg-dark border-dark"
+                  id="inputGroup-sizing-sm"
+                  ><i
+                    class="fa-sharp fa-solid fa-magnifying-glass"
+                    style="color: rgb(248, 242, 242)"
+                  ></i
+                ></span>
+                <input
+                  type="text"
+                  id="search"
+                  class="form-control border-0 bg-dark text-light"
+                  aria-label="Sizing example input"
+                  aria-describedby="inputGroup-sizing-sm"
+                  placeholder="Nombre/categoría"
+                  autofocus
+                  oninput="buscarPelicula()"
+                />
+              </div>
+              <!-- fin barra de busqueda -->
+              <li class="nav-item dropdown">
+                <a
+                  class="navbar-scroll nav-link dropdown-toggle"
+                  href="#"
+                  role="button"
+                  data-bs-toggle="dropdown"
+                  aria-expanded="false"
+                >
+                  Menu
+                </a>
+                <ul class="dropdown-menu">
+                  <li>
+                    <a class="dropdown-item" href="../HTML/error 404.html"
+                      >Estrenos</a
+                    >
+                  </li>
+                  <li>
+                    <a class="dropdown-item" href="../HTML/error 404.html"
+                      >Romance</a
+                    >
+                  </li>
+                  <li>
+                    <a class="dropdown-item" href="../HTML/error 404.html"
+                      >Drama</a
+                    >
+                  </li>
+                  <li>
+                    <a class="dropdown-item" href="../HTML/error 404.html"
+                      >Terror</a
+                    >
+                  </li>
+                  <li>
+                    <a class="dropdown-item" href="../HTML/error 404.html"
+                      >Más generos</a
+                    >
+                  </li>
+                  <li><hr class="dropdown-divider" /></li>
+                  <li><a class="dropdown-item" href="#">Sobre Nosotros</a></li>
+                </ul>
+              </li>
+            </ul>
+            <ul class="navbar-nav mb-2 mb-lg-0 ms-auto">
+              <li class="nav-item">
+                <button class="btn text-white" onclick="Cerrar()">
+                  Cerrar Sesion
+                </button>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
     </header>
     <!--FIN del navbar-->
+
+    <!--Inicio de Navbar Admin-->
+    <header>
+      <nav
+        class="navbar navbar-expand-lg navbar-dark sticky-top"
+        style="display: none"
+        id="navAdmin"
+      >
+        <div class="container-fluid">
+          <a class="navbar-brand" href="../HTML/index.html">
+            <img src="../img/logocinesinfondo-removebg-preview.png" height="60"
+          /></a>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarNav"
+            aria-controls="navbarNav"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+              <li class="nav-item m-3">
+                <button
+                  type="button"
+                  class="btn btn-outline-secondary"
+                  onclick="ActivarUsuarios()"
+                >
+                  Usuarios
+                </button>
+              </li>
+
+              <li class="nav-item m-3">
+                <button
+                  type="button"
+                  class="btn btn-outline-secondary"
+                  onclick="ActivarPeliculas()"
+                >
+                  Peliculas
+                </button>
+              </li>
+            </ul>
+
+            <ul class="navbar-nav mb-2 mb-lg-0 ms-auto">
+              <li class="nav-item">
+                <button class="btn text-white" onclick="Cerrar()">
+                  Cerrar Sesion
+                </button>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <!--Fin de Navbar Admin-->
 
     <main class="d-flex flex-column min-vh-100">
       <!--Aqui va una publicidad-->
