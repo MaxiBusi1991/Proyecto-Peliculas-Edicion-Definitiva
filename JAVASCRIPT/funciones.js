@@ -292,17 +292,24 @@ function eliminarPelicula(id) {
 function CargaPrincipal() {
   const localSTGUsers = JSON.parse(localStorage.getItem("user")) || [];
   const userExists = localSTGUsers.filter((local) => local.sesion === 1);
+  const userExistsAdmin = localSTGUsers.filter((local) => local.sesion === 2);
 
   if (userExists.length == 0) {
     // navbar comun
     document.getElementById("navUsuario").style.display = "none";
     document.getElementById("navComun").style.display = "block";
-    // document.getElementById("navAdmin").style.display = "none";
+   document.getElementById("navAdmin").style.display = "none";
   } else {
     // navbar user
     document.getElementById("navComun").style.display = "none";
     document.getElementById("navUsuario").style.display = "block";
-    // document.getElementById("navAdmin").style.display = "block";
+    document.getElementById("navAdmin").style.display = "none";
+  }
+// admi nav
+  if (userExistsAdmin.length == 1 ){
+    document.getElementById("navComun").style.display = "none";
+    document.getElementById("navUsuario").style.display = "none";
+     document.getElementById("navAdmin").style.display = "block";
   }
 
   const localSTGpelisB = JSON.parse(localStorage.getItem("peli")) || [];
@@ -531,7 +538,7 @@ function buscarPelicula() {
         `
               <div class="col-6 col-sm-4 col-md-3 col-lg-2 h-100 pt-3 text-center">
                     
-                       <a class="text-decoration-none text-white" href="verpelicula2.html?${localSTGPeliEncontrada.id}"><img src="${localSTGPeliEncontrada.imgPeli}" alt="" class="img-fluid w-100 pt-2"></a>
+                        <a class="text-decoration-none text-white" href="verpelicula2.html?${localSTGPeliEncontrada.id}"><img src="${localSTGPeliEncontrada.imgPeli}" alt="" class="img-fluid w-100 pt-2"></a>
 
                       
                     </div>
@@ -694,6 +701,7 @@ function sigFin() {
 function Guardar() {
   var correo = document.getElementById("finCorreo").value;
   var contraseña = document.getElementById("finContraseña").value;
+  var contra = document.getElementById("contraRegistro2").value;
   var nombre = document.getElementById("finNombre").value;
   var apellido = document.getElementById("finApellido").value;
   var fechaNac = document.getElementById("finFechaNac").value;
@@ -730,7 +738,11 @@ function Guardar() {
   });
 
   localStorage.setItem("user", JSON.stringify(arrayUser));
+
   VerUsuario();
+
+ 
+
 }
 function modiagre(idv) {
   console.log(idv);
