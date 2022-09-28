@@ -308,6 +308,20 @@ function eliminarPelicula(id) {
 /// pagina principal
 
 function CargaPrincipal() {
+  const localSTGUsers = JSON.parse(localStorage.getItem("user")) || [];
+  const userExists = localSTGUsers.filter((local) => local.sesion === 1);
+  console.log(userExists);
+  console.log("h");
+  if (userExists.length == 0) {
+    // navar comun
+    document.getElementById("navUsuario").style.display = "none";
+    document.getElementById("navComun").style.display = "block";
+  } else {
+    // navar user
+    document.getElementById("navComun").style.display = "none";
+    document.getElementById("navUsuario").style.display = "block";
+  }
+
   const localSTGpelisB = JSON.parse(localStorage.getItem("peli")) || [];
   console.log(localSTGpelisB.length);
 
@@ -566,7 +580,7 @@ function UsuarioRoot() {
 
   const userExists = localSTGUsers.filter((local) => local.role === "admin");
 
-  if (userExists.length == 0) {
+  if (userExists.length === 0) {
     var role = "admin";
   }
 
@@ -574,17 +588,19 @@ function UsuarioRoot() {
     const userviejos = localSTGUsers[i];
     arrayUser.push(userviejos);
   }
-
-  arrayUser.push({
-    id: arrayUser.length + 1,
-    correo,
-    contraseña,
-    stateLogin,
-    nombre,
-    apellido,
-    fechaNac,
-    role,
-  });
+  if (userExists.length === 0) {
+    arrayUser.push({
+      id: arrayUser.length + 1,
+      sesion: 0,
+      correo,
+      contraseña,
+      stateLogin,
+      nombre,
+      apellido,
+      fechaNac,
+      role,
+    });
+  }
 
   localStorage.setItem("user", JSON.stringify(arrayUser));
 }
@@ -603,7 +619,7 @@ function recuperarContraseña() {
     alert("correo INexistente");
   }
 }
-
+let banderaUser = 0;
 function ingresar() {
   correo2 = document.getElementById("correo").value;
   contra = document.getElementById("contra").value;
@@ -615,9 +631,18 @@ function ingresar() {
     if (userExists[0].contraseña == contra) {
       alert("correcto");
       if (userExists[0].role == "admin") {
-        location.href = "inicio.html";
+        location.href = "vistaUserAdmin.html";
       } else {
-        location.href = "inicio.html";
+        for (let i = 0; i < localSTGUsers.length; i++) {
+          if (localSTGUsers[i].correo == correo2) {
+            console.log("entre if correo");
+            localSTGUsers[i].sesion = 1;
+          }
+        }
+
+        localStorage.setItem("user", JSON.stringify(localSTGUsers));
+
+        location.href = "index.html";
       }
     } else {
       alert("incorrecto");
@@ -659,7 +684,6 @@ function sigFin() {
     document.getElementById("datosFechaNac").value;
 }
 function Guardar() {
-  var iduser = document.getElementById("iduser").value;
   var correo = document.getElementById("finCorreo").value;
   var contraseña = document.getElementById("finContraseña").value;
   var nombre = document.getElementById("finNombre").value;
@@ -686,6 +710,7 @@ function Guardar() {
 
   arrayUser.push({
     id: arrayUser.length + 1,
+    sesion: 0,
     correo,
     contraseña,
     stateLogin,
