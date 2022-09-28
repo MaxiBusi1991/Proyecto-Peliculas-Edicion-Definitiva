@@ -874,8 +874,7 @@ let pelis = [
   {
     id: 1,
     nombrePeli: "Section 8",
-    imgPeli:
-      "https://image.tmdb.org/t/p/w185_and_h278_bestv2/3G1wHQNITyfiABp2fgytpiFMHf9.jpg",
+    imgPeli: "https://pics.filmaffinity.com/section_8-150228448-large.jpg",
     generoPeli: "Accion",
     sinopsis:
       "Tras vengar el asesinato de su familia, un ex soldado sale de la cárcel y es reclutado por una oscura agencia gubernamental.",
@@ -889,8 +888,7 @@ let pelis = [
   {
     id: 2,
     nombrePeli: "Megaboa",
-    imgPeli:
-      "https://image.tmdb.org/t/p/w185_and_h278_bestv2/sAnAMv3eyQiGI1z2k8NsvH0Y6r5.jpg",
+    imgPeli: "https://pics.filmaffinity.com/megaboa-371922742-large.jpg",
     generoPeli: "Accion",
     sinopsis:
       "En un viaje a Colombia, un grupo de estudiantes universitarios se encuentra con una boa constrictor de veinte metros, hambrienta de sangre.",
@@ -904,8 +902,7 @@ let pelis = [
   {
     id: 3,
     nombrePeli: "Supercool",
-    imgPeli:
-      "https://image.tmdb.org/t/p/w185_and_h278_bestv2/3NV278UG4Z8wOWpKFHz6I7D7Nda.jpg",
+    imgPeli: "https://pics.filmaffinity.com/supercool-726816704-large.jpg",
     generoPeli: "Comedia",
     sinopsis:
       "Mejores amigos, Neil y Gilbert comienzan su último año de secundaria con grandes esperanzas y aspiraciones. Neil siempre ha fantaseado con ser lo suficientemente genial como para salir con su enamorado de mucho tiempo y Gilbert siempre ha soñado con ser una súper estrella de las redes sociales. Después de lo que es, según todos los informes, un primer día muy decepcionante y vergonzoso en la escuela, Neil pide un deseo mágico de ser genial justo en el momento mágico en que el reloj marca las 11:11. A la mañana siguiente, Neil se despierta con una realidad que proviene directamente de los cómics de sus sueños.",
@@ -934,7 +931,7 @@ let pelis = [
     id: 5,
     nombrePeli: "The Ex",
     imgPeli:
-      "https://image.tmdb.org/t/p/w185_and_h278_bestv2/gd2Lsq6yMzQmjhlbU2C9vw4HAJ8.jpg",
+      "https://pics.filmaffinity.com/the_lakehouse_murders-907448373-large.jpg",
     generoPeli: "Terror",
     sinopsis:
       "La historia de cómo las redes sociales y la mensajería instantánea están cambiando la vida de una persona moderna. Han pasado varios años desde que un adolescente de 16 años publicó una foto de su novia en el chat general, con la esperanza de presumir ante sus amigos. Ahora tiene una vida adulta feliz: trabajo, amigos, su prometida Katya, que está a punto de convertirse en su esposa. Pero Internet le hace recordar el amor adolescente, tras el cual se produce una cadena de inexplicables acontecimientos místicos con la futura esposa del joven. La chica recibe misteriosos mensajes del pasado de su prometido. A causa de ellos, su vida se convierte en una pesadilla.",
@@ -1094,7 +1091,7 @@ let pelis = [
     id: 16,
     nombrePeli: "Buenas Noches, Mamá",
     imgPeli:
-      "https://image.tmdb.org/t/p/w185_and_h278_bestv2/oHhD5jD4S5ElPNNFCDKXJAzMZ5h.jpg",
+      "https://pics.filmaffinity.com/goodnight_mommy-991719499-large.jpg",
     generoPeli: "Terror",
     sinopsis:
       "Este remake de la película austriaca de 2014 del mismo nombre, sigue a una madre y sus dos hijos. En una casa solitaria en el campo, entre bosques y maizales, viven dos hermanos gemelos de nueve años que esperan a su madre. Cuando llega a casa, vendada tras la cirugía estética, nada es como antes. Los niños empiezan a dudar de que esta mujer sea realmente su madre. De esta forma, surge una lucha existencial por la identidad y la confianza en el seno de la familia.",
@@ -1109,7 +1106,7 @@ let pelis = [
     id: 17,
     nombrePeli: "La Huerfana",
     imgPeli:
-      "https://image.tmdb.org/t/p/w185_and_h278_bestv2/wSqAXL1EHVJ3MOnJzMhUngc8gFs.jpg",
+      "https://pics.filmaffinity.com/orphan_first_kill-880267341-large.jpg",
     generoPeli: "Terror",
     sinopsis:
       "Tras escapar de un centro psiquiátrico estonio, Leena Klammer viaja a América haciéndose pasar por Esther, la hija desaparecida de una familia adinerada. Pero cuando su máscara empieza a caer, se enfrenta a una madre que protegerá a su familia de la «niña» asesina a cualquier precio.",
@@ -1124,7 +1121,7 @@ let pelis = [
     id: 18,
     nombrePeli: "No te preocupes querida",
     imgPeli:
-      "https://image.tmdb.org/t/p/w185_and_h278_bestv2/nK5CTCp1xF8hS6RyFSnlL5zNOmH.jpg",
+      "https://pics.filmaffinity.com/don_t_worry_darling-481520254-large.jpg",
     generoPeli: "Drama",
     sinopsis:
       "Alice y Jack tienen la suerte de vivir en Victoria, la ciudad experimental de la compañía que alberga a los hombres que trabajan para el Proyecto Victoria, de alto secreto, y a sus familias. La vida es perfecta, con todas las necesidades de los residentes cubiertas por la empresa. Todo lo que piden a cambio es un compromiso incondicional con la causa de Victoria. Pero cuando empiezan a aparecer grietas en su idílica vida, exponiendo destellos de algo mucho más siniestro que se esconde bajo la atractiva fachada, Alice no puede evitar cuestionarse qué están haciendo en Victoria y por qué. ¿Cuánto está dispuesta a perder Alice para sacar a la luz lo que realmente ocurre en el paraíso?",
@@ -1139,7 +1136,7 @@ let pelis = [
     id: 19,
     nombrePeli: "Thor:Amor y Trueno",
     imgPeli:
-      "https://image.tmdb.org/t/p/w185_and_h278_bestv2/kf9Bib75eduxt0QiVJO4pawfd9p.jpg",
+      "https://pics.filmaffinity.com/thor_love_and_thunder-566116133-large.jpg",
     generoPeli: "Aventura",
     sinopsis:
       "Cuarta película sobre «Thor» del MCU, en la que el Dios del trueno contará con Lady Thor como acompañante, personaje que interpretará Natalie Portman.",
@@ -1153,8 +1150,7 @@ let pelis = [
   {
     id: 20,
     nombrePeli: "Veneciafrenia",
-    imgPeli:
-      "https://image.tmdb.org/t/p/w185_and_h278_bestv2/luMC56bwZqaECYRz6X7sXjqN6nd.jpg",
+    imgPeli: "https://pics.filmaffinity.com/veneciafrenia-845479735-large.jpg",
     generoPeli: "Aventura",
     sinopsis:
       "En la naturaleza existe vínculo indisoluble entre la belleza y la muerte. El ser humano, deudor de su entorno, imita lo que observa. Como mosquitos atraídos por el faro más brillante, los turistas están apagando la luz de la ciudad más hermosa del planeta. La agonía de las últimas décadas ha desatado la ira entre los venecianos. Para frenar la invasión, algunos se han organizado, dando rienda suelta a su instinto de supervivencia. Nuestros protagonistas, un sencillo grupo de turistas españoles, viajan a Venecia con la intención de divertirse, ajenos a los problemas que les rodean. Allí se verán obligados a luchar por salvar sus propias vidas.",
@@ -1169,7 +1165,7 @@ let pelis = [
     id: 21,
     nombrePeli: "Black Phone",
     imgPeli:
-      "https://image.tmdb.org/t/p/w185_and_h278_bestv2/2LJC0MCghmmgSUNshpfA5RjHQay.jpg",
+      "https://pics.filmaffinity.com/the_black_phone-804220392-large.jpg",
     generoPeli: "Terror",
     sinopsis:
       "En una ciudad de Colorado, en los años 70, un enmascarado secuestra a Finney Shaw, un chico tímido e inteligente de 13 años, y le encierra en un sótano insonorizado donde de nada sirven sus gritos. Cuando un teléfono roto y sin conexión empieza a sonar, Finney descubre que a través de él puede oír las voces de las anteriores víctimas, las cuales están decididas a impedir que Finney acabe igual que ellas.",
@@ -1184,7 +1180,7 @@ let pelis = [
     id: 22,
     nombrePeli: "Los Amantes",
     imgPeli:
-      "https://image.tmdb.org/t/p/w185_and_h278_bestv2/59sz1loOyLeIzARlgvj9nXOQyUK.jpg",
+      "https://pics.filmaffinity.com/los_amantes_de_papel-864472671-large.jpg",
     generoPeli: "Drama",
     sinopsis:
       "Lisa y Simon son inseparables desde que se conocieron siendo adolescentes. Pero todo cambia a causa de las actividades criminales de Simon, que le obligan a huir sin Lisa al ver su vida amenazada. Ella espera recibir noticias suyas en vano durante algún tiempo. Tres años más tarde, sus caminos vuelven a cruzarse en una isla del océano índico, pero sus circunstancias han cambiado.",
@@ -1198,8 +1194,7 @@ let pelis = [
   {
     id: 23,
     nombrePeli: "Atenea",
-    imgPeli:
-      "https://image.tmdb.org/t/p/w185_and_h278_bestv2/uponqptyKtBsJuODqmxoronFd8P.jpg",
+    imgPeli: "https://pics.filmaffinity.com/athena-350331744-large.jpg",
     generoPeli: "Drama",
     sinopsis:
       "Horas después de la trágica muerte de su hermano menor en circunstancias inexplicables, la vida de tres hermanos se ve sumida en el caos.",
@@ -1214,7 +1209,7 @@ let pelis = [
     id: 24,
     nombrePeli: "Amor Prohibido",
     imgPeli:
-      "https://image.tmdb.org/t/p/w185_and_h278_bestv2/5StCcvqGPA4bjNrq3JGqXGfnjqS.jpg",
+      "https://pics.filmaffinity.com/crazy_beautiful-972293260-large.jpg",
     generoPeli: "Drama",
     sinopsis:
       "En medio de la jungla urbana, Darko, un joven y apuesto inmigrante indocumentado, conoce a Alina, una misteriosa mujer que lleva una vida estable en Alemania. A pesar de las diferencias sociales y culturales, comparten una conexión erótica inmediata. Comienzan un apasionado romance y muy pronto Darko se encuentra absorbido por una atracción magnética.",
@@ -1228,8 +1223,7 @@ let pelis = [
   {
     id: 25,
     nombrePeli: "Tren Bala",
-    imgPeli:
-      "https://image.tmdb.org/t/p/w185_and_h278_bestv2/ybSIUt48PsM08F4UZwHdjL9ZVG2.jpg",
+    imgPeli: "https://pics.filmaffinity.com/bullet_train-757922812-large.jpg",
     generoPeli: "Accion",
     sinopsis:
       "Cinco asesinos a sueldo se encuentran a bordo de un tren bala que viaja de Tokio a Morioka con unas pocas paradas intermedias. Descubren que sus misiones no son ajenas entre sí. La pregunta es quién saldrá vivo del tren y qué les espera en la estación final.",
@@ -1258,8 +1252,7 @@ let pelis = [
   {
     id: 27,
     nombrePeli: "Por los Pelos",
-    imgPeli:
-      "https://image.tmdb.org/t/p/w185_and_h278_bestv2/l1gpVietOZl6UPfNY3zxaLkEPci.jpg",
+    imgPeli: "https://pics.filmaffinity.com/por_los_pelos-303800130-large.jpg",
     generoPeli: "Comedia",
     sinopsis:
       "Quedarse calvo sigue siendo un trauma para muchos hombres. Juanjo, Sebas y Rayco son tres ejemplos, entre millones, de cómo la alopecia, conlleva también la caída de la autoestima. Pero si bien la alopecia no diferencia ni entiende de estratos sociales, su solución, sí. Y es que, lo que hasta ahora era prohibitivo para muchos, Turquía lo ha hecho accesible para todos con su turismo capilar low cost, convirtiéndose así en el nuevo maná de los calvos. Juanjo, Sebas y Rayco se embarcarán en una aventura en la que descubrirán que su problema no está tanto encima de su cabeza, si no dentro.",
@@ -1274,7 +1267,7 @@ let pelis = [
     id: 28,
     nombrePeli: "Minions",
     imgPeli:
-      "https://image.tmdb.org/t/p/w185_and_h278_bestv2/asE7W6XInrfxZ24svc5k24DTpek.jpg",
+      "https://pics.filmaffinity.com/minions_the_rise_of_gru-608394212-large.jpg",
     generoPeli: "Comedia",
     sinopsis:
       "Fanboy de un supergrupo de supervillanos conocido como Vicious 6, Gru trama un plan para volverse lo suficientemente malvado como para unirse a ellos, con el respaldo de sus seguidores, los Minions.",
@@ -1288,8 +1281,7 @@ let pelis = [
   {
     id: 29,
     nombrePeli: "La Bestia",
-    imgPeli:
-      "https://image.tmdb.org/t/p/w185_and_h278_bestv2/lGIkv9fQ3i7yVcJXDvG0Vry00LI.jpg",
+    imgPeli: "https://pics.filmaffinity.com/beast-772410629-large.jpg",
     generoPeli: "Aventura",
     sinopsis:
       "El Doctor Nate Samuels, que se ha quedado viudo recientemente, regresa a Sudáfrica, lugar en el que conoció a su mujer, para visitar una reserva de animales con sus hijas. Pero lo que empieza siendo un viaje curativo se convierte en una lucha por la supervivencia cuando un león que ha escapado de unos cazadores furtivos empieza a seguirles.",
@@ -1303,8 +1295,7 @@ let pelis = [
   {
     id: 30,
     nombrePeli: "Broad Peak",
-    imgPeli:
-      "https://image.tmdb.org/t/p/w185_and_h278_bestv2/hssJ3koEXveKRDXb3r6ujEuySGF.jpg",
+    imgPeli: "https://pics.filmaffinity.com/broad_peak-392891032-large.jpg",
     generoPeli: "Aventura",
     sinopsis:
       "Maciej Berbeka realiza la primera ascensión invernal del Broad Peak en 1988, escapando de la muerte por centímetros. Andrzej Zawada, el líder de la expedición, anuncia un gran éxito. Una vez que regresan a Polonia, resulta que Maciej «solo» alcanzó la Cumbre Rocosa, situada veintitrés metros más abajo que el pico real.",
@@ -1318,8 +1309,7 @@ let pelis = [
   {
     id: 31,
     nombrePeli: "Koati",
-    imgPeli:
-      "https://image.tmdb.org/t/p/w185_and_h278_bestv2/5ljcIhwKHK5KlKunybUDNqJ4KXO.jpg",
+    imgPeli: "https://pics.filmaffinity.com/koati-908626038-large.jpg",
     generoPeli: "Infantil",
     sinopsis:
       "Un coatí, una mariposa y una rana unen sus fuerzas para evitar a una malvada serpiente que está destruyendo sus hogares.",
@@ -1333,8 +1323,7 @@ let pelis = [
   {
     id: 32,
     nombrePeli: "David y los Elfos",
-    imgPeli:
-      "https://image.tmdb.org/t/p/w185_and_h278_bestv2/AtpnwDfKBlcPokEGcaxWO2fmiNl.jpg",
+    imgPeli: "https://pics.filmaffinity.com/dawid_i_elfy-624264427-large.jpg",
     generoPeli: "Infantil",
     sinopsis:
       "Un elfo, harto y desbordado por su trabajo, huye al mundo real para tratar de vivir la magia de la Navidad con la ayuda de un nuevo y joven amigo.",
@@ -1348,8 +1337,7 @@ let pelis = [
   {
     id: 33,
     nombrePeli: "Magic Camp",
-    imgPeli:
-      "https://image.tmdb.org/t/p/w185_and_h278_bestv2/awcPLFFYjufRXd2oAAP6ZIXF9vM.jpg",
+    imgPeli: "https://pics.filmaffinity.com/magic_camp-668595567-large.jpg",
     generoPeli: "Infantil",
     sinopsis:
       "Un banquero regresa al Magic Camp al que asistió cuando era niño.",
@@ -1364,7 +1352,7 @@ let pelis = [
     id: 34,
     nombrePeli: "Pajaro Loco",
     imgPeli:
-      "https://image.tmdb.org/t/p/w185_and_h278_bestv2/9crXSxVpQmw4kdmtKrvizmWwBG.jpg",
+      "https://pics.filmaffinity.com/woody_woodpecker-458660691-large.jpg",
     generoPeli: "Infantil",
     sinopsis:
       "Lance Walters es un abogado divorciado que decide irse a vivir con su hijo y su nueva novia a una casa de ensueño en un bosque situado en las montañas. Sin embargo, allí descubrirá que para construir su hogar deberá cortar un árbol en el que vive un pájaro carpintero, contra el que empezará una guerra para decidir quién se quedará con el lugar.",
@@ -1378,8 +1366,7 @@ let pelis = [
   {
     id: 35,
     nombrePeli: "Unplugging",
-    imgPeli:
-      "https://image.tmdb.org/t/p/w185_and_h278_bestv2/tFL9lRtVUEmsVcggoag0u4H14mJ.jpg",
+    imgPeli: "https://pics.filmaffinity.com/unplugging-929072060-large.jpg",
     generoPeli: "Romance",
     sinopsis:
       "¿Crees que una escapada rústica sin servicio de móvil, Internet o redes sociales es una forma romántica de reparar tu matrimonio y tu vida sexual? Piénsalo de nuevo. Conoce a Dan y Jeanine Dewerson. La única chispa que hay en su dormitorio proviene del enchufe de la pared. El mejor amigo de su hija es su iPad. Dan no va a aguantar más y planea un tranquilo y relajante fin de semana en un remoto pueblo de montaña. Sin niños, sin teléfonos, sin redes sociales, sólo aire puro y mucho romance. Pero lo que empieza como un fin de semana perfecto se convierte rápidamente en un desastre con encuentros sobrenaturales, fuertes comestibles, lugareños malhumorados y un molesto perro tuerto. Sin un GPS que les guíe ni redes sociales que eviten su aburrimiento, Dan y Jeanine se ven obligados a reconectar entre sí. ¿Puede una «desintoxicación digital» salvar su matrimonio y su cordura?",
@@ -1393,8 +1380,7 @@ let pelis = [
   {
     id: 36,
     nombrePeli: "Sin Aliento",
-    imgPeli:
-      "https://image.tmdb.org/t/p/w185_and_h278_bestv2/AqnFoTOKLAtVIf3HtfM5GUd1ivW.jpg",
+    imgPeli: "https://pics.filmaffinity.com/sous_emprise-724527057-large.jpg",
     generoPeli: "Romance",
     sinopsis:
       "Roxana Aubrey decide dejar sus estudios y escapar de su vida en París para tomar un curso de buceo libre en el sur de Francia. Rápidamente se ve arrastrada a una vida que alcanza nuevas profundidades gracias al peso del descenso de un océano.",
@@ -1409,7 +1395,7 @@ let pelis = [
     id: 37,
     nombrePeli: "After",
     imgPeli:
-      "https://image.tmdb.org/t/p/w185_and_h278_bestv2/iA7oMNByuPRIapcILH8zwEoxV2h.jpg",
+      "https://pics.filmaffinity.com/after_ever_happy-900095716-large.jpg",
     generoPeli: "Romance",
     sinopsis:
       "El amor de Tessa y Hardin nunca ha sido fácil. Mientras él permanece en Londres después de la boda de su madre y se hunde cada vez más en su propia oscuridad, ella regresa a Seattle. Tessa es la única capaz de entenderle y calmarle… él la necesita, pero ella ya no es la chica buena y dulce que era cuando llegó a la universidad. Deberá plantearse si lo que debe hacer ahora es salvar a Hardin y su relación con él, o si ha llegado el momento de pensar solo en ella. Si quieren que su amor sobreviva, primero tendrán que trabajar en sí mismos. ¿Pero será su destino seguir estando juntos?",
@@ -1423,8 +1409,7 @@ let pelis = [
   {
     id: 38,
     nombrePeli: "First Love",
-    imgPeli:
-      "https://image.tmdb.org/t/p/w185_and_h278_bestv2/aygkRhW2pOmJHP8KgU4rVK9gKJb.jpg",
+    imgPeli: "https://pics.filmaffinity.com/first_love-769646069-large.jpg",
     generoPeli: "Romance",
     sinopsis:
       "La difícil entrada en la vida adulta de un joven que experimenta los altibajos de su primer amor, mientras lidia con las secuelas familiares provocadas por la crisis financiera de 2008.",
@@ -1438,8 +1423,7 @@ let pelis = [
   {
     id: 39,
     nombrePeli: "Maybe Die",
-    imgPeli:
-      "https://image.tmdb.org/t/p/w185_and_h278_bestv2/juk7GtWdjEkZqviJN96ReHRgnQl.jpg",
+    imgPeli: "https://pics.filmaffinity.com/maybe_die-161267479-large.jpg",
     generoPeli: "Documental",
     sinopsis:
       "Un equipo de mensajeros en bicicleta con sede en Madrid, especializado en viajes de larga distancia, viaja a Japón con sus bicicletas de piñón fijo. Inspirados en la legendaria Odisea japonesa, recorren sin asistencia alguna 22 etapas y más de 1.200 km.",
@@ -1453,8 +1437,7 @@ let pelis = [
   {
     id: 40,
     nombrePeli: "Vidas Menores",
-    imgPeli:
-      "https://image.tmdb.org/t/p/w185_and_h278_bestv2/gqBPf8G7VxaKePDYV7iAIrFmFVu.jpg",
+    imgPeli: "https://pics.filmaffinity.com/vidas_menores-125460245-large.jpg",
     generoPeli: "Documental",
     sinopsis:
       "En los últimos años, miles de menores marroquíes salen de su país para tratar de vivir en Europa. Viajan sin compañía de sus familiares, muchos de ellos colándose en los transportes que atraviesan el Mediterráneo hacia la costa española. “Vidas menores” acompaña a varios de estos chicos en diferentes momentos de su viaje migratorio, retratando su cotidianeidad tal y como ellos la viven. El documental gira en torno al impacto y al significado que este viaje tiene para sus protagonistas, en una historia que se cuenta desde la perspectiva humana, sin otros testimonios que los de los propios menores y ofreciendo al espectador una mirada sin filtros ni prejuicios.",
@@ -1468,8 +1451,7 @@ let pelis = [
   {
     id: 41,
     nombrePeli: "Flight/Risk",
-    imgPeli:
-      "https://image.tmdb.org/t/p/w185_and_h278_bestv2/coiqkol7YYXOKeZiVROkYHhd7wv.jpg",
+    imgPeli: "https://pics.filmaffinity.com/flight_risk-267697208-large.jpg",
     generoPeli: "Documental",
     sinopsis:
       "Personas cotidianas se encuentran en medio de una tragedia mundial cuando dos aviones Boeing 737 Max se estrellan con solo cinco meses de diferencia en 2018 y 2019. Este impactante documental se cuenta a través de la perspectiva de los miembros de las familias afectadas, sus equipos legales, los denunciantes y el periodista del Seattle Times ganador del Pulitzer, Dominic Gates.",
@@ -1483,8 +1465,7 @@ let pelis = [
   {
     id: 42,
     nombrePeli: "Fantasia",
-    imgPeli:
-      "https://image.tmdb.org/t/p/w185_and_h278_bestv2/kzsGvpbWMtgIYt1Y8gIr61CWLVY.jpg",
+    imgPeli: "https://pics.filmaffinity.com/fantasia-464985509-large.jpg",
     generoPeli: "Documental",
     sinopsis:
       "Los hermanos Amaia y Aitor están cerca de cumplir cincuenta años. No tienen hijos. Desde muy jóvenes viven lejos de sus padres, Kontxi e Iñaki, ya jubilados. Un verano se juntan en un crucero llamado Fantasia. En alta mar es como si el tiempo se parase, pero más allá del horizonte la realidad sigue avanzando sin descanso.",
@@ -1498,8 +1479,7 @@ let pelis = [
   {
     id: 43,
     nombrePeli: "¡Nop!",
-    imgPeli:
-      "https://image.tmdb.org/t/p/w185_and_h278_bestv2/hlJKvYdKJJeWoKeNNs1Fom1chIz.jpg",
+    imgPeli: "https://pics.filmaffinity.com/nope-999319780-large.jpg",
     generoPeli: "Ficcion",
     sinopsis:
       "Dos residentes de un remoto pueblo en el interior de California realizan un descubrimiento tan insólito como escalofriante…",
@@ -1513,8 +1493,7 @@ let pelis = [
   {
     id: 44,
     nombrePeli: "Visitante",
-    imgPeli:
-      "https://image.tmdb.org/t/p/w185_and_h278_bestv2/lQJoMwHXtARzZoryw5YfO3HhybJ.jpg",
+    imgPeli: "https://pics.filmaffinity.com/visitante-906517391-large.jpg",
     generoPeli: "Ficcion",
     sinopsis:
       "Marga, en medio de una crisis con su marido, decide pasar unos días en una antigua casa de su pueblo. Allí, empieza a percibir extraños fenómenos que la aterran.",
@@ -1528,8 +1507,7 @@ let pelis = [
   {
     id: 45,
     nombrePeli: "Tides",
-    imgPeli:
-      "https://image.tmdb.org/t/p/w185_and_h278_bestv2/ccGic6JXCnk6sxCC0qT8T9o0gCU.jpg",
+    imgPeli: "https://pics.filmaffinity.com/tides-756134920-large.jpg",
     generoPeli: "Ficcion",
     sinopsis:
       "Tides [The Colony] cinta de ciencia ficción y misterio, co escrita y dirigida por Tim Fehlbaum (Hell), cuando la tierra se volvió inhabitable para los humanos a consecuencia a una catástrofe global, los miembros de la élite gobernante se instalaron en el planeta Kepler 209, uno de los más cercanos a la Tierra y con condiciones favorables para la vida. Sin embargo, la atmósfera del nuevo planeta ha dejado estériles a sus nuevos habitantes y, previendo un nuevo desastre, el gobierno organiza una misión de exploración a la Tierra para analizar sus nuevas condiciones. Sin embargo, el viaje sufre contratiempos al entrar al planeta y Blake, una astronauta, es la única sobreviviente del impacto. Pronto, descubre que hay más habitantes en el lugar, mismos que permanecen ocultos de las mareas que abarcan todo el territorio y solo salen para buscar comida cuando las aguas retroceden. En los siguientes días, la chica descubre un peligroso secreto que puede poner fin a los sobrevivientes y a su propio planeta.",
@@ -1544,7 +1522,7 @@ let pelis = [
     id: 46,
     nombrePeli: "Programa ADN",
     imgPeli:
-      "https://image.tmdb.org/t/p/w185_and_h278_bestv2/c2eiDD1vvCYLllgDrG5Q8ZsyX5E.jpg",
+      "https://pics.filmaffinity.com/the_adam_project-982692706-large.jpg",
     generoPeli: "Ficcion",
     sinopsis:
       "Cuando un humilde cartero es incluido en un programa de ADN sobrehumano ultrasecreto en un centro de investigación, se revela que podrá recibir, controlar y enviar información basada en los sentidos de los demás.",
