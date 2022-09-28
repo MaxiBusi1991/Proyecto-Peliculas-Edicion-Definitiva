@@ -4,6 +4,12 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="CineclubWoo" content="peliculas series estrenos" />
+    <meta
+      name="description"
+      content="pagina de peliculas, series, estrenos de cine"
+    />
+    <meta name="keywords" content="peliculas, series, documentales,estrenos" />
     <link rel="icon" href="../img/favicon4.ico" />
     <title>CineclubWoo</title>
     <!-- CSS only -->
@@ -24,7 +30,12 @@
   <body class="d-flex flex-column color-fondo" onload="CargaPrincipal()">
     <!--INICIO NAVBAR-->
     <header>
-      <nav class="navbar navbar-expand-lg sticky-top color-navbar navbar-dark">
+      <!-- navar comun-->
+      <nav
+        class="navbar navbar-expand-lg sticky-top color-navbar navbar-dark"
+        style="display: block"
+        id="navComun"
+      >
         <div class="container-fluid">
           <a class="navbar-brand" href="../HTML/index.html">
             <img
@@ -90,6 +101,63 @@
                 <a class="nav-link text-white" href="acercadenosotros.html">
                   Nosotros
                 </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+      <!-- navar user-->
+      <nav
+        class="navbar navbar-expand-lg navbar-dark sticky-top"
+        style="display: none"
+        id="navUsuario"
+      >
+        <div class="container-fluid">
+          <a class="navbar-scroll navbar-brand" href="./navbaru.html">
+            <img src="./img/logocinesinfondo.png" height="60" alt="" />
+          </a>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-scroll navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mb-2 mb-lg-0">
+              <li class="nav-item dropdown">
+                <a
+                  class="navbar-scroll nav-link dropdown-toggle"
+                  href="#"
+                  role="button"
+                  data-bs-toggle="dropdown"
+                  aria-expanded="false"
+                >
+                  Menu
+                </a>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="#">Peliculas</a></li>
+                  <li><a class="dropdown-item" href="#">Series</a></li>
+                  <li><a class="dropdown-item" href="#">Recien Añadidos</a></li>
+                  <li><a class="dropdown-item" href="#">Tendencias</a></li>
+                  <li><a class="dropdown-item" href="#">A-Z</a></li>
+                  <li><hr class="dropdown-divider" /></li>
+                  <li><a class="dropdown-item" href="#">Sobre Nosotros</a></li>
+                </ul>
+              </li>
+            </ul>
+            <ul class="navbar-nav mb-2 mb-lg-0 ms-auto">
+              <li class="nav-item">
+                <a
+                  class="nav-link active"
+                  aria-current="page"
+                  href="./navbar.html"
+                  >Cerrar Sesion</a
+                >
               </li>
             </ul>
           </div>

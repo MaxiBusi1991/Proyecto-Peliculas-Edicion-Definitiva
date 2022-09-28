@@ -224,6 +224,10 @@ body {
   height: 10rem;
 }
 
+.color-textoh2 {
+  color: aliceblue;
+}
+
 /* //Estilos Andrea */
 
 /* estilo para sacar borde azul al input al hacer foco  */
@@ -396,4 +400,15 @@ h5 {
 }
 .botonSus {
   background-color: #610094;
+}
+html {
+  height: 100%;
+}
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+}
+footer {
+  margin-top: auto;
 }
