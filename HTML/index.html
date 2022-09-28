@@ -30,7 +30,7 @@
   <body class="d-flex flex-column color-fondo" onload="CargaPrincipal()">
     <!--INICIO NAVBAR-->
     <header>
-      <!-- navar comun-->
+      <!-- Navbar comun-->
       <nav
         class="navbar navbar-expand-lg sticky-top color-navbar navbar-dark"
         style="display: block"
@@ -106,15 +106,19 @@
           </div>
         </div>
       </nav>
-      <!-- navar user-->
+      <!-- Navbar Usuario-->
       <nav
         class="navbar navbar-expand-lg navbar-dark sticky-top"
         style="display: none"
         id="navUsuario"
       >
         <div class="container-fluid">
-          <a class="navbar-scroll navbar-brand" href="./navbaru.html">
-            <img src="./img/logocinesinfondo.png" height="60" alt="" />
+          <a class="navbar-scroll navbar-brand" href="../HTML/index.html">
+            <img
+              src="../img/logocinesinfondo-removebg-preview.png"
+              height="60"
+              alt=""
+            />
           </a>
           <button
             class="navbar-toggler"
@@ -140,11 +144,11 @@
                   Menu
                 </a>
                 <ul class="dropdown-menu">
-                  <li><a class="dropdown-item" href="#">Peliculas</a></li>
-                  <li><a class="dropdown-item" href="#">Series</a></li>
-                  <li><a class="dropdown-item" href="#">Recien Añadidos</a></li>
-                  <li><a class="dropdown-item" href="#">Tendencias</a></li>
-                  <li><a class="dropdown-item" href="#">A-Z</a></li>
+                  <li><a class="dropdown-item" href="../HTML/error 404.html">Estrenos</a></li>
+                  <li><a class="dropdown-item" href="../HTML/error 404.html">Romance</a></li>
+                  <li><a class="dropdown-item" href="../HTML/error 404.html">Drama</a></li>
+                  <li><a class="dropdown-item" href="../HTML/error 404.html">Terror</a></li>
+                  <li><a class="dropdown-item" href="../HTML/error 404.html">Más generos</a></li>
                   <li><hr class="dropdown-divider" /></li>
                   <li><a class="dropdown-item" href="#">Sobre Nosotros</a></li>
                 </ul>
@@ -152,12 +156,9 @@
             </ul>
             <ul class="navbar-nav mb-2 mb-lg-0 ms-auto">
               <li class="nav-item">
-                <a
-                  class="nav-link active"
-                  aria-current="page"
-                  href="./navbar.html"
-                  >Cerrar Sesion</a
-                >
+                <button class="btn text-white" onclick="Cerrar()">
+                  Cerrar Sesion
+                </button>
               </li>
             </ul>
           </div>

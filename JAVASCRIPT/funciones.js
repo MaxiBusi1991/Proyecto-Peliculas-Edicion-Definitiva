@@ -42,6 +42,7 @@ function GuardarPelicula() {
       Destacada,
       Estado,
     });
+
     localStorage.setItem("peli", JSON.stringify(arrayPeli));
     agregarpeli();
   } else {
@@ -121,31 +122,6 @@ function validarCampos() {
   return bandera;
 }
 
-// function evaluarDestacada() {
-//   const localSTGPeli = JSON.parse(localStorage.getItem("peli")) || [];
-//   const arrayPeli = [];
-//   console.log("entra funcion evaluar destacada");
-//   for (let i = 0; i < localSTGPeli.length; i++) {
-//     if (localSTGPeli[i].Destacada == "Si") {
-//       console.log("Destacada:" + localSTGPeli[i].Destacada);
-//       console.log("ya hay destacada");
-//       formDestacada.innerHTML = ` <select class="form-select" id="Destacada" required disabled>
-//               <option selected>Destacada</option>
-//               <option value="Si">Si</option>
-//               <option value="No">No</option>
-//             </select>
-//             <div class="invalid-feedback"></div>`;
-//     } else {
-//       console.log("no hay destacada");
-//       formDestacada.innerHTML = ` <select class="form-select" id="Destacada" required >
-//               <option selected>Destacada</option>
-//               <option value="Si">Si</option>
-//               <option value="No">No</option>
-//             </select>
-//             <div class="invalid-feedback"></div>`;
-//     }
-//   }
-// }
 let bandera = 0;
 function destacarPelicula(id) {
   const localSTGPeli = JSON.parse(localStorage.getItem("peli")) || [];
@@ -310,8 +286,7 @@ function eliminarPelicula(id) {
 function CargaPrincipal() {
   const localSTGUsers = JSON.parse(localStorage.getItem("user")) || [];
   const userExists = localSTGUsers.filter((local) => local.sesion === 1);
-  console.log(userExists);
-  console.log("h");
+
   if (userExists.length == 0) {
     // navar comun
     document.getElementById("navUsuario").style.display = "none";
@@ -558,9 +533,6 @@ function buscarPelicula() {
 
 // funcion primeraCarga
 function primeraCarga() {
-  console.log("primera cArga");
-  // localStorage.setItem("peli", JSON.stringify(MOVIES));
-  // console.log(MOVIES);
   localStorage.setItem("peli", JSON.stringify(pelis));
   console.log(pelis);
 }
@@ -631,6 +603,14 @@ function ingresar() {
     if (userExists[0].contraseña == contra) {
       alert("correcto");
       if (userExists[0].role == "admin") {
+        console.log("soy admin");
+        for (let i = 0; i < localSTGUsers.length; i++) {
+          if (localSTGUsers[i].correo == correo2) {
+            console.log("entre if correo");
+            localSTGUsers[i].sesion = 2;
+          }
+        }
+        localStorage.setItem("user", JSON.stringify(localSTGUsers));
         location.href = "vistaUserAdmin.html";
       } else {
         for (let i = 0; i < localSTGUsers.length; i++) {
@@ -639,15 +619,26 @@ function ingresar() {
             localSTGUsers[i].sesion = 1;
           }
         }
-
         localStorage.setItem("user", JSON.stringify(localSTGUsers));
-
         location.href = "index.html";
       }
     } else {
       alert("incorrecto");
     }
   }
+}
+function Cerrar() {
+  const localSTGUsers = JSON.parse(localStorage.getItem("user")) || [];
+  const userExists = localSTGUsers.filter((local) => local.sesion === 1);
+  if (userExists.length > 0) {
+    for (let i = 0; i < localSTGUsers.length; i++) {
+      if (localSTGUsers[i].sesion > 0) {
+        localSTGUsers[i].sesion = 0;
+      }
+    }
+    localStorage.setItem("user", JSON.stringify(localSTGUsers));
+  }
+  location.href = "index.html";
 }
 
 // registro
@@ -824,7 +815,6 @@ function ActivarPeliculas() {
 }
 // boton Usuario
 function ActivarUsuarios() {
-  verpeli();
   document.getElementById("PeliculaTabla").style.display = "none";
   document.getElementById("UsuarioTabla").style.display = "block";
 }
@@ -859,9 +849,6 @@ function GuardarModiUsuario() {
   VerUsuario();
 }
 
-/// Osqui trabajando
-
-/// Osqui trabajando
 //pre carga movies
 const MOVIES = [
   {
@@ -879,21 +866,7 @@ const MOVIES = [
     Destacada: "No",
     Estado: "Si",
   },
-  {
-    id: 2,
-    nombrePeli: "Top Gun",
-    imgPeli:
-      "https://pics.filmaffinity.com/top_gun_maverick-537976462-large.jpg",
-    generoPeli: "Acccion",
-    sinopsis:
-      "Después de más de treinta años de servicio como uno de los mejores aviadores de la Armada, Pete ´Mavericks´ Mitchel  se encuentra donde siempre quiso estar: superando los límites como un valiente piloto de pruebas y esquivando el ascenso de rango, que no le dejaría volar emplazándolo en tierra. Cuando es destinado a la academia de Top Gun con el objetivo de entrenar a los pilotos de élite para realizar una peligrosa misión en territorio enemigo, Maverick se encuentra allí con el joven teniente Bradley Bradshaw , el hijo de su difunto amigo ´Goose´.",
-    duraPeli: 131,
-    trailerPeli: "https://www.dailymotion.com/embed/video/x89hfnb?autoplay=1",
-    anoPeli: 2022,
-    Estreno: "Si",
-    Destacada: "No",
-    Estado: "Si",
-  },
+
   {
     id: 3,
     nombrePeli: "La memoria de un asesino",
@@ -1014,7 +987,7 @@ const MOVIES = [
 
 let pelis = [
   {
-    id: 11,
+    id: 1,
     nombrePeli: "Black Phone",
     imgPeli:
       "https://image.tmdb.org/t/p/w185_and_h278_bestv2/2LJC0MCghmmgSUNshpfA5RjHQay.jpg",
@@ -1029,7 +1002,7 @@ let pelis = [
     Estado: "Si",
   },
   {
-    id: 12,
+    id: 2,
     nombrePeli: "Los Amantes",
     imgPeli:
       "https://image.tmdb.org/t/p/w185_and_h278_bestv2/59sz1loOyLeIzARlgvj9nXOQyUK.jpg",
@@ -1044,7 +1017,7 @@ let pelis = [
     Estado: "Si",
   },
   {
-    id: 13,
+    id: 3,
     nombrePeli: "Atenea",
     imgPeli:
       "https://image.tmdb.org/t/p/w185_and_h278_bestv2/uponqptyKtBsJuODqmxoronFd8P.jpg",
@@ -1059,7 +1032,7 @@ let pelis = [
     Estado: "Si",
   },
   {
-    id: 14,
+    id: 4,
     nombrePeli: "Amor Prohibido",
     imgPeli:
       "https://image.tmdb.org/t/p/w185_and_h278_bestv2/5StCcvqGPA4bjNrq3JGqXGfnjqS.jpg",
@@ -1074,7 +1047,7 @@ let pelis = [
     Estado: "Si",
   },
   {
-    id: 15,
+    id: 5,
     nombrePeli: "Tren Bala",
     imgPeli:
       "https://image.tmdb.org/t/p/w185_and_h278_bestv2/ybSIUt48PsM08F4UZwHdjL9ZVG2.jpg",
@@ -1089,7 +1062,7 @@ let pelis = [
     Estado: "Si",
   },
   {
-    id: 16,
+    id: 6,
     nombrePeli: "Lou",
     imgPeli:
       "https://image.tmdb.org/t/p/w185_and_h278_bestv2/djM2s4wSaATn4jVB33cV05PEbV7.jpg",
@@ -1104,7 +1077,7 @@ let pelis = [
     Estado: "Si",
   },
   {
-    id: 17,
+    id: 7,
     nombrePeli: "Por los Pelos",
     imgPeli:
       "https://image.tmdb.org/t/p/w185_and_h278_bestv2/l1gpVietOZl6UPfNY3zxaLkEPci.jpg",
@@ -1119,7 +1092,7 @@ let pelis = [
     Estado: "Si",
   },
   {
-    id: 18,
+    id: 8,
     nombrePeli: "Minions",
     imgPeli:
       "https://image.tmdb.org/t/p/w185_and_h278_bestv2/asE7W6XInrfxZ24svc5k24DTpek.jpg",
@@ -1134,7 +1107,7 @@ let pelis = [
     Estado: "Si",
   },
   {
-    id: 19,
+    id: 9,
     nombrePeli: "La Bestia",
     imgPeli:
       "https://image.tmdb.org/t/p/w185_and_h278_bestv2/lGIkv9fQ3i7yVcJXDvG0Vry00LI.jpg",
@@ -1149,7 +1122,7 @@ let pelis = [
     Estado: "Si",
   },
   {
-    id: 20,
+    id: 10,
     nombrePeli: "Broad Peak",
     imgPeli:
       "https://image.tmdb.org/t/p/w185_and_h278_bestv2/hssJ3koEXveKRDXb3r6ujEuySGF.jpg",
@@ -1164,7 +1137,7 @@ let pelis = [
     Estado: "Si",
   },
   {
-    id: 21,
+    id: 11,
     nombrePeli: "Koati",
     imgPeli:
       "https://image.tmdb.org/t/p/w185_and_h278_bestv2/5ljcIhwKHK5KlKunybUDNqJ4KXO.jpg",
@@ -1179,7 +1152,7 @@ let pelis = [
     Estado: "Si",
   },
   {
-    id: 22,
+    id: 12,
     nombrePeli: "David y los Elfos",
     imgPeli:
       "https://image.tmdb.org/t/p/w185_and_h278_bestv2/AtpnwDfKBlcPokEGcaxWO2fmiNl.jpg",
@@ -1194,7 +1167,7 @@ let pelis = [
     Estado: "Si",
   },
   {
-    id: 23,
+    id: 13,
     nombrePeli: "Magic Camp",
     imgPeli:
       "https://image.tmdb.org/t/p/w185_and_h278_bestv2/awcPLFFYjufRXd2oAAP6ZIXF9vM.jpg",
@@ -1209,7 +1182,7 @@ let pelis = [
     Estado: "Si",
   },
   {
-    id: 24,
+    id: 14,
     nombrePeli: "Pajaro Loco",
     imgPeli:
       "https://image.tmdb.org/t/p/w185_and_h278_bestv2/9crXSxVpQmw4kdmtKrvizmWwBG.jpg",
@@ -1224,7 +1197,7 @@ let pelis = [
     Estado: "Si",
   },
   {
-    id: 25,
+    id: 15,
     nombrePeli: "Unplugging",
     imgPeli:
       "https://image.tmdb.org/t/p/w185_and_h278_bestv2/tFL9lRtVUEmsVcggoag0u4H14mJ.jpg",
@@ -1239,7 +1212,7 @@ let pelis = [
     Estado: "Si",
   },
   {
-    id: 26,
+    id: 16,
     nombrePeli: "Sin Aliento",
     imgPeli:
       "https://image.tmdb.org/t/p/w185_and_h278_bestv2/AqnFoTOKLAtVIf3HtfM5GUd1ivW.jpg",
@@ -1254,7 +1227,7 @@ let pelis = [
     Estado: "Si",
   },
   {
-    id: 27,
+    id: 17,
     nombrePeli: "After",
     imgPeli:
       "https://image.tmdb.org/t/p/w185_and_h278_bestv2/iA7oMNByuPRIapcILH8zwEoxV2h.jpg",
@@ -1269,7 +1242,7 @@ let pelis = [
     Estado: "Si",
   },
   {
-    id: 28,
+    id: 18,
     nombrePeli: "First Love",
     imgPeli:
       "https://image.tmdb.org/t/p/w185_and_h278_bestv2/aygkRhW2pOmJHP8KgU4rVK9gKJb.jpg",
@@ -1284,7 +1257,7 @@ let pelis = [
     Estado: "Si",
   },
   {
-    id: 29,
+    id: 19,
     nombrePeli: "Maybe Die",
     imgPeli:
       "https://image.tmdb.org/t/p/w185_and_h278_bestv2/juk7GtWdjEkZqviJN96ReHRgnQl.jpg",
@@ -1299,7 +1272,7 @@ let pelis = [
     Estado: "Si",
   },
   {
-    id: 30,
+    id: 20,
     nombrePeli: "Vidas Menores",
     imgPeli:
       "https://image.tmdb.org/t/p/w185_and_h278_bestv2/gqBPf8G7VxaKePDYV7iAIrFmFVu.jpg",
@@ -1314,7 +1287,7 @@ let pelis = [
     Estado: "Si",
   },
   {
-    id: 31,
+    id: 21,
     nombrePeli: "Flight/Risk",
     imgPeli:
       "https://image.tmdb.org/t/p/w185_and_h278_bestv2/coiqkol7YYXOKeZiVROkYHhd7wv.jpg",
@@ -1329,7 +1302,7 @@ let pelis = [
     Estado: "Si",
   },
   {
-    id: 32,
+    id: 22,
     nombrePeli: "Fantasia",
     imgPeli:
       "https://image.tmdb.org/t/p/w185_and_h278_bestv2/kzsGvpbWMtgIYt1Y8gIr61CWLVY.jpg",
@@ -1344,7 +1317,7 @@ let pelis = [
     Estado: "Si",
   },
   {
-    id: 33,
+    id: 23,
     nombrePeli: "¡Nop!",
     imgPeli:
       "https://image.tmdb.org/t/p/w185_and_h278_bestv2/hlJKvYdKJJeWoKeNNs1Fom1chIz.jpg",
@@ -1359,7 +1332,7 @@ let pelis = [
     Estado: "Si",
   },
   {
-    id: 34,
+    id: 24,
     nombrePeli: "Visitante",
     imgPeli:
       "https://image.tmdb.org/t/p/w185_and_h278_bestv2/lQJoMwHXtARzZoryw5YfO3HhybJ.jpg",
@@ -1374,7 +1347,7 @@ let pelis = [
     Estado: "Si",
   },
   {
-    id: 35,
+    id: 25,
     nombrePeli: "Tides",
     imgPeli:
       "https://image.tmdb.org/t/p/w185_and_h278_bestv2/ccGic6JXCnk6sxCC0qT8T9o0gCU.jpg",
@@ -1390,7 +1363,7 @@ let pelis = [
     Estado: "Si",
   },
   {
-    id: 36,
+    id: 26,
     nombrePeli: "Programa ADN",
     imgPeli:
       "https://image.tmdb.org/t/p/w185_and_h278_bestv2/c2eiDD1vvCYLllgDrG5Q8ZsyX5E.jpg",
@@ -1402,6 +1375,21 @@ let pelis = [
     anoPeli: 2021,
     Estreno: "Si",
     Destacada: "No",
+    Estado: "Si",
+  },
+  {
+    id: 27,
+    nombrePeli: "Top Gun",
+    imgPeli:
+      "https://pics.filmaffinity.com/top_gun_maverick-537976462-large.jpg",
+    generoPeli: "Acccion",
+    sinopsis:
+      "Después de más de treinta años de servicio como uno de los mejores aviadores de la Armada, Pete ´Mavericks´ Mitchel  se encuentra donde siempre quiso estar: superando los límites como un valiente piloto de pruebas y esquivando el ascenso de rango, que no le dejaría volar emplazándolo en tierra. Cuando es destinado a la academia de Top Gun con el objetivo de entrenar a los pilotos de élite para realizar una peligrosa misión en territorio enemigo, Maverick se encuentra allí con el joven teniente Bradley Bradshaw , el hijo de su difunto amigo ´Goose´.",
+    duraPeli: 131,
+    trailerPeli: "https://www.dailymotion.com/embed/video/x89hfnb?autoplay=1",
+    anoPeli: 2022,
+    Estreno: "Si",
+    Destacada: "Si",
     Estado: "Si",
   },
 ];
