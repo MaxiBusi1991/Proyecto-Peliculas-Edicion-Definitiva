@@ -69,7 +69,7 @@ function validarCampos() {
   if (document.getElementById("nombrePeli").value != "") {
     var nombrePeli = document.getElementById("nombrePeli").value;
   } else {
-    alert("Ingrese un nombre válido por favor");
+    // alert("Ingrese un nombre válido por favor");
     bandera++;
   }
 
@@ -79,7 +79,7 @@ function validarCampos() {
   if (document.getElementById("imgPeli").value != "") {
     var nombrePeli = document.getElementById("imgPeli").value;
   } else {
-    alert("Ingrese una URL válida por favor");
+    // alert("Ingrese una URL válida por favor");
     bandera++;
   }
   console.log("b img" + bandera);
@@ -90,7 +90,7 @@ function validarCampos() {
   ) {
     var nombrePeli = document.getElementById("anoPeli").value;
   } else {
-    alert("Ingrese un año válida por favor");
+    // alert("Ingrese un año válida por favor");
     bandera++;
   }
   console.log("b año" + bandera);
@@ -101,7 +101,7 @@ function validarCampos() {
   ) {
     var nombrePeli = document.getElementById("duraPeli").value;
   } else {
-    alert("Ingrese una duración válida por favor");
+    // alert("Ingrese una duración válida por favor");
     bandera++;
   }
   console.log("b dura" + bandera);
@@ -109,7 +109,7 @@ function validarCampos() {
   if (document.getElementById("trailerPeli").value != "") {
     var nombrePeli = document.getElementById("trailerPeli").value;
   } else {
-    alert("Ingrese una URL válida por favor");
+    // alert("Ingrese una URL válida por favor");
     bandera++;
   }
   console.log("b trailer" + bandera);
@@ -117,7 +117,7 @@ function validarCampos() {
   if (document.getElementById("sinopsis").value != "") {
     var nombrePeli = document.getElementById("sinopsis").value;
   } else {
-    alert("Ingrese una sinopsis válida por favor");
+    // alert("Ingrese una sinopsis válida por favor");
     bandera++;
   }
   console.log("b sinopsis" + bandera);
@@ -125,11 +125,10 @@ function validarCampos() {
   if (document.getElementById("Estreno").value != "") {
     var nombrePeli = document.getElementById("Estreno").value;
   } else {
-    alert("Ingrese una sinipsis válida por favor");
+    // alert("Ingrese una sinipsis válida por favor");
     bandera++;
   }
   console.log("b estreno" + bandera);
-  // var Destacada = document.getElementById("Destacada").value;
   var Estado = document.getElementById("Estado").value;
   return bandera;
 }
@@ -610,9 +609,9 @@ function recuperarContraseña() {
   );
 
   if (userExists.length == 1) {
-    alert("correo existente");
+    //alert("correo existente");
   } else {
-    alert("correo INexistente");
+    //alert("correo INexistente");
   }
 }
 let banderaUser = 0;
@@ -625,9 +624,9 @@ function ingresar() {
 
   if (userExists.length > 0) {
     if (userExists[0].contraseña == contra) {
-      alert("correcto");
+      //alert("correcto");
       if (userExists[0].role == "admin") {
-        console.log("soy admin");
+        //console.log("soy admin");
         for (let i = 0; i < localSTGUsers.length; i++) {
           if (localSTGUsers[i].correo == correo2) {
             console.log("entre if correo");
@@ -639,7 +638,7 @@ function ingresar() {
       } else {
         for (let i = 0; i < localSTGUsers.length; i++) {
           if (localSTGUsers[i].correo == correo2) {
-            console.log("entre if correo");
+            //console.log("entre if correo");
             localSTGUsers[i].sesion = 1;
           }
         }
@@ -647,7 +646,7 @@ function ingresar() {
         location.href = "index.html";
       }
     } else {
-      alert("incorrecto");
+      //alert("incorrecto");
     }
   }
 }
@@ -667,19 +666,19 @@ function Cerrar() {
 
 // registro
 function comparar() {
-  console.log("entre");
+  //console.log("entre");
   contra1 = document.getElementById("contraRegistro1").value;
   contra2 = document.getElementById("contraRegistro2").value;
 
   if (contra1 == contra2) {
-    console.log("son iguales");
+    //console.log("son iguales");
     document.getElementById("siguiente1").style.display = "block";
   } else {
-    alert("contraseñas incorrectas");
+    //alert("contraseñas incorrectas");
   }
 }
 function sigDatos() {
-  console.log("entre");
+  //console.log("entre");
   $("#collapseTwo").collapse("toggle");
 }
 function btnsig() {
@@ -745,7 +744,7 @@ function Guardar() {
 
 }
 function modiagre(idv) {
-  console.log(idv);
+  //console.log(idv);
   if (idv === " ") {
     document.getElementById("iduser").value = "";
     document.getElementById("finCorreo").value = "";
@@ -792,11 +791,11 @@ function VerUsuario() {
   ).join("");
 }
 function eliminarU(idE) {
-  console.log(idE);
-  console.log("entreUser");
+  //console.log(idE);
+  //console.log("entreUser");
   let idEE = Number(idE);
   let user = JSON.parse(localStorage.getItem("user")); //// esto pasa la variables del locl a un ARRAY
-  console.log(user);
+  //console.log(user);
 
   for (let i = 0; i < user.length; i++) {
     if (Number(user[i].id) === idEE) {
@@ -809,8 +808,8 @@ function eliminarU(idE) {
   VerUsuario();
 }
 function modificarU(idd) {
-  console.log("entre");
-  console.log(idd);
+  //console.log("entre");
+  //console.log(idd);
   idmm = idd;
   if (idmm > 0) {
     document.getElementById("Guardar").style.display = "none";
@@ -824,7 +823,7 @@ function modificarU(idd) {
 
   const usuarioDatos = localSTGusuarioB.filter((local) => local.id == idmm);
 
-  console.log(usuarioDatos);
+  //console.log(usuarioDatos);
 
   document.getElementById("iduser").value = idmm;
   document.getElementById("finCorreo").value = usuarioDatos[0].correo;
@@ -849,7 +848,7 @@ function ActivarUsuarios() {
 }
 
 function GuardarModiUsuario() {
-  console.log("entre a modi user");
+  //console.log("entre a modi user");
   var iduser = document.getElementById("iduser").value;
   var correo = document.getElementById("finCorreo").value;
   var contraseña = document.getElementById("finContraseña").value;
